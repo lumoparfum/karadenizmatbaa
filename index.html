@@ -2,16 +2,38 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
+    <meta name="theme-color" content="#0a1e3a" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="format-detection" content="telephone=yes" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
     <title>Karadeniz Matbaa | Yeni Nesil Dijital Matbaa – Fiyatı Gör, WhatsApp'tan Yaz, Baskını Al</title>
     <meta name="description" content="Karadeniz Matbaa, Toraman Matbaa ve Uzman Reklam işbirliğiyle yeni nesil dijital matbaa hizmeti. Tüm matbaa ürünlerinde şeffaf fiyat, üyelik yok, ertesi gün kargo. Kartvizit, broşür, afiş, magnet, etiket, davetiye, karton çanta, zarf, makbuz, amerikan servis, cepli dosya, antetli, oto paspas, bloknot, ambalaj kutusu, kapı askılık ve fason baskı. Hem profesyoneller hem herkes için!" />
     <meta name="keywords" content="Karadeniz matbaa, yeni nesil dijital matbaa, kartvizit baskı, broşür baskı, fason baskı, etiket baskı, magnet baskı, davetiye baskı, online matbaa, ucuz matbaa, amerikan servis, cepli dosya, karton çanta, antetli, oto paspas, afiş, bloknot, zarf, ambalaj kutusu, kapı askılık" />
     <link rel="canonical" href="https://karadenizmatbaa.com" />
-    
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Karadeniz Matbaa | Yeni Nesil Dijital Matbaa – Fiyatı Gör, WhatsApp'tan Yaz, Baskını Al" />
+    <meta property="og:description" content="Karadeniz Matbaa, Toraman Matbaa ve Uzman Reklam işbirliğiyle yeni nesil dijital matbaa. 16 ürün kategorisinde şeffaf fiyat, üyelik yok, ertesi gün kargo. Kartvizit 195 TL'den başlıyor!" />
+    <meta property="og:image" content="https://karadenizmatbaa.com/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="https://karadenizmatbaa.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:site_name" content="Karadeniz Matbaa" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Karadeniz Matbaa | Yeni Nesil Dijital Matbaa" />
+    <meta name="twitter:description" content="16 ürün kategorisinde şeffaf fiyat, üyelik yok, ertesi gün kargo. Kartvizit 195 TL'den başlıyor!" />
+    <meta name="twitter:image" content="https://karadenizmatbaa.com/og-image.jpg" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'" />
     
     <!-- Schema Markup (geniş, eksiksiz) -->
     <script type="application/ld+json">
@@ -80,11 +102,23 @@
       }
     }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": "https://karadenizmatbaa.com" },
+        { "@type": "ListItem", "position": 2, "name": "Kartvizit", "item": "https://karadenizmatbaa.com/#cok-satanlar" },
+        { "@type": "ListItem", "position": 3, "name": "Broşür", "item": "https://karadenizmatbaa.com/#cok-satanlar" }
+      ]
+    }
+    </script>
 
     <style>
         /* ========== RESET & BASE ========== */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+        :focus-visible { outline: 3px solid #f47b20; outline-offset: 2px; border-radius: 4px; }
         body { 
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; 
             background: #f8f9fc; 
@@ -93,6 +127,7 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
+        body.no-scroll { overflow: hidden; }
         a { text-decoration: none; color: inherit; }
         img { max-width: 100%; height: auto; display: block; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
@@ -105,6 +140,10 @@
             --light-gray: #e9ecef;
             --wa-green: #25d366;
             --ig-color: #E4405F;
+            --safe-top: env(safe-area-inset-top, 0px);
+            --safe-bottom: env(safe-area-inset-bottom, 0px);
+            --safe-right: env(safe-area-inset-right, 0px);
+            --safe-left: env(safe-area-inset-left, 0px);
         }
 
         /* ========== SCROLL FADE-IN ========== */
@@ -234,6 +273,7 @@
         .hero {
             position: relative;
             min-height: 90vh;
+            min-height: 90dvh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -719,6 +759,7 @@
         /* ========== CONTACT ========== */
         .contact {
             padding: clamp(50px, 10vw, 80px) 0;
+            padding-bottom: calc(clamp(50px, 10vw, 80px) + var(--safe-bottom));
             background: var(--primary);
             color: #fff;
         }
@@ -936,8 +977,8 @@
         /* ========== FLOATING BUTTONS ========== */
         .floating-buttons {
             position: fixed;
-            bottom: 24px;
-            right: 24px;
+            bottom: calc(24px + var(--safe-bottom));
+            right: calc(24px + var(--safe-right));
             display: flex;
             flex-direction: column;
             gap: 14px;
@@ -1014,7 +1055,7 @@
             .hero-buttons .btn-primary { width: 100%; max-width: 340px; }
             .hero-badges { gap: 10px; font-size: 0.7rem; }
             .hero-badges span { padding: 4px 14px; }
-            .floating-buttons { bottom: 16px; right: 16px; gap: 12px; }
+            .floating-buttons { bottom: calc(16px + var(--safe-bottom)); right: calc(16px + var(--safe-right)); gap: 12px; }
             .float-btn { width: 54px; height: 54px; font-size: 1.4rem; }
             .faq-toggle-header { padding: 20px 24px; }
             .faq-toggle-header h2 { font-size: 1.4rem; }
@@ -1055,7 +1096,7 @@
             .city-tag { padding: 4px 12px; font-size: 0.7rem; }
             .faq-toggle-header h2 { font-size: 1.2rem; }
             .float-btn { width: 48px; height: 48px; font-size: 1.2rem; }
-            .floating-buttons { bottom: 12px; right: 12px; gap: 10px; }
+            .floating-buttons { bottom: calc(12px + var(--safe-bottom)); right: calc(12px + var(--safe-right)); gap: 10px; }
             footer .container { gap: 24px; }
             .contact-info h3 { font-size: 1.4rem; }
             .modal-box { padding: 16px 12px; }
@@ -1072,6 +1113,10 @@
             .service-card img { width: 70px; height: 70px; }
             .service-card h3 { font-size: 0.85rem; }
         }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+            .fade-in { opacity: 1; transform: none; }
+        }
     </style>
 </head>
 <body>
@@ -1083,14 +1128,15 @@
             <div class="logo" onclick="location.href='#'">Karadeniz<span>Matbaa</span></div>
             <span class="slogan-text">Yeni Nesil Dijital Matbaa</span>
         </div>
-        <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Menüyü aç/kapat">
-            <i class="fas fa-bars"></i>
+        <button class="mobile-menu-btn" id="menuToggle" onclick="toggleMenu()" aria-label="Menüyü aç/kapat" aria-expanded="false">
+            <i class="fas fa-bars" id="menuIconBars"></i>
+            <i class="fas fa-times" id="menuIconTimes" style="display:none;"></i>
         </button>
         <div class="nav-links" id="navLinks">
             <a href="#cok-satanlar">Çok Satanlar</a>
             <a href="#hizmetler">Hizmetler</a>
             <a href="#fiyat">Fiyat Listesi</a>
-            <a href="https://samsuntabela.tr/baski.html" target="_blank">Dijital Baskı</a>
+            <a href="https://samsuntabela.tr/baski.html" target="_blank" rel="noopener noreferrer">Dijital Baskı</a>
             <a href="#iletisim" class="btn-primary"><i class="fab fa-whatsapp"></i> Teklif Al</a>
         </div>
     </div>
@@ -1105,7 +1151,7 @@
         <h1>Karadeniz Matbaa – <span>Yeni Nesil</span> Dijital Matbaa</h1>
         <p>Kartvizit 195 TL'den başlayan fiyatlarla. Broşür, afiş, magnet, etiket, davetiye, karton çanta, zarf, makbuz, amerikan servis, cepli dosya, antetli, oto paspas, bloknot, ambalaj kutusu, kapı askılık ve fason baskıda şeffaf fiyat, üyelik yok, ertesi gün kargo. Hem profesyoneller hem herkes için!</p>
         <div class="hero-buttons">
-            <a href="https://wa.me/905016675755?text=Merhaba,%20karadenizmatbaa.com%20üzerinden%20teklif%20almak%20istiyorum." target="_blank" class="btn-primary">
+            <a href="https://wa.me/905016675755?text=Merhaba,%20karadenizmatbaa.com%20üzerinden%20teklif%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn-primary">
                 <i class="fab fa-whatsapp"></i> WhatsApp ile Yaz
             </a>
             <a href="tel:+905016675755" class="btn-primary btn-outline">
@@ -1152,7 +1198,7 @@
         </div>
         <div class="grid-3" id="priceGrid"></div>
         <div style="text-align:center; margin-top:40px;">
-            <a href="https://wa.me/905016675755?text=Merhaba,%20tüm%20fiyat%20listesini%20görmek%20istiyorum." target="_blank" class="btn-primary"><i class="fab fa-whatsapp"></i> Tüm Fiyat Listesini WhatsApp'tan Al</a>
+            <a href="https://wa.me/905016675755?text=Merhaba,%20tüm%20fiyat%20listesini%20görmek%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn-primary"><i class="fab fa-whatsapp"></i> Tüm Fiyat Listesini WhatsApp'tan Al</a>
         </div>
     </div>
 </section>
@@ -1259,17 +1305,17 @@
             <div class="contact-info">
                 <h3>Hemen Teklif Alın</h3>
                 <p><i class="fas fa-phone-alt"></i> <a href="tel:+905016675755">0 501 667 57 55</a></p>
-                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/905016675755" target="_blank">WhatsApp ile Yazın</a></p>
+                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/905016675755" target="_blank" rel="noopener noreferrer">WhatsApp ile Yazın</a></p>
                 <p><i class="fas fa-envelope"></i> <a href="mailto:info@karadenizmatbaa.com">info@karadenizmatbaa.com</a></p>
                 <div class="address-block">
                     <p><strong><i class="fas fa-print"></i> Toraman Matbaa</strong></p>
                     <p>2. Matbaacılar Sitesi 5.Kat E Blok 3NE19 Topkapı - İSTANBUL</p>
-                    <p><a href="https://toramanmatbaa.com" target="_blank" style="color: var(--secondary);">toramanmatbaa.com</a> | 444 5 340</p>
+                    <p><a href="https://toramanmatbaa.com" target="_blank" rel="noopener noreferrer" style="color: var(--secondary);">toramanmatbaa.com</a> | 444 5 340</p>
                     <p style="margin-top:15px;"><strong><i class="fas fa-store"></i> Uzman Reklam</strong></p>
                     <p>Emirefendi Mh. Çizmeli 2.Sk. No:33, Bafra / SAMSUN</p>
-                    <p><a href="https://samsuntabela.tr" target="_blank" style="color: var(--secondary);">samsuntabela.tr</a> | 0532 220 46 49</p>
+                    <p><a href="https://samsuntabela.tr" target="_blank" rel="noopener noreferrer" style="color: var(--secondary);">samsuntabela.tr</a> | 0532 220 46 49</p>
                 </div>
-                <a href="https://wa.me/905016675755?text=Merhaba,%20karadenizmatbaa.com%20üzerinden%20teklif%20almak%20istiyorum." target="_blank" class="btn-primary"><i class="fab fa-whatsapp"></i> WhatsApp ile Yaz</a>
+                <a href="https://wa.me/905016675755?text=Merhaba,%20karadenizmatbaa.com%20üzerinden%20teklif%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn-primary"><i class="fab fa-whatsapp"></i> WhatsApp ile Yaz</a>
             </div>
             <div>
                 <h3 style="color: #fff;">Çalışma Saatleri</h3>
@@ -1397,15 +1443,15 @@
         </div>
         <div class="article-content" id="articleContent"></div>
         <div style="margin-top:30px; text-align:center;">
-            <a href="https://wa.me/905016675755?text=Merhaba,%20karadenizmatbaa.com%20üzerinden%20teklif%20almak%20istiyorum." target="_blank" class="btn-primary"><i class="fab fa-whatsapp"></i> WhatsApp ile Teklif Al</a>
+            <a href="https://wa.me/905016675755?text=Merhaba,%20karadenizmatbaa.com%20üzerinden%20teklif%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn-primary"><i class="fab fa-whatsapp"></i> WhatsApp ile Teklif Al</a>
         </div>
     </div>
 </div>
 
 <!-- ========== FLOATING BUTTONS ========== -->
 <div class="floating-buttons">
-    <a href="https://wa.me/905016675755?text=Merhaba,%20karadenizmatbaa.com%20üzerinden%20teklif%20almak%20istiyorum." target="_blank" class="float-btn wp-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://www.instagram.com/toramanmatbaa" target="_blank" class="float-btn ig-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://wa.me/905016675755?text=Merhaba,%20karadenizmatbaa.com%20üzerinden%20teklif%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="float-btn wp-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://www.instagram.com/toramanmatbaa" target="_blank" rel="noopener noreferrer" class="float-btn ig-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
 </div>
 
 <!-- ========== SCRIPTS ========== -->
@@ -1469,7 +1515,15 @@
 
     // Navbar Mobile Menu
     function toggleMenu() {
-        document.getElementById('navLinks').classList.toggle('open');
+        var nav = document.getElementById('navLinks');
+        var isOpen = nav.classList.toggle('open');
+        var bars = document.getElementById('menuIconBars');
+        var times = document.getElementById('menuIconTimes');
+        var btn = document.getElementById('menuToggle');
+        if (isOpen) { bars.style.display = 'none'; times.style.display = 'inline-block'; }
+        else { bars.style.display = 'inline-block'; times.style.display = 'none'; }
+        if (btn) btn.setAttribute('aria-expanded', isOpen);
+        document.body.classList.toggle('no-scroll', isOpen);
     }
 
     // ========== FAQ ==========
@@ -1813,7 +1867,7 @@
                 <div class="product-desc">${cat.desc}</div>
                 <div class="product-meta">
                     <span class="product-price">${cat.highlightPrice}</span>
-                    <a href="https://wa.me/905016675755?text=Merhaba,%20${encodeURIComponent(cat.name)}%20fiyatı%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> Sipariş</a>
+                    <a href="https://wa.me/905016675755?text=Merhaba,%20${encodeURIComponent(cat.name)}%20fiyatı%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn-wa"><i class="fab fa-whatsapp"></i> Sipariş</a>
                 </div>
             `;
             grid.appendChild(card);
@@ -1853,7 +1907,7 @@
                 <div class="product-desc">${cat.desc}</div>
                 <div class="product-meta">
                     <span class="product-price">${cat.highlightPrice}</span>
-                    <a href="https://wa.me/905016675755?text=Merhaba,%20${encodeURIComponent(cat.name)}%20için%20sipariş%20vermek%20istiyorum." target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> Sipariş</a>
+                    <a href="https://wa.me/905016675755?text=Merhaba,%20${encodeURIComponent(cat.name)}%20için%20sipariş%20vermek%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn-wa"><i class="fab fa-whatsapp"></i> Sipariş</a>
                 </div>
             `;
             grid.appendChild(card);
@@ -1898,7 +1952,7 @@
                 <td class="code">${v.code}</td>
                 <td>${v.desc}</td>
                 <td class="price">${v.price}</td>
-                <td><a href="https://wa.me/905016675755?text=${encodeURIComponent(waMsg)}" target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> Sipariş</a></td>
+                <td><a href="https://wa.me/905016675755?text=${encodeURIComponent(waMsg)}" target="_blank" rel="noopener noreferrer" class="btn-wa"><i class="fab fa-whatsapp"></i> Sipariş</a></td>
             `;
             body.appendChild(tr);
         });
@@ -1968,12 +2022,12 @@
     });
 
     // ========== INIT ==========
-    renderCities();
-    renderBestsellers();
-    renderServices();
-    renderPriceList();
-    renderFAQ();
-    initFadeIn();
+    try { renderCities(); } catch(e) { console.warn('renderCities:', e); }
+    try { renderBestsellers(); } catch(e) { console.warn('renderBestsellers:', e); }
+    try { renderServices(); } catch(e) { console.warn('renderServices:', e); }
+    try { renderPriceList(); } catch(e) { console.warn('renderPriceList:', e); }
+    try { renderFAQ(); } catch(e) { console.warn('renderFAQ:', e); }
+    try { initFadeIn(); } catch(e) { console.warn('initFadeIn:', e); }
 </script>
 
 <!-- ========== GOOGLE ANALYTICS ========== -->
