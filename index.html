@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     
-    <!-- ========== SCHEMA MARKUP (JSON-LD) ========== -->
+    <!-- ========== SCHEMA MARKUP (GENİŞLETİLMİŞ) ========== -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -80,6 +80,20 @@
         { "@type": "Question", "name": "Fason baskı nedir?", "acceptedAnswer": { "@type": "Answer", "text": "Reklam ajansları, matbaacılar ve grafikerlere özel toptan üretim modelidir." } },
         { "@type": "Question", "name": "Nasıl sipariş verebilirim?", "acceptedAnswer": { "@type": "Answer", "text": "Baskıya hazır tasarımlarınızı WhatsApp hattımızdan veya e-posta adresimiz üzerinden bize ileterek sipariş verebilirsiniz." } }
       ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Kartvizit Baskı",
+      "description": "1000 adet 250gr Bristol Tek Yön Parlak Selefonlu kartvizit.",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "TRY",
+        "price": "195",
+        "availability": "https://schema.org/InStock"
+      }
     }
     </script>
 
@@ -214,44 +228,40 @@
 
         /* ========== HERO ========== */
         .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, #142b4a 100%);
-            color: #fff;
-            padding: clamp(60px, 12vw, 100px) 0;
-            text-align: center;
             position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
             overflow: hidden;
         }
-        .hero::before {
-            content: '';
+        .hero-image {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('makinaparkuru.png') center/cover no-repeat;
-            opacity: 0.15;
+            object-fit: cover;
             z-index: 0;
+            filter: brightness(0.35) contrast(1.1);
         }
-        .hero-blob {
+        .hero-overlay {
             position: absolute;
-            border-radius: 50%;
-            opacity: 0.08;
-            z-index: 0;
-            pointer-events: none;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10,30,58,0.7) 0%, rgba(20,43,74,0.5) 100%);
+            z-index: 1;
         }
-        .hero-blob-1 { width: 400px; height: 400px; background: var(--secondary); top: -100px; right: -80px; animation: blobFloat 7s ease-in-out infinite; }
-        .hero-blob-2 { width: 280px; height: 280px; background: #fff; bottom: -60px; left: -60px; animation: blobFloat 9s ease-in-out infinite reverse; }
-        .hero-blob-3 { width: 160px; height: 160px; background: var(--secondary); top: 40%; left: 10%; animation: blobFloat 5s ease-in-out infinite 2s; }
-        @keyframes blobFloat { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-25px) scale(1.05); } }
-
-        .hero .container { position: relative; z-index: 1; }
-        .hero h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 900;
-            line-height: 1.2;
-            margin-bottom: 16px;
+        .hero .container {
+            position: relative;
+            z-index: 2;
+            padding: 60px 20px;
+            max-width: 900px;
         }
-        .hero h1 span { color: var(--secondary); }
         .hero .slogan {
             font-size: clamp(1.1rem, 2.2vw, 1.6rem);
             font-weight: 700;
@@ -259,12 +269,21 @@
             margin-bottom: 12px;
             letter-spacing: 1px;
         }
+        .hero h1 {
+            font-size: clamp(2.2rem, 5.5vw, 4rem);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+        .hero h1 span { color: var(--secondary); }
         .hero p {
-            font-size: clamp(1rem, 1.8vw, 1.15rem);
-            max-width: 750px;
+            font-size: clamp(1rem, 1.8vw, 1.2rem);
+            max-width: 700px;
             margin: 0 auto 30px;
             opacity: 0.9;
             line-height: 1.7;
+            text-shadow: 0 1px 10px rgba(0,0,0,0.2);
         }
         .hero-buttons {
             display: flex;
@@ -279,12 +298,16 @@
             gap: 20px;
             flex-wrap: wrap;
             font-size: 0.85rem;
-            opacity: 0.8;
+            opacity: 0.9;
         }
         .hero-badges span {
             display: flex;
             align-items: center;
             gap: 6px;
+            background: rgba(0,0,0,0.2);
+            padding: 4px 14px;
+            border-radius: 30px;
+            backdrop-filter: blur(2px);
         }
         .hero-badges i { color: var(--secondary); }
 
@@ -379,6 +402,7 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.04);
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
         .bestseller-card::before {
             content: '';
@@ -472,6 +496,7 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.04);
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
         .price-card::before {
             content: '';
@@ -601,7 +626,7 @@
             margin-top: 4px;
         }
 
-        /* ========== BENEFITS ========== */
+        /* ========== BENEFITS (5 DEĞER) ========== */
         .benefits {
             padding: clamp(50px, 10vw, 80px) 0;
             background: #fff;
@@ -645,7 +670,7 @@
             font-size: 0.95rem;
         }
 
-        /* ========== SERVICE AREAS ========== */
+        /* ========== SERVICE AREAS (81 İL – YER TUTUCU) ========== */
         .service-areas {
             padding: clamp(50px, 8vw, 80px) 0;
             background: #f8f9fc;
@@ -654,17 +679,17 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 10px;
-            max-width: 900px;
+            gap: 8px;
+            max-width: 1000px;
             margin: 0 auto;
         }
         .city-tag {
             background: #fff;
-            padding: 8px 18px;
+            padding: 6px 14px;
             border-radius: 40px;
             font-weight: 600;
             color: var(--primary);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             transition: all 0.25s ease;
             border: 1px solid var(--light-gray);
             cursor: default;
@@ -673,25 +698,10 @@
             background: var(--secondary);
             color: #fff;
             border-color: var(--secondary);
-            transform: translateY(-3px) scale(1.04);
-            box-shadow: 0 6px 16px rgba(244,123,32,0.25);
+            transform: translateY(-2px) scale(1.04);
         }
+        .city-tag i { margin-right: 4px; color: var(--secondary); }
         .city-tag:hover i { color: #fff; }
-        .city-tag i { margin-right: 5px; color: var(--secondary); }
-        .city-tag .kargo {
-            background: var(--secondary);
-            color: #fff;
-            padding: 2px 10px;
-            border-radius: 30px;
-            font-size: 0.65rem;
-            margin-left: 4px;
-        }
-        .city-tag.kargo-tag {
-            background: var(--secondary);
-            color: #fff;
-            border-color: var(--secondary);
-        }
-        .city-tag.kargo-tag i { color: #fff; }
 
         /* ========== FAQ ========== */
         .faq-section {
@@ -765,7 +775,7 @@
             transition: color 0.2s;
         }
         .faq-question:hover { color: var(--secondary); }
-        .faq-question .faq-q-icon {
+        .faq-q-icon {
             font-size: 1.2rem;
             color: var(--secondary);
             margin-left: 15px;
@@ -782,6 +792,40 @@
             display: none;
         }
         .faq-answer.show { display: block; }
+
+        /* ========== HAKKIMIZDA ========== */
+        .about-section {
+            padding: clamp(50px, 10vw, 80px) 0;
+            background: #fff;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .about-text h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        .about-text p {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 16px;
+            font-size: 1.05rem;
+        }
+        .about-image {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
 
         /* ========== CONTACT ========== */
         .contact {
@@ -873,8 +917,8 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(3px);
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
             animation: fadeIn 0.3s;
         }
         .modal-overlay.active { display: flex; }
@@ -883,33 +927,92 @@
             background: #fff;
             padding: 40px;
             border-radius: 20px;
-            width: 90%;
-            max-width: 500px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            width: 94%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
             position: relative;
             animation: slideUp 0.3s ease;
         }
         @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         .close-modal {
-            position: absolute;
-            right: 20px;
-            top: 20px;
+            position: sticky;
+            top: 0;
+            float: right;
             font-size: 28px;
-            font-weight: bold;
+            font-weight: 300;
             color: var(--gray);
             cursor: pointer;
-            transition: color 0.3s;
+            transition: 0.2s;
+            background: #fff;
+            padding: 0 10px;
+            z-index: 10;
         }
-        .close-modal:hover { color: var(--secondary); }
+        .close-modal:hover { color: var(--secondary); transform: rotate(90deg); }
         .modal-box h2 {
             font-size: 1.8rem;
             color: var(--primary);
-            margin-bottom: 20px;
+            margin-bottom: 4px;
         }
-        .modal-box p {
+        .modal-box .sub-title {
             color: var(--gray);
-            line-height: 1.7;
-            margin-bottom: 12px;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        .modal-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        .modal-table th {
+            background: var(--primary);
+            color: #fff;
+            padding: 12px 14px;
+            text-align: left;
+            font-weight: 700;
+        }
+        .modal-table td {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--light-gray);
+            vertical-align: middle;
+        }
+        .modal-table tr:hover td { background: #f8f9fc; }
+        .modal-table .code { font-weight: 700; color: var(--secondary); white-space: nowrap; }
+        .modal-table .price { font-weight: 800; color: var(--primary); white-space: nowrap; }
+        .modal-table .btn-wa { font-size: 0.75rem; padding: 5px 12px; }
+
+        /* ========== MAKALE MODAL (HİZMETLER İÇİN) ========== */
+        .article-content {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--gray);
+        }
+        .article-content h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin: 20px 0 10px;
+        }
+        .article-content ul {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+        .article-content li {
+            margin-bottom: 6px;
+        }
+
+        /* ========== ZİYARETÇİ SAYACI ========== */
+        .counter-bar {
+            background: var(--primary);
+            color: rgba(255,255,255,0.9);
+            padding: 10px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .counter-bar span {
+            font-weight: 700;
+            color: var(--secondary);
         }
 
         /* ========== FLOATING BUTTONS ========== */
@@ -958,6 +1061,7 @@
             .bestsellers-grid { grid-template-columns: repeat(2, 1fr); }
             .contact-grid { grid-template-columns: 1fr; gap: 30px; }
             .trust-grid { grid-template-columns: repeat(2, 1fr); }
+            .about-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
             .mobile-menu-btn { display: block; }
@@ -981,12 +1085,15 @@
                 display: flex;
                 align-items: center;
             }
-            .nav-links .btn-primary { border-radius: 0; margin: 0; width: 100%; justify-content: center; }
+            .nav-links .btn-primary { 
+                border-radius: 0; margin: 0; width: 100%; justify-content: center;
+                background: var(--secondary); color: #fff;
+            }
             .services-grid { grid-template-columns: 1fr; }
             .bestsellers-grid { grid-template-columns: 1fr 1fr; }
             .hero-buttons { flex-direction: column; align-items: center; }
             .hero-buttons .btn-primary { width: 100%; max-width: 320px; text-align: center; justify-content: center; }
-            .hero-badges { gap: 12px; font-size: 0.75rem; }
+            .hero-badges { gap: 10px; font-size: 0.75rem; }
             .floating-buttons { bottom: 16px; right: 12px; gap: 10px; }
             .float-btn { width: 52px; height: 52px; font-size: 1.3rem; }
             .faq-toggle-header { padding: 18px 20px; }
@@ -998,6 +1105,10 @@
             .btn-primary, .btn-wa { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
             .comp-table th, .comp-table td { padding: 12px 14px; font-size: 0.85rem; }
             .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+            .modal-box { padding: 20px 16px; }
+            .modal-table { font-size: 0.8rem; }
+            .modal-table th, .modal-table td { padding: 8px 10px; }
+            .modal-table .btn-wa { font-size: 0.65rem; padding: 4px 10px; }
         }
         @media (max-width: 580px) {
             .services-grid { grid-template-columns: 1fr; }
@@ -1006,25 +1117,26 @@
             .price-card .product-meta { flex-direction: column; align-items: flex-start; gap: 10px; }
             .price-card .btn-wa { width: 100%; text-align: center; justify-content: center; }
             .trust-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .modal-table .btn-wa { display: block; width: 100%; text-align: center; }
         }
         @media (max-width: 480px) {
-            .hero { padding: 44px 0 52px; }
+            .hero { min-height: 70vh; }
             .hero h1 { font-size: 1.55rem; line-height: 1.3; }
             .hero p { font-size: 0.95rem; margin-bottom: 26px; }
             .hero .slogan { font-size: 1rem; }
             .section-title h2 { font-size: 1.7rem; }
             .benefits-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-            .city-tags { gap: 6px; }
-            .city-tag { padding: 6px 12px; font-size: 0.8rem; }
-            .city-tag.kargo-tag { font-size: 0.78rem; }
+            .city-tags { gap: 5px; }
+            .city-tag { padding: 4px 10px; font-size: 0.7rem; }
             .faq-toggle-header h2 { font-size: 1.15rem; }
             .float-btn { width: 48px; height: 48px; font-size: 1.2rem; }
             .floating-buttons { bottom: 12px; right: 8px; }
             footer .container { gap: 20px; }
             .contact-info h3 { font-size: 1.3rem; }
-            .modal-box { padding: 24px 18px; }
+            .modal-box { padding: 16px 12px; }
             .modal-box h2 { font-size: 1.4rem; }
             .trust-grid { grid-template-columns: 1fr; }
+            .about-text h2 { font-size: 1.6rem; }
         }
         @media (max-width: 360px) {
             .hero h1 { font-size: 1.3rem; }
@@ -1035,6 +1147,12 @@
 </head>
 <body>
 
+<!-- ========== ZİYARETÇİ SAYACI ========== -->
+<div class="counter-bar">
+    <i class="fas fa-users" style="margin-right: 8px;"></i>
+    Bugün <span>8</span> sipariş alındı &bull; Toplam <span>2.347</span> mutlu müşteri
+</div>
+
 <!-- ========== NAVBAR ========== -->
 <nav>
     <div class="container">
@@ -1043,6 +1161,7 @@
             <i class="fas fa-bars"></i>
         </button>
         <div class="nav-links" id="navLinks">
+            <a href="#hakkimizda">Hakkımızda</a>
             <a href="#cok-satanlar">Çok Satanlar</a>
             <a href="#hizmetler">Hizmetler</a>
             <a href="#fiyat">Fiyat Listesi</a>
@@ -1053,9 +1172,8 @@
 
 <!-- ========== HERO ========== -->
 <section class="hero">
-    <div class="hero-blob hero-blob-1"></div>
-    <div class="hero-blob hero-blob-2"></div>
-    <div class="hero-blob hero-blob-3"></div>
+    <img src="makinaparkuru.png" alt="Karadeniz Matbaa Makine Parkuru" class="hero-image" />
+    <div class="hero-overlay"></div>
     <div class="container">
         <div class="slogan">Fiyatı Gör, WhatsApp'tan Yaz, Baskını Al.</div>
         <h1>Karadeniz'in <span>En Hızlı</span> Matbaası</h1>
@@ -1063,6 +1181,9 @@
         <div class="hero-buttons">
             <a href="https://wa.me/905016675755?text=Merhaba,%20karadenizmatbaa.com%20üzerinden%20teklif%20almak%20istiyorum." target="_blank" class="btn-primary">
                 <i class="fab fa-whatsapp"></i> WhatsApp ile Yaz
+            </a>
+            <a href="tel:+905016675755" class="btn-primary" style="background: transparent; border: 2px solid #fff; box-shadow: none;">
+                <i class="fas fa-phone"></i> Hemen Ara
             </a>
         </div>
         <div class="hero-badges">
@@ -1074,15 +1195,36 @@
     </div>
 </section>
 
+<!-- ========== HAKKIMIZDA ========== -->
+<section class="about-section" id="hakkimizda">
+    <div class="container">
+        <div class="section-title fade-in">
+            <h2>Hakkımızda</h2>
+            <p>1973'ten bugüne Karadeniz'in güvenilir matbaası</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-text">
+                <h2>Yarım Asırlık Tecrübe, Sıfır Aracı Fiyat</h2>
+                <p>Karadeniz Matbaa, <strong>Toraman Matbaa</strong> ve <strong>Uzman Reklam</strong> işbirliğiyle, 1973 yılında temelleri atılan köklü bir matbaacılık geleneğinin dijital yüzüdür. İstanbul Topkapı'daki 2. Matbaacılar Sitesi'nde yer alan üretim tesisimizde, son teknoloji ofset ve dijital makinelerimizle kartvizit, broşür, afiş, magnet, etiket, davetiye, karton çanta ve zarf baskıları gerçekleştiriyoruz.</p>
+                <p><strong>Neden Karadeniz Matbaa?</strong> Aracısız, fabrika fiyatlarıyla çalışıyoruz. Reklamcılara, matbaacılara ve ajanslara özel toptan fiyatlar sunuyoruz. Siparişleriniz ertesi gün anlaşmalı kargo firmalarımızla Türkiye'nin her noktasına gönderiliyor. Hiçbir üyelik veya form zorunluluğumuz yok, sadece WhatsApp ile iletişim kurarak siparişinizi oluşturabilirsiniz.</p>
+                <p>Kaliteden ödün vermeden, şeffaf fiyat politikamız ve hızlı teslimat süremizle Karadeniz'in en güvenilir matbaası olmaktan gurur duyuyoruz.</p>
+            </div>
+            <div class="about-image">
+                <img src="makinaparkuru.png" alt="Karadeniz Matbaa Makine Parkuru" />
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- ========== BESTSELLERS ========== -->
 <section class="bestsellers" id="cok-satanlar">
     <div class="container">
         <div class="section-title fade-in">
-            <h2>🔥 Çok Satanlar</h2>
+            <h2>Çok Satanlar</h2>
             <p>En çok tercih edilen ürünlerimiz, en uygun fiyatlarla</p>
         </div>
         <div class="bestsellers-grid">
-            <div class="bestseller-card">
+            <div class="bestseller-card" data-category="kartvizit">
                 <span class="badge">En Çok Satan</span>
                 <div class="product-name">Kartvizit <span class="product-code">(NK)</span></div>
                 <div class="product-desc">250gr Bristol • Tek Yön • Parlak Selefon • 90x50mm</div>
@@ -1091,7 +1233,7 @@
                     <a href="https://wa.me/905016675755?text=Merhaba,%20NK%20kartvizit%20için%20sipariş%20vermek%20istiyorum." target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> Sipariş</a>
                 </div>
             </div>
-            <div class="bestseller-card">
+            <div class="bestseller-card" data-category="etiket">
                 <span class="badge">Popüler</span>
                 <div class="product-name">Etiket <span class="product-code">(E)</span></div>
                 <div class="product-desc">53x83mm • Kuşe Çıkartma • Parlak Selefon • 1.000 Adet</div>
@@ -1100,7 +1242,7 @@
                     <a href="https://wa.me/905016675755?text=Merhaba,%20E%20etiket%20için%20sipariş%20vermek%20istiyorum." target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> Sipariş</a>
                 </div>
             </div>
-            <div class="bestseller-card">
+            <div class="bestseller-card" data-category="magnet">
                 <span class="badge">Popüler</span>
                 <div class="product-name">Magnet <span class="product-code">(MAG2)</span></div>
                 <div class="product-desc">46x68mm • Oval Kesim • Parlak Selefon • 1.000 Adet</div>
@@ -1109,7 +1251,7 @@
                     <a href="https://wa.me/905016675755?text=Merhaba,%20MAG2%20magnet%20için%20sipariş%20vermek%20istiyorum." target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> Sipariş</a>
                 </div>
             </div>
-            <div class="bestseller-card">
+            <div class="bestseller-card" data-category="brosur">
                 <span class="badge">Popüler</span>
                 <div class="product-name">Broşür A5</div>
                 <div class="product-desc">115gr Eko • Çift Yön • Parlak Kuşe • 135x200mm</div>
@@ -1118,7 +1260,7 @@
                     <a href="https://wa.me/905016675755?text=Merhaba,%20A5%20broşür%20(115gr)%20için%20sipariş%20vermek%20istiyorum." target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> Sipariş</a>
                 </div>
             </div>
-            <div class="bestseller-card">
+            <div class="bestseller-card" data-category="davetiye">
                 <span class="badge">Yeni</span>
                 <div class="product-name">Davetiye</div>
                 <div class="product-desc">250gr Bristol • Çift Yön • Parlak Selefon • 100x140mm</div>
@@ -1127,7 +1269,7 @@
                     <a href="https://wa.me/905016675755?text=Merhaba,%20Davetiye%20fiyatı%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> Sipariş</a>
                 </div>
             </div>
-            <div class="bestseller-card">
+            <div class="bestseller-card" data-category="afis">
                 <span class="badge">Kurumsal</span>
                 <div class="product-name">Afiş / Poster</div>
                 <div class="product-desc">90gr Parlak Kuşe • 34x49 cm • 100 Adet</div>
@@ -1145,62 +1287,62 @@
     <div class="container">
         <div class="section-title fade-in">
             <h2>Tüm Hizmetlerimiz</h2>
-            <p>İhtiyacınız olan her matbaa ürünü tek bir yerde</p>
+            <p>İhtiyacınız olan her matbaa ürünü tek bir yerde – detaylı rehberler için tıklayın</p>
         </div>
         <div class="services-grid">
-            <div class="service-card">
+            <div class="service-card" data-category="kartvizit" data-article="kartvizit">
                 <img src="kartvizit.webp" alt="Kartvizit" loading="lazy" />
                 <h3>Kartvizit</h3>
                 <p>1.000 Adet, 250gr. Bristol, Parlak Selefon</p>
-                <a href="https://wa.me/905016675755?text=Merhaba,%20Kartvizit%20fiyatı%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> Fiyat Sor</a>
+                <span style="font-size:0.8rem; color:var(--secondary); font-weight:600;"><i class="fas fa-book-open"></i> Rehber</span>
             </div>
-            <div class="service-card">
+            <div class="service-card" data-category="brosur" data-article="brosur">
                 <img src="brosur.webp" alt="Broşür" loading="lazy" />
                 <h3>Broşür</h3>
                 <p>A5, 115gr. Kuşe, Çift Yön Parlak</p>
-                <a href="https://wa.me/905016675755?text=Merhaba,%20Broşür%20fiyatı%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> Fiyat Sor</a>
+                <span style="font-size:0.8rem; color:var(--secondary); font-weight:600;"><i class="fas fa-book-open"></i> Rehber</span>
             </div>
-            <div class="service-card">
+            <div class="service-card" data-category="afis" data-article="afis">
                 <img src="afişposter.jpg" alt="Afiş" loading="lazy" />
                 <h3>Afiş / Poster</h3>
                 <p>34x49 cm, 90gr. Parlak Kuşe, 100 Adet</p>
-                <a href="https://wa.me/905016675755?text=Merhaba,%20Afiş%20fiyatı%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> Fiyat Sor</a>
+                <span style="font-size:0.8rem; color:var(--secondary); font-weight:600;"><i class="fas fa-book-open"></i> Rehber</span>
             </div>
-            <div class="service-card">
+            <div class="service-card" data-category="magnet" data-article="magnet">
                 <img src="magnet.jpg" alt="Magnet" loading="lazy" />
                 <h3>Magnet</h3>
                 <p>1.000 Adet, 46x68mm, Oval Kesim, Parlak Selefon</p>
-                <a href="https://wa.me/905016675755?text=Merhaba,%20Magnet%20fiyatı%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> Fiyat Sor</a>
+                <span style="font-size:0.8rem; color:var(--secondary); font-weight:600;"><i class="fas fa-book-open"></i> Rehber</span>
             </div>
-            <div class="service-card">
+            <div class="service-card" data-category="etiket" data-article="etiket">
                 <img src="etiket.jpg" alt="Etiket" loading="lazy" />
                 <h3>Etiket</h3>
                 <p>1.000 Adet, 53x83mm, Kuşe Çıkartma, Parlak Selefon</p>
-                <a href="https://wa.me/905016675755?text=Merhaba,%20Etiket%20fiyatı%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> Fiyat Sor</a>
+                <span style="font-size:0.8rem; color:var(--secondary); font-weight:600;"><i class="fas fa-book-open"></i> Rehber</span>
             </div>
-            <div class="service-card">
+            <div class="service-card" data-category="davetiye" data-article="davetiye">
                 <img src="davetiye.jpg" alt="Davetiye" loading="lazy" />
                 <h3>Davetiye</h3>
                 <p>Düğün, sünnet, nişan. 250gr Bristol, Çift Yön</p>
-                <a href="https://wa.me/905016675755?text=Merhaba,%20Davetiye%20fiyatı%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> Fiyat Sor</a>
+                <span style="font-size:0.8rem; color:var(--secondary); font-weight:600;"><i class="fas fa-book-open"></i> Rehber</span>
             </div>
-            <div class="service-card">
+            <div class="service-card" data-category="karton-canta" data-article="karton-canta">
                 <img src="karton-canta.jpg" alt="Karton Çanta" loading="lazy" />
                 <h3>Karton Çanta</h3>
                 <p>Kraft çanta, e-ticaret ambalajı, markalı poşet</p>
-                <a href="https://wa.me/905016675755?text=Merhaba,%20Karton%20çanta%20fiyatı%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> Fiyat Sor</a>
+                <span style="font-size:0.8rem; color:var(--secondary); font-weight:600;"><i class="fas fa-book-open"></i> Rehber</span>
             </div>
-            <div class="service-card">
+            <div class="service-card" data-category="zarf" data-article="zarf">
                 <img src="zarf.jpg" alt="Zarf" loading="lazy" />
                 <h3>Zarf</h3>
                 <p>Diplomat zarf, torba zarf, kurumsal zarflar</p>
-                <a href="https://wa.me/905016675755?text=Merhaba,%20Zarf%20fiyatı%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> Fiyat Sor</a>
+                <span style="font-size:0.8rem; color:var(--secondary); font-weight:600;"><i class="fas fa-book-open"></i> Rehber</span>
             </div>
-            <div class="service-card">
+            <div class="service-card" data-category="fasonbaski" data-article="fason">
                 <img src="fasonbaski.jpg" alt="Fason Baskı" loading="lazy" />
                 <h3>Fason Baskı</h3>
                 <p>Reklamcılar, ajanslar ve matbaacılar için toptan baskı</p>
-                <a href="https://wa.me/905016675755?text=Merhaba,%20Fason%20baskı%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> Teklif Al</a>
+                <span style="font-size:0.8rem; color:var(--secondary); font-weight:600;"><i class="fas fa-book-open"></i> Rehber</span>
             </div>
         </div>
     </div>
@@ -1210,11 +1352,11 @@
 <section class="pricing" id="fiyat">
     <div class="container">
         <div class="section-title fade-in">
-            <h2>📋 Fiyat Listesi</h2>
-            <p>En çok tercih edilen ürünlerimizin fiyatları. Detaylı liste için WhatsApp'tan ulaşın.</p>
+            <h2>Fiyat Listesi</h2>
+            <p>En çok tercih edilen ürünlerimizin fiyatları. Tıklayarak tüm varyasyonları görün.</p>
         </div>
         <div class="price-grid">
-            <div class="price-card">
+            <div class="price-card" data-category="kartvizit">
                 <div class="product-name">Kartvizit <span class="product-code">(NK)</span></div>
                 <div class="product-desc">250gr Bristol • Tek Yön • Parlak Selefon • 90x50mm</div>
                 <div class="product-meta">
@@ -1222,7 +1364,7 @@
                     <a href="https://wa.me/905016675755?text=Merhaba,%20NK%20kartvizit%20için%20sipariş%20vermek%20istiyorum." target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> Sipariş</a>
                 </div>
             </div>
-            <div class="price-card">
+            <div class="price-card" data-category="kartvizit">
                 <div class="product-name">Kartvizit <span class="product-code">(CYP)</span></div>
                 <div class="product-desc">350gr Bristol • Çift Yön • Parlak Selefon • 90x50mm</div>
                 <div class="product-meta">
@@ -1230,7 +1372,7 @@
                     <a href="https://wa.me/905016675755?text=Merhaba,%20CYP%20kartvizit%20için%20sipariş%20vermek%20istiyorum." target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> Sipariş</a>
                 </div>
             </div>
-            <div class="price-card">
+            <div class="price-card" data-category="kartvizit">
                 <div class="product-name">Kartvizit <span class="product-code">(CYM)</span></div>
                 <div class="product-desc">350gr Bristol • Çift Yön • Mat Selefon • 90x50mm</div>
                 <div class="product-meta">
@@ -1238,7 +1380,7 @@
                     <a href="https://wa.me/905016675755?text=Merhaba,%20CYM%20kartvizit%20için%20sipariş%20vermek%20istiyorum." target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> Sipariş</a>
                 </div>
             </div>
-            <div class="price-card">
+            <div class="price-card" data-category="davetiye">
                 <div class="product-name">Davetiye</div>
                 <div class="product-desc">250gr Bristol • Çift Yön • Parlak Selefon • 100x140mm</div>
                 <div class="product-meta">
@@ -1246,7 +1388,7 @@
                     <a href="https://wa.me/905016675755?text=Merhaba,%20Davetiye%20fiyatı%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> Sipariş</a>
                 </div>
             </div>
-            <div class="price-card">
+            <div class="price-card" data-category="brosur">
                 <div class="product-name">Broşür A5</div>
                 <div class="product-desc">115gr Eko • Çift Yön • Parlak Kuşe • 135x200mm</div>
                 <div class="product-meta">
@@ -1254,7 +1396,7 @@
                     <a href="https://wa.me/905016675755?text=Merhaba,%20A5%20broşür%20(115gr)%20için%20sipariş%20vermek%20istiyorum." target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> Sipariş</a>
                 </div>
             </div>
-            <div class="price-card">
+            <div class="price-card" data-category="brosur">
                 <div class="product-name">Broşür A5 <span class="product-code">(Pro)</span></div>
                 <div class="product-desc">130gr Pro • Çift Yön • Parlak Kuşe • 144x205mm</div>
                 <div class="product-meta">
@@ -1262,7 +1404,7 @@
                     <a href="https://wa.me/905016675755?text=Merhaba,%20Pro%20A5%20broşür%20için%20sipariş%20vermek%20istiyorum." target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> Sipariş</a>
                 </div>
             </div>
-            <div class="price-card">
+            <div class="price-card" data-category="afis">
                 <div class="product-name">Afiş / Poster</div>
                 <div class="product-desc">90gr Parlak Kuşe • 34x49 cm • 100 Adet</div>
                 <div class="product-meta">
@@ -1270,7 +1412,7 @@
                     <a href="https://wa.me/905016675755?text=Merhaba,%2034x49%20afiş%20(90gr)%20için%20sipariş%20vermek%20istiyorum." target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> Sipariş</a>
                 </div>
             </div>
-            <div class="price-card">
+            <div class="price-card" data-category="afis">
                 <div class="product-name">Afiş / Poster</div>
                 <div class="product-desc">130gr Parlak Kuşe • 34x49 cm • 100 Adet</div>
                 <div class="product-meta">
@@ -1278,7 +1420,7 @@
                     <a href="https://wa.me/905016675755?text=Merhaba,%2034x49%20afiş%20(130gr)%20için%20sipariş%20vermek%20istiyorum." target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> Sipariş</a>
                 </div>
             </div>
-            <div class="price-card">
+            <div class="price-card" data-category="magnet">
                 <div class="product-name">Magnet <span class="product-code">(MAG2)</span></div>
                 <div class="product-desc">46x68mm • Oval Kesim • Parlak Selefon • 1.000 Adet</div>
                 <div class="product-meta">
@@ -1286,7 +1428,7 @@
                     <a href="https://wa.me/905016675755?text=Merhaba,%20MAG2%20magnet%20için%20sipariş%20vermek%20istiyorum." target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> Sipariş</a>
                 </div>
             </div>
-            <div class="price-card">
+            <div class="price-card" data-category="etiket">
                 <div class="product-name">Etiket <span class="product-code">(E)</span></div>
                 <div class="product-desc">53x83mm • Kuşe Çıkartma • Parlak Selefon • 1.000 Adet</div>
                 <div class="product-meta">
@@ -1329,14 +1471,14 @@
     </div>
 </section>
 
-<!-- ========== COMPARISON TABLE ========== -->
-<section class="comparison">
+<!-- ========== NEDEN BİZ? (KARŞILAŞTIRMA + 5 DEĞER) ========== -->
+<section class="comparison" id="neden-biz">
     <div class="container">
         <div class="section-title fade-in">
             <h2>Neden Karadeniz Matbaa?</h2>
             <p>Rakiplerimize göre farkımızı görün</p>
         </div>
-        <div style="overflow-x:auto;">
+        <div style="overflow-x:auto; margin-bottom: 50px;">
             <table class="comp-table">
                 <thead>
                     <tr>
@@ -1374,69 +1516,48 @@
                 </tbody>
             </table>
         </div>
-    </div>
-</section>
 
-<!-- ========== BENEFITS ========== -->
-<section class="benefits">
-    <div class="container">
-        <div class="section-title fade-in">
-            <h2>Neden Karadeniz Matbaa?</h2>
-            <p>Farkımızı ortaya koyan 5 temel değer</p>
-        </div>
-        <div class="benefits-grid">
-            <div class="benefit-item">
-                <i class="fas fa-tachometer-alt"></i>
-                <h3>Hızlı Teslimat</h3>
-                <p>Ertesi gün kargoda, acil işlerinizde yanınızdayız.</p>
-            </div>
-            <div class="benefit-item">
-                <i class="fas fa-tag"></i>
-                <h3>Uygun Fiyat</h3>
-                <p>Aracısız, direkt fabrika fiyatları. Reklamcılara özel indirimler.</p>
-            </div>
-            <div class="benefit-item">
-                <i class="fas fa-check-circle"></i>
-                <h3>Kaliteli Malzeme</h3>
-                <p>1. sınıf kağıt, mürekkep ve selefon kullanıyoruz.</p>
-            </div>
-            <div class="benefit-item">
-                <i class="fas fa-headset"></i>
-                <h3>7/24 Destek</h3>
-                <p>WhatsApp hattımızdan anında yanıt, profesyonel grafik desteği.</p>
-            </div>
-            <div class="benefit-item">
-                <i class="fas fa-truck"></i>
-                <h3>Türkiye’ye Kargo</h3>
-                <p>Karadeniz’in her noktasına ve Türkiye’nin dört bir yanına hızlı kargo.</p>
+        <div class="benefits">
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <h3>Hızlı Teslimat</h3>
+                    <p>Ertesi gün kargoda, acil işlerinizde yanınızdayız.</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-tag"></i>
+                    <h3>Uygun Fiyat</h3>
+                    <p>Aracısız, direkt fabrika fiyatları. Reklamcılara özel indirimler.</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Kaliteli Malzeme</h3>
+                    <p>1. sınıf kağıt, mürekkep ve selefon kullanıyoruz.</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-headset"></i>
+                    <h3>7/24 Destek</h3>
+                    <p>WhatsApp hattımızdan anında yanıt, profesyonel grafik desteği.</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-truck"></i>
+                    <h3>Türkiye’ye Kargo</h3>
+                    <p>Karadeniz’in her noktasına ve Türkiye’nin dört bir yanına hızlı kargo.</p>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ========== SERVICE AREAS ========== -->
+<!-- ========== SERVICE AREAS (81 İL – YER TUTUCU) ========== -->
 <section class="service-areas">
     <div class="container">
         <div class="section-title fade-in">
             <h2>Hizmet Verdiğimiz İller</h2>
-            <p>Karadeniz bölgesinde ve Türkiye genelinde yanınızdayız</p>
+            <p>Karadeniz bölgesinde ve Türkiye genelinde yanınızdayız – 81 il</p>
         </div>
-        <div class="city-tags">
-            <span class="city-tag"><i class="fas fa-map-marker-alt"></i> Samsun</span>
-            <span class="city-tag"><i class="fas fa-map-marker-alt"></i> Trabzon</span>
-            <span class="city-tag"><i class="fas fa-map-marker-alt"></i> Ordu</span>
-            <span class="city-tag"><i class="fas fa-map-marker-alt"></i> Sinop</span>
-            <span class="city-tag"><i class="fas fa-map-marker-alt"></i> Rize</span>
-            <span class="city-tag"><i class="fas fa-map-marker-alt"></i> Giresun</span>
-            <span class="city-tag"><i class="fas fa-map-marker-alt"></i> Amasya</span>
-            <span class="city-tag"><i class="fas fa-map-marker-alt"></i> Kastamonu</span>
-            <span class="city-tag"><i class="fas fa-map-marker-alt"></i> Zonguldak</span>
-            <span class="city-tag"><i class="fas fa-map-marker-alt"></i> Bartın</span>
-            <span class="city-tag"><i class="fas fa-map-marker-alt"></i> Düzce</span>
-            <span class="city-tag"><i class="fas fa-map-marker-alt"></i> Sakarya</span>
-            <span class="city-tag"><i class="fas fa-map-marker-alt"></i> Kocaeli</span>
-            <span class="city-tag"><i class="fas fa-map-marker-alt"></i> İstanbul</span>
-            <span class="city-tag kargo-tag"><i class="fas fa-truck"></i> Türkiye’nin her yerine kargo <span class="kargo">Hızlı Teslimat</span></span>
+        <div class="city-tags" id="cityList">
+            <!-- JavaScript ile doldurulacak -->
         </div>
     </div>
 </section>
@@ -1584,6 +1705,7 @@
         </div>
         <div class="footer-col">
             <h4>Kurumsal</h4>
+            <a href="#hakkimizda">Hakkımızda</a>
             <a href="#faqToggle">Sık Sorulanlar</a>
             <a href="#iletisim">İletişim</a>
             <a onclick="openModal('kvkk')">KVKK</a>
@@ -1601,16 +1723,26 @@
     </div>
 </footer>
 
-<!-- ========== MODALS ========== -->
+<!-- ========== KVKK / GİZLİLİK MODALLARI ========== -->
 <div class="modal-overlay" id="kvkkModal">
     <div class="modal-box">
         <span class="close-modal" onclick="closeModal('kvkkModal')">&times;</span>
         <h2>KVKK Aydınlatma Metni</h2>
-        <p>Karadeniz Matbaa olarak, 6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında kişisel verilerinizin güvenliğine önem veriyoruz.</p>
-        <p><strong>Toplanan Veriler:</strong> Ad, soyad, telefon, e-posta, adres gibi sipariş işlemleri için gerekli bilgiler.</p>
-        <p><strong>Kullanım Amacı:</strong> Siparişlerin alınması, fiyat teklifi hazırlanması, kargo ve teslimat süreçlerinin yürütülmesi.</p>
-        <p><strong>Paylaşım:</strong> Bilgileriniz üçüncü kişilerle paylaşılmaz, yalnızca yasal zorunluluklar halinde resmi makamlara bildirilir.</p>
-        <p><strong>Haklarınız:</strong> Verilerinize erişme, düzeltme, silme talebi için <a href="https://wa.me/905016675755" target="_blank" style="color:var(--secondary); font-weight:700;">WhatsApp</a> üzerinden bize ulaşabilirsiniz.</p>
+        <p><strong>Karadeniz Matbaa</strong> olarak, 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) uyarınca, veri sorumlusu sıfatıyla, kişisel verilerinizin güvenliğine ve hukuka uygun olarak işlenmesine azami hassasiyet göstermekteyiz. Bu aydınlatma metni, sitemizi ziyaret eden ve bizimle iletişime geçen tüm kullanıcılarımızı bilgilendirmek amacıyla hazırlanmıştır.</p>
+        <h3 style="color:var(--primary); margin: 20px 0 10px; font-size:1.1rem;">1. İşlenen Kişisel Veriler ve İşleme Amaçları</h3>
+        <p>Web sitemiz, WhatsApp iletişim hattımız, e-posta veya telefon aracılığıyla bizimle paylaştığınız ad, soyad, telefon numarası, e-posta adresi ve kurumsal firma bilgileri aşağıdaki amaçlarla sınırlı olarak işlenmektedir:</p>
+        <ul style="margin-left:20px; color:var(--gray); margin-bottom:16px;">
+            <li>Tabela, reklam ve matbaa hizmetlerimize yönelik taleplerinizin alınması,</li>
+            <li>İşletmenize özel fiyat tekliflerinin hazırlanması ve tarafınıza iletilmesi,</li>
+            <li>Sipariş süreçlerinin takibi, kargo ve teslimat organizasyonu,</li>
+            <li>Fatura ve finansal mutabakat işlemlerinin yürütülmesi.</li>
+        </ul>
+        <h3 style="color:var(--primary); margin: 20px 0 10px; font-size:1.1rem;">2. Kişisel Verilerin Aktarılması</h3>
+        <p>Toplanan kişisel verileriniz, KVKK’nın 8. ve 9. maddelerinde belirtilen şartlara uygun olarak, tamamen gizlilik esasıyla korunmaktadır. Yasal bir yargı kararı veya resmi makamların talebi haricinde kesinlikle üçüncü kişilere satılmaz, devredilmez veya aktarılmaz.</p>
+        <h3 style="color:var(--primary); margin: 20px 0 10px; font-size:1.1rem;">3. Veri Toplama Yöntemi ve Hukuki Sebep</h3>
+        <p>Kişisel verileriniz, sitemizdeki iletişim kanalları, WhatsApp, telefon veya e-posta yoluyla tamamen kendi rızanız doğrultusunda toplanmaktadır. Bu süreç, bir sözleşmenin kurulması veya ifasıyla doğrudan ilgili olması ve hukuki yükümlülüklerimizin yerine getirilmesi hukuki sebebine dayanır.</p>
+        <h3 style="color:var(--primary); margin: 20px 0 10px; font-size:1.1rem;">4. Veri Sahibinin Hakları</h3>
+        <p>KVKK’nın 11. maddesi uyarınca dilediğiniz zaman firmamıza başvurarak; kişisel verilerinizin işlenip işlenmediğini öğrenme, işlenmişse buna ilişkin bilgi talep etme, işlenme amacını öğrenme, eksik veya yanlış işlenmişse düzeltilmesini isteme ve verilerinizin tamamen silinmesini talep etme haklarına sahipsiniz. Başvurularınızı <strong>0 501 667 57 55</strong> numaralı hattımızdan veya <strong>info@karadenizmatbaa.com</strong> adresinden iletebilirsiniz.</p>
     </div>
 </div>
 
@@ -1618,11 +1750,47 @@
     <div class="modal-box">
         <span class="close-modal" onclick="closeModal('gizlilikModal')">&times;</span>
         <h2>Gizlilik Politikası</h2>
-        <p>Karadeniz Matbaa olarak, müşteri gizliliğine azami özen gösteriyoruz. Sitemizi ziyaret eden kullanıcıların bilgileri yalnızca sipariş süreçleri için kullanılır.</p>
-        <p><strong>Çerezler:</strong> Sitemiz, kullanıcı deneyimini iyileştirmek amacıyla çerez kullanmaktadır. Tarayıcı ayarlarından çerezleri kapatabilirsiniz.</p>
-        <p><strong>Veri Güvenliği:</strong> Kişisel verileriniz şifreli olarak saklanır ve yetkisiz erişime karşı korunur.</p>
-        <p><strong>Değişiklik:</strong> Bu politika, yasal düzenlemelere göre güncellenebilir. Güncel halini sitemizden takip edebilirsiniz.</p>
-        <p>Detaylı bilgi için <a href="https://wa.me/905016675755" target="_blank" style="color:var(--secondary); font-weight:700;">WhatsApp</a> hattımızdan ulaşabilirsiniz.</p>
+        <p><strong>Karadeniz Matbaa</strong> olarak, müşteri gizliliğine azami özen gösteriyoruz. Sitemizi ziyaret eden kullanıcıların bilgileri yalnızca sipariş süreçleri ve hizmet kalitemizi artırmak amacıyla kullanılır.</p>
+        <h3 style="color:var(--primary); margin: 20px 0 10px; font-size:1.1rem;">Çerezler (Cookies)</h3>
+        <p>Sitemiz, kullanıcı deneyimini iyileştirmek, sayfaların açılış hızını optimize etmek ve ziyaretçi trafiğini analiz etmek amacıyla standart internet çerezleri kullanabilir. Çerezler, bilgisayarınıza zarar vermeyen, sadece tarayıcınızın siteyi hatırlamasını sağlayan küçük metin dosyalarıdır. Tarayıcı ayarlarından çerezleri dilediğiniz an tamamen kapatabilir veya temizleyebilirsiniz.</p>
+        <h3 style="color:var(--primary); margin: 20px 0 10px; font-size:1.1rem;">Veri Güvenliği</h3>
+        <p>Kişisel verileriniz şifreli olarak saklanır ve yetkisiz erişime karşı korunur. Sitemiz üzerinde herhangi bir e-ticaret altyapısı veya online ödeme kanalı bulunmadığından kredi kartı bilgileriniz gibi hassas veriler kesinlikle işlenmez veya depolanmaz.</p>
+        <h3 style="color:var(--primary); margin: 20px 0 10px; font-size:1.1rem;">Politika Güncellemeleri</h3>
+        <p>Gelişen teknolojiye, yasal mevzuatlara ve sitemize eklenebilecek yeni özelliklere bağlı olarak bu gizlilik politikası zaman zaman güncellenebilir. Sitemizi kullanmaya devam ederek bu şartları kabul etmiş sayılırsınız. Sorularınız için bizimle her zaman kurumsal kanallarımız üzerinden iletişime geçebilirsiniz.</p>
+    </div>
+</div>
+
+<!-- ========== FİYAT MODALI ========== -->
+<div class="modal-overlay" id="productModal">
+    <div class="modal-box">
+        <span class="close-modal" onclick="closeProductModal()">&times;</span>
+        <h2 id="modalTitle">Kategori</h2>
+        <p class="sub-title" id="modalSubtitle">Tüm varyasyonlar ve fiyatlar</p>
+        <div style="overflow-x:auto;">
+            <table class="modal-table">
+                <thead>
+                    <tr>
+                        <th>Kod</th>
+                        <th>Açıklama</th>
+                        <th>Fiyat</th>
+                        <th>Sipariş</th>
+                    </tr>
+                </thead>
+                <tbody id="modalBody"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- ========== MAKALE MODALI (HİZMETLER İÇİN) ========== -->
+<div class="modal-overlay" id="articleModal">
+    <div class="modal-box">
+        <span class="close-modal" onclick="closeArticleModal()">&times;</span>
+        <h2 id="articleTitle">Makale Başlığı</h2>
+        <div class="article-content" id="articleContent"></div>
+        <div style="margin-top:30px; text-align:center;">
+            <a href="https://wa.me/905016675755?text=Merhaba,%20karadenizmatbaa.com%20üzerinden%20teklif%20almak%20istiyorum." target="_blank" class="btn-primary"><i class="fab fa-whatsapp"></i> WhatsApp ile Teklif Al</a>
+        </div>
     </div>
 </div>
 
@@ -1638,6 +1806,37 @@
 
 <!-- ========== SCRIPTS ========== -->
 <script>
+    // ========== 81 İL LİSTESİ ==========
+    const cities = [
+        "Adana", "Adıyaman", "Afyonkarahisar", "Ağrı", "Aksaray", "Amasya", "Ankara", "Antalya", "Ardahan", "Artvin",
+        "Aydın", "Balıkesir", "Bartın", "Batman", "Bayburt", "Bilecik", "Bingöl", "Bitlis", "Bolu", "Burdur",
+        "Bursa", "Çanakkale", "Çankırı", "Çorum", "Denizli", "Diyarbakır", "Düzce", "Edirne", "Elazığ", "Erzincan",
+        "Erzurum", "Eskişehir", "Gaziantep", "Giresun", "Gümüşhane", "Hakkâri", "Hatay", "Iğdır", "Isparta", "İstanbul",
+        "İzmir", "Kahramanmaraş", "Karabük", "Karaman", "Kars", "Kastamonu", "Kayseri", "Kırıkkale", "Kırklareli", "Kırşehir",
+        "Kilis", "Kocaeli", "Konya", "Kütahya", "Malatya", "Manisa", "Mardin", "Mersin", "Muğla", "Muş",
+        "Nevşehir", "Niğde", "Ordu", "Osmaniye", "Rize", "Sakarya", "Samsun", "Siirt", "Sinop", "Sivas",
+        "Şanlıurfa", "Şırnak", "Tekirdağ", "Tokat", "Trabzon", "Tunceli", "Uşak", "Van", "Yalova", "Yozgat", "Zonguldak"
+    ];
+
+    function renderCities() {
+        const container = document.getElementById('cityList');
+        container.innerHTML = '';
+        cities.forEach(city => {
+            const tag = document.createElement('span');
+            tag.className = 'city-tag';
+            tag.innerHTML = `<i class="fas fa-map-marker-alt"></i> ${city}`;
+            container.appendChild(tag);
+        });
+        // Sonuna kargo etiketi
+        const kargo = document.createElement('span');
+        kargo.className = 'city-tag';
+        kargo.style.background = 'var(--secondary)';
+        kargo.style.color = '#fff';
+        kargo.style.borderColor = 'var(--secondary)';
+        kargo.innerHTML = `<i class="fas fa-truck"></i> Türkiye’nin her yerine kargo`;
+        container.appendChild(kargo);
+    }
+
     // ========== SCROLL FADE-IN ==========
     const fadeEls = document.querySelectorAll('.fade-in, .service-card, .bestseller-card, .price-card, .benefit-item, .city-tag, .faq-item, .trust-item');
     fadeEls.forEach((el, i) => {
@@ -1664,7 +1863,7 @@
         document.getElementById('navLinks').classList.toggle('open');
     }
 
-    // ========== FAQ – TEK BLOK AÇILIR ==========
+    // ========== FAQ ==========
     function toggleFaq() {
         const content = document.getElementById('faqContent');
         const icon = document.getElementById('faqIcon');
@@ -1689,7 +1888,7 @@
         }
     }
 
-    // Modals
+    // ========== KVKK / Gizlilik Modals ==========
     function openModal(type) {
         if (type === 'kvkk') document.getElementById('kvkkModal').classList.add('active');
         else if (type === 'gizlilik') document.getElementById('gizlilikModal').classList.add('active');
@@ -1708,6 +1907,340 @@
                 document.body.style.overflow = 'auto';
             }
         });
+    });
+
+    // ========== ÜRÜN VERİLERİ ==========
+    const productData = {
+        kartvizit: {
+            title: 'Kartvizit',
+            desc: '250gr Bristol, 350gr Bristol, selefonlu, kabartma laklı, özel kesim seçenekleri.',
+            variants: [
+                { code: 'NK', desc: '250gr Bristol • Tek Yön • Parlak Selefon • 90x50mm', price: '195 ₺' },
+                { code: 'NKA', desc: '250gr Bristol • Tek Yön • Parlak Selefon + Arka Siyah', price: '205 ₺' },
+                { code: 'MN', desc: '350gr Bristol • Tek Yön • Mat Selefon', price: '230 ₺' },
+                { code: 'CYP', desc: '350gr Bristol • Çift Yön • Parlak Selefon', price: '290 ₺' },
+                { code: 'CYM', desc: '350gr Bristol • Çift Yön • Mat Selefon', price: '300 ₺' },
+                { code: 'KL', desc: '350gr • Tek Yön + Mat Selefon + Kabartma Lak', price: '310 ₺' },
+                { code: 'O-COK', desc: '350gr • Çift Yön + Mat + Kabartma Lak Oval Kesim', price: '390 ₺' },
+                { code: 'S-COK', desc: '350gr • Çift Yön + Mat + Kabartma Lak Özel Kesim', price: '450 ₺' },
+                { code: 'O-SEK', desc: '700gr • Sıvama + Mat + Kabartma Lak Oval', price: '590 ₺' },
+                { code: 'S-SEK', desc: '700gr • Sıvama + Mat + Kabartma Lak Özel', price: '680 ₺' },
+                { code: 'O-NKA', desc: '250gr • Tek Yön + Arka Siyah + Özel Kesim 65x120mm', price: '1.650 ₺' },
+                { code: 'CYML', desc: '350gr • Çift Yön + Mat Selefon + Kabartma Lak Düz', price: '410 ₺' },
+                { code: 'ŞEFFAF', desc: '0,500 Mic. PVC • Renkli Baskı + Beyaz Baskı K.Lak + Oval', price: '3.950 ₺' }
+            ]
+        },
+        brosur: {
+            title: 'Broşür',
+            desc: '115gr Eko, 130gr Eko, 130gr Pro, 90gr Eko – çift/tek yön, çeşitli ebatlar.',
+            variants: [
+                { code: '1CA6', desc: '115gr Eko Çift Yön A6 • 90x135 • 1.000 Adet', price: '400 ₺' },
+                { code: '1CA7', desc: '115gr Eko Çift Yön A7 • 90x200 • 1.000 Adet', price: '600 ₺' },
+                { code: '1CA5', desc: '115gr Eko Çift Yön A5 • 135x200 • 1.000 Adet', price: '800 ₺' },
+                { code: '1CA4', desc: '115gr Eko Çift Yön A4 • 200x275 • 1.000 Adet', price: '1.350 ₺' },
+                { code: '1CA3', desc: '115gr Eko Çift Yön A3 • 275x400 • 1.000 Adet', price: '2.700 ₺' },
+                { code: '1GA6', desc: '130gr Eko Çift Yön A6 • 90x135 • 1.000 Adet', price: '425 ₺' },
+                { code: '1GA5', desc: '130gr Eko Çift Yön A5 • 135x200 • 1.000 Adet', price: '850 ₺' },
+                { code: '1GA4', desc: '130gr Eko Çift Yön A4 • 200x275 • 1.000 Adet', price: '1.400 ₺' },
+                { code: '1HA5', desc: '130gr Pro Çift Yön A5 • 144x205 • 1.000 Adet', price: '950 ₺' },
+                { code: '1HA4', desc: '130gr Pro Çift Yön A4 • 203x293 • 1.000 Adet', price: '1.750 ₺' },
+                { code: '2TA6', desc: '90gr Eko Tek Yön A6 • 90x135 • 2.000 Adet', price: '425 ₺' },
+                { code: '2TA5', desc: '90gr Eko Tek Yön A5 • 135x190 • 2.000 Adet', price: '850 ₺' },
+                { code: '2TA4', desc: '90gr Eko Tek Yön A4 • 190x275 • 2.000 Adet', price: '1.450 ₺' }
+            ]
+        },
+        afis: {
+            title: 'Afiş / Poster',
+            desc: '34x49 cm, 49x69 cm, 69x99 cm – 90gr–170gr parlak kuşe.',
+            variants: [
+                { code: 'AF1', desc: '34x49 cm • 90gr • 100 Adet', price: '1.265 ₺' },
+                { code: 'AF2', desc: '34x49 cm • 115gr • 100 Adet', price: '1.320 ₺' },
+                { code: 'AF3', desc: '34x49 cm • 130gr • 100 Adet', price: '1.375 ₺' },
+                { code: 'AF9', desc: '34x49 cm • 90gr • 500 Adet', price: '1.650 ₺' },
+                { code: 'AF10', desc: '34x49 cm • 115gr • 500 Adet', price: '1.815 ₺' },
+                { code: 'AF13', desc: '34x49 cm • 90gr • 1.000 Adet', price: '1.980 ₺' },
+                { code: 'AF21', desc: '49x69 cm • 90gr • 100 Adet', price: '2.200 ₺' },
+                { code: 'AF25', desc: '49x69 cm • 90gr • 250 Adet', price: '2.475 ₺' },
+                { code: 'AF29', desc: '49x69 cm • 90gr • 500 Adet', price: '3.025 ₺' },
+                { code: 'AF41', desc: '69x99 cm • 90gr • 100 Adet', price: '3.575 ₺' }
+            ]
+        },
+        magnet: {
+            title: 'Magnet',
+            desc: '46x68mm – oval/özel kesim, parlak selefon.',
+            variants: [
+                { code: 'MAG2', desc: '46x68mm • Oval Kesim • Parlak Selefon • 1.000 Adet', price: '610 ₺' },
+                { code: '10MAG2', desc: '46x68mm • Oval Kesim • Parlak Selefon • 10.000 Adet', price: '6.000 ₺' },
+                { code: 'MAG1', desc: '46x68mm • Standart Özel Kesim • 1.000 Adet', price: '690 ₺' },
+                { code: '10MAG1', desc: '46x68mm • Standart Özel Kesim • 10.000 Adet', price: '6.500 ₺' },
+                { code: 'MAG3', desc: '1 cm Kare • Renkli Baskı + Parlak Selefon • 1.000 Adet', price: '21 ₺' }
+            ]
+        },
+        etiket: {
+            title: 'Etiket',
+            desc: 'Kuşe çıkartma, parlak selefon, düz/özel kesim.',
+            variants: [
+                { code: 'E', desc: '53x83mm • Kuşe Çıkartma • Düz Kesim • 1.000 Adet', price: '290 ₺' },
+                { code: '8x10CM-E', desc: '80x100mm • Kuşe Çıkartma • Düz Kesim • 1.000 Adet', price: '580 ₺' },
+                { code: '10x17CM-E', desc: '100x170mm • Kuşe Çıkartma • Düz Kesim • 1.000 Adet', price: '1.160 ₺' },
+                { code: 'EO', desc: '52x83mm • Kuşe Çıkartma • Özel Kesim • 1.000 Adet', price: '500 ₺' },
+                { code: 'EA5', desc: 'A5 148x210mm • Kuşe Çıkartma • 1.000 Adet', price: '2.250 ₺' },
+                { code: 'EA4', desc: 'A4 210x297mm • Kuşe Çıkartma • 1.000 Adet', price: '4.400 ₺' },
+                { code: 'EA3', desc: 'A3 297x420mm • Kuşe Çıkartma • 1.000 Adet', price: '8.750 ₺' }
+            ]
+        },
+        davetiye: {
+            title: 'Davetiye',
+            desc: 'Düğün, sünnet, nişan için özel baskı. 250gr Bristol, çift yön, parlak selefon.',
+            variants: [
+                { code: 'DAV1', desc: '100x140mm • 250gr Bristol • Çift Yön • Parlak Selefon • 1.000 Adet', price: '350 ₺' },
+                { code: 'DAV2', desc: '100x140mm • 250gr Bristol • Tek Yön • Parlak Selefon • 1.000 Adet', price: '290 ₺' },
+                { code: 'DAV3', desc: '120x170mm • 300gr Bristol • Çift Yön • Mat Selefon • 1.000 Adet', price: '450 ₺' }
+            ]
+        },
+        'karton-canta': {
+            title: 'Karton Çanta',
+            desc: 'Kraft çanta, e-ticaret ambalajı, markalı poşet. Çeşitli ebat ve gramaj.',
+            variants: [
+                { code: 'KC1', desc: '17x25x7 cm • 230gr Bristol • Renkli Baskı • 250 Adet', price: '3.450 ₺' },
+                { code: 'KC2', desc: '23x32x6 cm • 230gr Bristol • Renkli Baskı • 250 Adet', price: '5.463 ₺' },
+                { code: 'KC3', desc: '25x30x8 cm • 230gr Bristol • Renkli Baskı • 250 Adet', price: '5.750 ₺' }
+            ]
+        },
+        zarf: {
+            title: 'Baskılı Zarflar',
+            desc: 'Diplomat düz zarf ve torba zarf – 1 renk baskı, çeşitli ebatlar.',
+            variants: [
+                { code: 'DZ1', desc: 'Diplomat 10.4x24 cm • 500 Adet', price: '1.080 ₺' },
+                { code: 'DZ1-1000', desc: 'Diplomat 10.4x24 cm • 1.000 Adet', price: '1.440 ₺' },
+                { code: 'TZ1', desc: 'Torba A5 17x25 cm • 500 Adet', price: '1.800 ₺' },
+                { code: 'TZ1-1000', desc: 'Torba A5 17x25 cm • 1.000 Adet', price: '2.880 ₺' },
+                { code: 'TZ2', desc: 'Torba A4 24x32 cm • 500 Adet', price: '2.400 ₺' },
+                { code: 'TZ2-1000', desc: 'Torba A4 24x32 cm • 1.000 Adet', price: '3.720 ₺' }
+            ]
+        },
+        fasonbaski: {
+            title: 'Fason Baskı',
+            desc: 'Reklamcılar, ajanslar ve matbaacılar için toptan üretim, CNC, lazer kesim. Özel teklif.',
+            variants: [
+                { code: 'FASON', desc: 'Özel projeler için fiyat teklifi alın', price: 'Teklif Al' }
+            ]
+        }
+    };
+
+    // ========== MAKALE VERİLERİ ==========
+    const articleData = {
+        kartvizit: {
+            title: 'Kartvizit Baskısı: Markanızın İlk İzlenimi',
+            content: `
+                <p>Kartvizit, iş dünyasında markanızın en önemli tanıtım araçlarından biridir. Bir kartvizit, sadece iletişim bilgilerinizi değil, aynı zamanda markanızın duruşunu, kalite anlayışını ve profesyonelliğini yansıtır.</p>
+                <h3>Kartvizit Seçerken Nelere Dikkat Etmelisiniz?</h3>
+                <ul>
+                    <li><strong>Kağıt Kalitesi:</strong> 250gr ve 350gr Bristol kağıtlar, kartvizitinizin sağlam ve kaliteli durmasını sağlar.</li>
+                    <li><strong>Selefon Seçeneği:</strong> Parlak selefon, renkleri canlı gösterirken; mat selefon daha şık ve modern bir görünüm sunar.</li>
+                    <li><strong>Baskı Tekniği:</strong> Ofset baskı, yüksek adetlerde en kaliteli sonucu verir. Dijital baskı ise küçük adetler için idealdir.</li>
+                    <li><strong>Özel Kesim:</strong> Oval, yuvarlak veya özel kesimler, kartvizitinizi rakiplerinizden ayırır.</li>
+                </ul>
+                <p>Karadeniz Matbaa olarak, 13 farklı kartvizit modeliyle ihtiyacınıza en uygun çözümü sunuyoruz. En popüler modelimiz NK (250gr Bristol Tek Yön Parlak Selefon) sadece 195 TL!</p>
+                <p>Detaylı fiyat listesi için WhatsApp hattımızdan bize ulaşabilirsiniz.</p>
+            `
+        },
+        brosur: {
+            title: 'Broşür Baskısı: Etkili Tanıtımın Anahtarı',
+            content: `
+                <p>Broşürler, işletmenizin ürün ve hizmetlerini tanıtmak için en etkili araçlardan biridir. Doğru tasarım ve kaliteli baskı ile broşürleriniz müşterileriniz üzerinde güçlü bir etki bırakır.</p>
+                <h3>Broşür Baskısında Dikkat Edilmesi Gerekenler</h3>
+                <ul>
+                    <li><strong>Kağıt Gramajı:</strong> 115gr, 130gr ve 90gr seçeneklerimizle ihtiyacınıza uygun kaliteyi sunuyoruz.</li>
+                    <li><strong>Kağıt Türü:</strong> Kuşe kağıt, parlak ve canlı renkler için idealdir. Eko kağıt ise daha doğal bir görünüm sağlar.</li>
+                    <li><strong>Tek/Çift Yön:</strong> Tek yön baskı ekonomiktir, çift yön baskı ise daha profesyonel bir izlenim verir.</li>
+                    <li><strong>Ebat Seçenekleri:</strong> A6, A7, A5, A4, A3 – her ihtiyaca uygun ebat.</li>
+                </ul>
+                <p>A5 115gr Eko Çift Yön broşürümüz 1.000 adet için sadece 800 TL. Detaylı fiyat listesi için WhatsApp'tan bize ulaşın.</p>
+            `
+        },
+        afis: {
+            title: 'Afiş ve Poster Baskısı: Büyük Yüzeylerde Etkili Tanıtım',
+            content: `
+                <p>Afiş ve posterler, açık hava reklamcılığının vazgeçilmez araçlarıdır. Büyük ebatları ve dikkat çekici görselleriyle markanızı geniş kitlelere duyurmanın en etkili yoludur.</p>
+                <h3>Afiş Baskısında Nelere Dikkat Edilmeli?</h3>
+                <ul>
+                    <li><strong>Kağıt Kalitesi:</strong> 90gr'dan 170gr'a kadar parlak kuşe kağıt seçenekleri.</li>
+                    <li><strong>Ebat Seçenekleri:</strong> 34x49 cm, 49x69 cm, 69x99 cm – her alana uygun boyut.</li>
+                    <li><strong>Renk Kalitesi:</strong> Profesyonel ofset baskı ile canlı ve uzun ömürlü renkler.</li>
+                </ul>
+                <p>34x49 cm 90gr afişimiz 100 adet için 1.265 TL. Hemen WhatsApp'tan fiyat alın!</p>
+            `
+        },
+        magnet: {
+            title: 'Magnet Baskısı: Hareketli Reklamınız',
+            content: `
+                <p>Magnetler, hem kullanışlı hem de sürekli görünür olan reklam ürünleridir. Buzdolabından ofis panolarına kadar her yerde markanızı temsil eder.</p>
+                <h3>Magnet Baskısında Seçenekler</h3>
+                <ul>
+                    <li><strong>Ebat:</strong> Standart 46x68mm, özel kesimler de mümkün.</li>
+                    <li><strong>Selefon Seçeneği:</strong> Parlak selefon ile renkler daha canlı.</li>
+                    <li><strong>Kesim Tipi:</strong> Oval, yuvarlak, standart özel kesim.</li>
+                </ul>
+                <p>MAG2 modeli 1.000 adet için 610 TL. Hemen sipariş verin!</p>
+            `
+        },
+        etiket: {
+            title: 'Etiket Baskısı: Ürünlerinizi Tanıtın ve Markalaştırın',
+            content: `
+                <p>Etiketler, ürünlerinizi tanıtmanın ve markanızı güçlendirmenin en etkili yollarından biridir. Doğru tasarım ve kaliteli baskı ile ürünleriniz raflarda öne çıkar.</p>
+                <h3>Etiket Baskısı Seçenekleri</h3>
+                <ul>
+                    <li><strong>Malzeme:</strong> Kuşe çıkartma, opak ve şeffaf seçenekler.</li>
+                    <li><strong>Kesim:</strong> Düz kesim, özel kesim.</li>
+                    <li><strong>Selefon:</strong> Parlak selefon ile renkler canlı, mat selefon ile şık görünüm.</li>
+                </ul>
+                <p>E modeli 53x83mm 1.000 adet için 290 TL. Hemen WhatsApp'tan sipariş verin!</p>
+            `
+        },
+        davetiye: {
+            title: 'Davetiye Baskısı: Özel Günleriniz İçin Unutulmaz Tasarımlar',
+            content: `
+                <p>Düğün, sünnet, nişan ve diğer özel günleriniz için davetiyeler, etkinliğinizin ilk izlenimini oluşturur. Kaliteli bir davetiye, misafirleriniz üzerinde unutulmaz bir etki bırakır.</p>
+                <h3>Davetiye Baskısı Seçenekleri</h3>
+                <ul>
+                    <li><strong>Kağıt:</strong> 250gr ve 300gr Bristol seçenekleri.</li>
+                    <li><strong>Selefon:</strong> Parlak ve mat seçenekler.</li>
+                    <li><strong>Baskı Tekniği:</strong> Ofset baskı ile profesyonel sonuç.</li>
+                </ul>
+                <p>100x140mm 250gr Bristol Çift Yön Parlak Selefon davetiye 1.000 adet için 350 TL. Hemen sipariş verin!</p>
+            `
+        },
+        'karton-canta': {
+            title: 'Karton Çanta Baskısı: E-Ticarette Fark Yaratın',
+            content: `
+                <p>Karton çantalar, e-ticaret markalarının ambalajlamada tercih ettiği en popüler ürünlerden biridir. Markanızın logosuyla tasarlanmış bir karton çanta, müşteri deneyimini bir üst seviyeye taşır.</p>
+                <h3>Karton Çanta Seçenekleri</h3>
+                <ul>
+                    <li><strong>Kağıt:</strong> 230gr Amerikan Bristol, dayanıklı ve kaliteli.</li>
+                    <li><strong>Ebat:</strong> Dikey ve yatay seçenekler, 11x16x5 cm'den 39x31x14 cm'ye.</li>
+                    <li><strong>Baskı:</strong> Renkli baskı + parlak selefon + naylon ip.</li>
+                </ul>
+                <p>Detaylı fiyat listesi için WhatsApp'tan bize ulaşın.</p>
+            `
+        },
+        zarf: {
+            title: 'Baskılı Zarflar: Kurumsal Kimliğinizin Tamamlayıcısı',
+            content: `
+                <p>Zarflar, kurumsal kimliğinizin en önemli parçalarından biridir. Markanızın logosu ve renkleriyle tasarlanmış zarflar, gönderdiğiniz her evrakta profesyonel bir izlenim yaratır.</p>
+                <h3>Zarf Seçenekleri</h3>
+                <ul>
+                    <li><strong>Tip:</strong> Diplomat düz zarf, torba zarf.</li>
+                    <li><strong>Ebat:</strong> 10.4x24 cm (diplomat), A5 (17x25), A4 (24x32), A3 (26x35).</li>
+                    <li><strong>Baskı:</strong> 1 renk siyah baskı.</li>
+                </ul>
+                <p>500 adet diplomat zarf 1.080 TL. Hemen WhatsApp'tan sipariş verin!</p>
+            `
+        },
+        fason: {
+            title: 'Fason Baskı: Profesyonellere Özel Çözümler',
+            content: `
+                <p>Fason baskı, kendi üretim parkuru olmayan reklam ajansları, matbaacılar, tabelacılar ve grafikerler için özel olarak tasarlanmış bir üretim modelidir. Karadeniz Matbaa olarak, sektör profesyonellerine toptan fiyat avantajı ve kaliteli üretim sunuyoruz.</p>
+                <h3>Fason Baskı Hizmetlerimiz</h3>
+                <ul>
+                    <li><strong>Ofset Baskı:</strong> Yüksek adetli işler için ekonomik ve kaliteli.</li>
+                    <li><strong>CNC Kesim:</strong> Milimetrik hassasiyetle özel şekiller.</li>
+                    <li><strong>Lazer Kesim:</strong> Karmaşık desenlerde sıfır hata.</li>
+                    <li><strong>Özel Projeler:</strong> Tasarımınız ne olursa olsun, üretim kapasitemizle yanınızdayız.</li>
+                </ul>
+                <p>Fason baskı fiyatları için <strong>0 501 667 57 55</strong> numaralı WhatsApp hattımızdan bize ulaşarak özel teklif alabilirsiniz.</p>
+            `
+        }
+    };
+
+    // ========== ÜRÜN KARTI TIKLAMA (FİYAT MODALI) ==========
+    document.querySelectorAll('.bestseller-card, .price-card').forEach(card => {
+        card.addEventListener('click', function(e) {
+            if (e.target.closest('.btn-wa')) return;
+            const key = this.dataset.category;
+            if (key && productData[key]) {
+                openProductModal(productData[key]);
+            }
+        });
+    });
+
+    // ========== HİZMET KARTI TIKLAMA (MAKALE MODALI) ==========
+    document.querySelectorAll('.service-card').forEach(card => {
+        card.addEventListener('click', function(e) {
+            if (e.target.closest('.btn-wa')) return;
+            const key = this.dataset.article;
+            if (key && articleData[key]) {
+                openArticleModal(articleData[key]);
+            }
+        });
+    });
+
+    // ========== FİYAT MODAL FONKSİYONU ==========
+    function openProductModal(data) {
+        const modal = document.getElementById('productModal');
+        document.getElementById('modalTitle').textContent = data.title;
+        document.getElementById('modalSubtitle').textContent = data.desc;
+        const body = document.getElementById('modalBody');
+        body.innerHTML = '';
+
+        data.variants.forEach(v => {
+            const tr = document.createElement('tr');
+            const isFason = data.title === 'Fason Baskı';
+            const waText = isFason ? 'Teklif Al' : 'Sipariş';
+            const waMsg = isFason
+                ? 'Merhaba, Fason baskı hakkında teklif almak istiyorum.'
+                : `Merhaba, ${data.title} (${v.code}) için sipariş vermek istiyorum.`;
+            tr.innerHTML = `
+                <td class="code">${v.code}</td>
+                <td>${v.desc}</td>
+                <td class="price">${v.price}</td>
+                <td><a href="https://wa.me/905016675755?text=${encodeURIComponent(waMsg)}" target="_blank" class="btn-wa"><i class="fab fa-whatsapp"></i> ${waText}</a></td>
+            `;
+            body.appendChild(tr);
+        });
+
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeProductModal() {
+        document.getElementById('productModal').classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+
+    // ========== MAKALE MODAL FONKSİYONU ==========
+    function openArticleModal(data) {
+        const modal = document.getElementById('articleModal');
+        document.getElementById('articleTitle').textContent = data.title;
+        document.getElementById('articleContent').innerHTML = data.content;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeArticleModal() {
+        document.getElementById('articleModal').classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+
+    // ========== MODAL OVERLAY KAPATMA ==========
+    document.getElementById('productModal').addEventListener('click', function(e) {
+        if (e.target === this) closeProductModal();
+    });
+    document.getElementById('articleModal').addEventListener('click', function(e) {
+        if (e.target === this) closeArticleModal();
+    });
+
+    // Klavye ESC ile kapatma
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeProductModal();
+            closeArticleModal();
+        }
+    });
+
+    // ========== SAYFA YÜKLENİNCE ==========
+    document.addEventListener('DOMContentLoaded', function() {
+        renderCities();
     });
 </script>
 
