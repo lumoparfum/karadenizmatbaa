@@ -257,9 +257,8 @@
         }
         .logo-wrapper {
             display: flex;
-            flex-direction: column;
             align-items: center;
-            gap: 4px;
+            gap: 10px;
         }
         .logo {
             font-size: 1.8rem;
@@ -269,6 +268,11 @@
             cursor: pointer;
         }
         .logo span { color: var(--secondary); }
+        .logo-divider {
+            color: rgba(255,255,255,0.3);
+            font-weight: 300;
+            font-size: 1.4rem;
+        }
         .slogan-text {
             font-size: 0.85rem;
             font-weight: 600;
@@ -327,6 +331,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center;
             z-index: 0;
         }
         .hero-overlay {
@@ -335,7 +340,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(145deg, rgba(10,30,58,0.6) 0%, rgba(10,30,58,0.35) 50%, rgba(10,30,58,0.5) 100%);
+            background: linear-gradient(145deg, rgba(10,30,58,0.55) 0%, rgba(10,30,58,0.30) 50%, rgba(10,30,58,0.45) 100%);
             z-index: 1;
         }
         .hero .container {
@@ -348,44 +353,52 @@
             font-size: clamp(1.2rem, 2.5vw, 1.8rem);
             font-weight: 700;
             color: var(--secondary);
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             letter-spacing: 1px;
             text-shadow: 0 2px 15px rgba(0,0,0,0.3);
         }
         .hero h1 {
-            font-size: clamp(2rem, 5vw, 3.6rem);
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
             font-weight: 900;
-            line-height: 1.15;
-            margin-bottom: 16px;
+            line-height: 1.1;
+            margin-bottom: 8px;
             text-shadow: 0 4px 30px rgba(0,0,0,0.4);
         }
         .hero h1 span { color: var(--secondary); }
-        .hero .hero-desc {
-            font-size: clamp(1rem, 1.6vw, 1.2rem);
-            max-width: 700px;
-            margin: 0 auto 24px;
+        .hero .hero-sub {
+            font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 12px;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
             opacity: 0.95;
-            line-height: 1.7;
+        }
+        .hero .hero-desc {
+            font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+            max-width: 700px;
+            margin: 0 auto 20px;
+            opacity: 0.9;
+            line-height: 1.6;
             text-shadow: 0 2px 20px rgba(0,0,0,0.3);
         }
         .hero-features {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 12px 24px;
-            margin-bottom: 30px;
+            gap: 12px 20px;
+            margin-bottom: 24px;
         }
         .hero-features span {
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 500;
             color: #fff;
             background: rgba(255,255,255,0.1);
             backdrop-filter: blur(6px);
             -webkit-backdrop-filter: blur(6px);
-            padding: 6px 18px;
+            padding: 5px 16px;
             border-radius: 40px;
             border: 1px solid rgba(255,255,255,0.15);
         }
@@ -395,9 +408,8 @@
             gap: 16px;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 30px;
+            margin-bottom: 24px;
         }
-        /* Hero badges - mobile 3'lü düzen */
         .hero-badges {
             display: flex;
             justify-content: center;
@@ -411,17 +423,17 @@
             background: rgba(255,255,255,0.12);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
-            padding: 6px 14px;
+            padding: 5px 14px;
             border-radius: 40px;
             border: 1px solid rgba(255,255,255,0.15);
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 500;
             letter-spacing: 0.3px;
             color: #fff;
             transition: background 0.3s;
         }
         .hero-badges span:hover { background: rgba(255,255,255,0.22); }
-        .hero-badges i { color: var(--secondary); font-size: 0.85rem; }
+        .hero-badges i { color: var(--secondary); font-size: 0.8rem; }
 
         /* ========== SECTION TITLE ========== */
         .section-title {
@@ -497,14 +509,19 @@
         .service-card .btn-wa { width: 100%; max-width: 180px; }
 
         /* ========== BESTSELLERS - Horizontal Scroll ========== */
+        .bestsellers-scroll-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
         .bestsellers-scroll {
             display: flex;
-            gap: 20px;
+            gap: 16px;
             overflow-x: auto;
             padding: 10px 4px 20px 4px;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: thin;
+            transition: transform 0.5s ease;
         }
         .bestsellers-scroll::-webkit-scrollbar {
             height: 4px;
@@ -516,11 +533,11 @@
             border-radius: 4px;
         }
         .bestseller-card {
-            flex: 0 0 280px;
+            flex: 0 0 200px;
             scroll-snap-align: start;
             background: #fff;
             border-radius: 18px;
-            padding: 22px 20px;
+            padding: 16px 14px;
             border: 1px solid var(--light-gray);
             transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: flex;
@@ -534,7 +551,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0;
-            height: 4px;
+            height: 3px;
             background: linear-gradient(90deg, var(--secondary), #ffa550);
             transform: scaleX(0);
             transform-origin: left;
@@ -542,64 +559,64 @@
         }
         .bestseller-card:hover {
             border-color: var(--secondary);
-            box-shadow: 0 16px 40px rgba(244, 123, 32, 0.13);
-            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(244, 123, 32, 0.13);
+            transform: translateY(-4px);
         }
         .bestseller-card:hover::before { transform: scaleX(1); }
         .bestseller-card .badge {
             position: absolute;
-            top: 14px;
-            right: 14px;
+            top: 10px;
+            right: 10px;
             background: var(--secondary);
             color: #fff;
-            font-size: 0.6rem;
+            font-size: 0.5rem;
             font-weight: 800;
-            padding: 4px 14px;
+            padding: 3px 10px;
             border-radius: 30px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.3px;
         }
-        .product-name {
+        .bestseller-card .product-name {
             font-weight: 800;
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             color: var(--primary);
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
-        .product-code {
+        .bestseller-card .product-code {
             font-weight: 700;
             color: var(--secondary);
-            font-size: 0.8rem;
+            font-size: 0.7rem;
         }
-        .product-desc {
+        .bestseller-card .product-desc {
             color: var(--gray);
-            font-size: 0.9rem;
-            margin: 6px 0 12px;
+            font-size: 0.8rem;
+            margin: 4px 0 10px;
             flex: 1;
         }
-        .product-meta {
+        .bestseller-card .product-meta {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-top: auto;
-            padding-top: 14px;
+            padding-top: 10px;
             border-top: 1px solid var(--light-gray);
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 6px;
         }
-        .product-price {
+        .bestseller-card .product-price {
             font-weight: 900;
-            font-size: 1.4rem;
+            font-size: 1.1rem;
             color: var(--primary);
         }
-        .product-price small {
+        .bestseller-card .product-price small {
             font-weight: 400;
-            font-size: 0.75rem;
+            font-size: 0.65rem;
             color: var(--gray);
         }
-        .bestseller-card .btn-wa, .price-card .btn-wa {
-            padding: 6px 14px;
-            font-size: 0.8rem;
-            pointer-events: auto;
+        .bestseller-card .btn-wa {
+            padding: 4px 12px;
+            font-size: 0.7rem;
+            min-height: 30px;
         }
 
         /* ========== PRICE CARDS (grid) ========== */
@@ -632,6 +649,48 @@
             transform: translateY(-6px);
         }
         .price-card:hover::before { transform: scaleX(1); }
+        .price-card .product-name {
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+        .price-card .product-code {
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: 0.8rem;
+        }
+        .price-card .product-desc {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin: 6px 0 12px;
+            flex: 1;
+        }
+        .price-card .product-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 14px;
+            border-top: 1px solid var(--light-gray);
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .price-card .product-price {
+            font-weight: 900;
+            font-size: 1.4rem;
+            color: var(--primary);
+        }
+        .price-card .product-price small {
+            font-weight: 400;
+            font-size: 0.75rem;
+            color: var(--gray);
+        }
+        .price-card .btn-wa {
+            padding: 6px 14px;
+            font-size: 0.8rem;
+            pointer-events: auto;
+        }
 
         /* ========== COMPARISON TABLE ========== */
         .comparison {
@@ -949,8 +1008,8 @@
         }
         .contact-card {
             background: #fff;
-            border-radius: 20px;
-            padding: 28px 24px;
+            border-radius: 24px;
+            padding: 32px 28px;
             box-shadow: 0 8px 30px rgba(0,0,0,0.15);
             transition: 0.3s;
             color: #1a1a2e;
@@ -960,26 +1019,26 @@
             box-shadow: 0 16px 48px rgba(0,0,0,0.2);
         }
         .contact-card h3 {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 800;
             color: var(--primary);
-            margin-bottom: 16px;
+            margin-bottom: 18px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
-        .contact-card h3 i { color: var(--secondary); }
+        .contact-card h3 i { color: var(--secondary); font-size: 1.6rem; }
         .contact-card p {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             opacity: 0.9;
             font-size: 0.95rem;
             line-height: 1.6;
             color: #1a1a2e;
         }
-        .contact-card i { color: var(--secondary); width: 20px; text-align: center; }
+        .contact-card i { color: var(--secondary); width: 22px; text-align: center; font-size: 1.1rem; }
         .contact-card a {
             color: var(--primary);
             transition: color 0.3s;
@@ -987,19 +1046,25 @@
         .contact-card a:hover { color: var(--secondary); }
         .contact-card .bank-info {
             background: #f8f9fc;
-            border-radius: 12px;
-            padding: 14px 16px;
-            margin-top: 12px;
+            border-radius: 14px;
+            padding: 16px 18px;
+            margin-top: 14px;
             font-size: 0.9rem;
             border: 1px solid var(--light-gray);
         }
         .contact-card .bank-info p { margin-bottom: 4px; }
         .contact-card .bank-info strong { color: var(--secondary); }
         .contact-card .btn-primary {
-            margin-top: 16px;
+            margin-top: 18px;
             width: 100%;
             justify-content: center;
         }
+        .contact-card .btn-wa {
+            background: var(--primary);
+            color: #fff;
+            border: 1px solid var(--light-gray);
+        }
+        .contact-card .btn-wa:hover { background: #0d2a52; }
 
         /* ========== ABOUT ========== */
         .about-section {
@@ -1140,6 +1205,7 @@
             background: #fff;
             padding: 0 12px;
             z-index: 10;
+            border: none;
         }
         .close-modal:hover { color: var(--secondary); transform: rotate(90deg); }
         .modal-box h2 {
@@ -1276,14 +1342,15 @@
                 min-height: 52px;
                 border-bottom: none;
             }
-            /* Mobil grid 3'lü */
+            .logo-wrapper .slogan-text { font-size: 0.65rem; }
+            .logo-wrapper .logo-divider { font-size: 1rem; }
             .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 12px; }
             .hero-buttons { flex-direction: column; align-items: center; }
             .hero-buttons .btn-primary { width: 100%; max-width: 340px; }
             .hero-badges { gap: 8px; }
-            .hero-badges span { font-size: 0.7rem; padding: 4px 12px; }
+            .hero-badges span { font-size: 0.65rem; padding: 3px 10px; }
             .hero-features { gap: 8px 12px; }
-            .hero-features span { font-size: 0.8rem; padding: 4px 14px; }
+            .hero-features span { font-size: 0.75rem; padding: 4px 12px; }
             .floating-buttons { bottom: calc(16px + var(--safe-bottom)); right: calc(16px + var(--safe-right)); gap: 12px; }
             .float-btn { width: 54px; height: 54px; font-size: 1.4rem; }
             .faq-toggle-header { padding: 20px 24px; }
@@ -1298,9 +1365,12 @@
             .modal-table th, .modal-table td { padding: 10px 12px; }
             .modal-table .btn-wa { font-size: 0.65rem; padding: 4px 10px; }
             .about-grid { grid-template-columns: 1fr; }
-            .slogan-text { font-size: 0.75rem; }
             .district-grid { grid-template-columns: 1fr 1fr; }
             .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+            .bestseller-card { flex: 0 0 170px; padding: 14px 12px; }
+            .bestseller-card .product-name { font-size: 0.85rem; }
+            .bestseller-card .product-price { font-size: 1rem; }
+            .bestseller-card .btn-wa { font-size: 0.65rem; padding: 3px 10px; }
         }
         @media (max-width: 580px) {
             .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 8px; }
@@ -1308,27 +1378,29 @@
             .service-card img { width: 70px; height: 70px; }
             .service-card h3 { font-size: 0.9rem; }
             .service-card p { font-size: 0.75rem; }
-            .bestseller-card { flex: 0 0 240px; padding: 16px 14px; }
-            .bestseller-card .product-name { font-size: 0.95rem; }
-            .product-price { font-size: 1.1rem; }
             .price-card { padding: 16px 12px; }
             .price-card .product-name { font-size: 0.95rem; }
             .price-card .btn-wa { width: 100%; justify-content: center; }
             .trust-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
             .modal-table .btn-wa { display: block; width: 100%; text-align: center; }
             .district-grid { grid-template-columns: 1fr; }
-            .hero-badges span { font-size: 0.65rem; padding: 3px 10px; }
+            .hero-badges span { font-size: 0.6rem; padding: 3px 8px; }
             .hero-features span { font-size: 0.7rem; padding: 3px 10px; }
             .benefits-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
             .benefit-item { padding: 14px 8px; }
             .benefit-item i { font-size: 2rem; }
             .benefit-item h3 { font-size: 0.85rem; }
             .benefit-item p { font-size: 0.75rem; }
+            .bestseller-card { flex: 0 0 150px; padding: 12px 10px; }
+            .bestseller-card .product-name { font-size: 0.75rem; }
+            .bestseller-card .product-price { font-size: 0.9rem; }
+            .bestseller-card .product-desc { font-size: 0.7rem; }
         }
         @media (max-width: 480px) {
             .hero { min-height: 70vh; }
             .hero h1 { font-size: 1.8rem; line-height: 1.2; }
-            .hero .hero-desc { font-size: 0.95rem; margin-bottom: 20px; }
+            .hero .hero-sub { font-size: 1rem; }
+            .hero .hero-desc { font-size: 0.9rem; margin-bottom: 16px; }
             .hero .slogan { font-size: 1rem; }
             .section-title h2 { font-size: 1.8rem; }
             .city-tags { gap: 6px; }
@@ -1341,8 +1413,9 @@
             .modal-box h2 { font-size: 1.4rem; }
             .trust-grid { grid-template-columns: 1fr; }
             .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 6px; }
-            .slogan-text { display: none; }
             .contact-card { padding: 20px 16px; }
+            .logo-wrapper .slogan-text { display: none; }
+            .logo-wrapper .logo-divider { display: none; }
         }
         @media (max-width: 360px) {
             .hero h1 { font-size: 1.5rem; }
@@ -1351,7 +1424,7 @@
             .grid-3 { grid-template-columns: repeat(2, 1fr); gap: 6px; }
             .service-card img { width: 60px; height: 60px; }
             .service-card h3 { font-size: 0.8rem; }
-            .bestseller-card { flex: 0 0 200px; }
+            .bestseller-card { flex: 0 0 130px; }
         }
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after { animation-duration: 0ms !important; transition-duration: 0ms !important; }
@@ -1366,6 +1439,7 @@
     <div class="container">
         <div class="logo-wrapper">
             <div class="logo" onclick="location.href='#'">Karadeniz<span>Matbaa</span></div>
+            <span class="logo-divider">|</span>
             <span class="slogan-text">Yeni Nesil Dijital Matbaa</span>
         </div>
         <button class="mobile-menu-btn" id="menuToggle" onclick="toggleMenu()" aria-label="Menüyü aç/kapat" aria-expanded="false">
@@ -1388,12 +1462,12 @@
     <div class="hero-overlay"></div>
     <div class="container">
         <div class="slogan">Fiyatı Gör, WhatsApp'tan Yaz, Baskını Al.</div>
-        <h1>Samsun'da <span>Matbaa</span> – Hızlı, Şeffaf, Üyeliksiz</h1>
-        <p class="hero-desc">Kartvizit 195 TL'den başlayan fiyatlarla, 16 kategoride baskı hizmeti. WhatsApp'tan sipariş, ertesi gün kargo.</p>
+        <h1>Samsun <span>Matbaa</span></h1>
+        <div class="hero-sub">Hızlı, Şeffaf, Üyeliksiz</div>
+        <p class="hero-desc">16 kategoride baskı, ertesi gün kargo, KDV dahil fiyatlar.</p>
         <div class="hero-features">
             <span><i class="fas fa-th-list"></i> 16 Kategori</span>
             <span><i class="fas fa-truck"></i> Ertesi Gün Kargo</span>
-            <span><i class="fas fa-map-marker-alt"></i> 17 İlçe</span>
             <span><i class="fas fa-check-circle"></i> KDV Dahil</span>
         </div>
         <div class="hero-buttons">
@@ -1412,14 +1486,16 @@
     </div>
 </section>
 
-<!-- ========== BESTSELLERS (Horizontal Scroll) ========== -->
+<!-- ========== BESTSELLERS (Horizontal Scroll + Otomatik) ========== -->
 <section class="bestsellers" id="cok-satanlar">
     <div class="container">
         <div class="section-title fade-in">
             <h2>Çok Satanlar</h2>
             <p>En çok tercih edilen ürünlerimiz, en uygun fiyatlarla</p>
         </div>
-        <div class="bestsellers-scroll" id="bestsellersScroll"></div>
+        <div class="bestsellers-scroll-wrapper">
+            <div class="bestsellers-scroll" id="bestsellersScroll"></div>
+        </div>
     </div>
 </section>
 
@@ -2147,6 +2223,53 @@
                 card.innerHTML = '<span class="badge">' + (idx === 0 ? 'En Çok Satan' : 'Popüler') + '</span><div class="product-name">' + cat.name + ' <span class="product-code">(' + cat.variants[0].code + ')</span></div><div class="product-desc">' + cat.desc + '</div><div class="product-meta"><span class="product-price">' + cat.highlightPrice + '</span><a href="https://wa.me/905016675755?text=Merhaba,%20' + encodeURIComponent(cat.name) + '%20fiyatı%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn-wa"><i class="fab fa-whatsapp"></i> Sipariş</a></div>';
                 bestsellersScrollEl.appendChild(card);
             });
+            // Otomatik scroll başlat
+            startAutoScroll();
+        }
+
+        // ========== OTOMATİK SCROLL (Sonsuz) ==========
+        var autoScrollInterval = null;
+        var isUserInteracting = false;
+        var scrollTimeout = null;
+
+        function startAutoScroll() {
+            if (autoScrollInterval) clearInterval(autoScrollInterval);
+            autoScrollInterval = setInterval(function() {
+                if (isUserInteracting) return;
+                var container = bestsellersScrollEl;
+                if (!container) return;
+                var maxScroll = container.scrollWidth - container.clientWidth;
+                if (maxScroll <= 0) return;
+                var currentScroll = container.scrollLeft;
+                var nextScroll = currentScroll + 200; // bir kart genişliği
+                if (nextScroll >= maxScroll) {
+                    // Başa dön
+                    container.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    container.scrollTo({ left: nextScroll, behavior: 'smooth' });
+                }
+            }, 4000);
+        }
+
+        // Kullanıcı etkileşiminde otomatik scroll'u duraklat
+        if (bestsellersScrollEl) {
+            bestsellersScrollEl.addEventListener('touchstart', function() {
+                isUserInteracting = true;
+                if (scrollTimeout) clearTimeout(scrollTimeout);
+            });
+            bestsellersScrollEl.addEventListener('touchend', function() {
+                scrollTimeout = setTimeout(function() {
+                    isUserInteracting = false;
+                }, 3000);
+            });
+            bestsellersScrollEl.addEventListener('mouseenter', function() {
+                isUserInteracting = true;
+            });
+            bestsellersScrollEl.addEventListener('mouseleave', function() {
+                setTimeout(function() {
+                    isUserInteracting = false;
+                }, 1000);
+            });
         }
 
         function renderServices() {
@@ -2187,7 +2310,7 @@
         }
 
         // ========== MODAL FUNCTIONS ==========
-        function openProductModal(categoryId) {
+        window.openProductModal = function(categoryId) {
             var cat = categories.find(function(c) { return c.id === categoryId; });
             if (!cat) return;
             if (cat.link) {
@@ -2207,14 +2330,14 @@
             });
             productModalEl.classList.add('active');
             document.body.classList.add('no-scroll');
-        }
+        };
 
-        function closeProductModal() {
+        window.closeProductModal = function() {
             productModalEl.classList.remove('active');
             document.body.classList.remove('no-scroll');
-        }
+        };
 
-        function openArticleModal(categoryId) {
+        window.openArticleModal = function(categoryId) {
             var cat = categories.find(function(c) { return c.id === categoryId; });
             if (!cat) return;
             if (cat.link) {
@@ -2229,12 +2352,12 @@
             articleModalImgEl.alt = cat.name;
             articleModalEl.classList.add('active');
             document.body.classList.add('no-scroll');
-        }
+        };
 
-        function closeArticleModal() {
+        window.closeArticleModal = function() {
             articleModalEl.classList.remove('active');
             document.body.classList.remove('no-scroll');
-        }
+        };
 
         // ========== NAVBAR MENU ==========
         window.toggleMenu = function() {
@@ -2315,7 +2438,7 @@
                         window.location.href = cat.link;
                         return;
                     }
-                    if (key && articleData[key]) openArticleModal(key);
+                    if (key && articleData[key]) window.openArticleModal(key);
                 });
             });
 
@@ -2323,18 +2446,18 @@
                 card.addEventListener('click', function(e) {
                     if (e.target.closest('.btn-wa')) return;
                     var key = this.dataset.category;
-                    if (key) openProductModal(key);
+                    if (key) window.openProductModal(key);
                 });
             });
 
             document.getElementById('productModal').addEventListener('click', function(e) {
-                if (e.target === this) closeProductModal();
+                if (e.target === this) window.closeProductModal();
             });
             document.getElementById('articleModal').addEventListener('click', function(e) {
-                if (e.target === this) closeArticleModal();
+                if (e.target === this) window.closeArticleModal();
             });
             document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') { closeProductModal(); closeArticleModal(); }
+                if (e.key === 'Escape') { window.closeProductModal(); window.closeArticleModal(); }
             });
         });
 
