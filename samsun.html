@@ -1062,7 +1062,7 @@
             font-size: 0.9rem;
             border: 1px solid rgba(255,255,255,0.08);
         }
-        .contact-card .bank-info p { margin-bottom: 4px; }
+        .contact-card .bank-info p { margin-bottom: 4px; display: block; }
         .contact-card .bank-info strong { color: var(--secondary); }
         .contact-card .btn-primary {
             margin-top: 16px;
@@ -1072,6 +1072,10 @@
             color: #fff;
         }
         .contact-card .btn-primary:hover { background: #d96a0e; }
+        .contact-card .address-line {
+            display: block !important;
+            align-items: flex-start !important;
+        }
 
         /* ========== ABOUT ========== */
         .about-section {
@@ -1349,6 +1353,12 @@
                 min-height: 52px;
                 border-bottom: none;
             }
+            /* Logo ve slogan düzeni */
+            .logo-divider, .slogan-text { display: none; }
+            nav .container { flex-wrap: nowrap; }
+            .logo-wrapper { gap: 0; }
+            .logo { font-size: 1.6rem; }
+            
             .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 12px; }
             .hero-buttons { flex-direction: column; align-items: center; }
             .hero-buttons .btn-primary { width: 100%; max-width: 340px; }
@@ -1370,12 +1380,22 @@
             .modal-table th, .modal-table td { padding: 10px 12px; }
             .modal-table .btn-wa { font-size: 0.65rem; padding: 4px 10px; }
             .about-grid { grid-template-columns: 1fr; }
-            .slogan-text { font-size: 0.75rem; }
-            .logo-divider { font-size: 1rem; }
             .benefits-grid { grid-template-columns: repeat(2, 1fr); }
-            .district-scroll .district-card { flex: 0 0 180px; padding: 14px 12px; }
+            
+            /* Çok Satanlar mobil düzen */
+            .bestseller-card { flex: 0 0 165px; padding: 14px 12px; }
+            .bestseller-card .product-name { font-size: 0.85rem; }
+            .bestseller-card .product-price { font-size: 1rem; }
+            .bestseller-card .btn-wa { font-size: 0.65rem; padding: 4px 10px; }
+            
+            /* İlçeler mobil düzen */
+            .district-scroll .district-card { flex: 0 0 160px; padding: 14px 10px; }
             .district-scroll .district-card h3 { font-size: 0.85rem; }
             .district-scroll .district-card p { font-size: 0.75rem; }
+            
+            /* Hakkımızda mobil düzen */
+            .about-image img { max-height: 280px; object-fit: cover; }
+            .about-text p { font-size: 0.95rem; line-height: 1.7; }
         }
         @media (max-width: 580px) {
             .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 8px; }
@@ -1398,7 +1418,7 @@
             .benefit-item i { font-size: 2rem; }
             .benefit-item h3 { font-size: 0.85rem; }
             .benefit-item p { font-size: 0.75rem; }
-            .district-scroll .district-card { flex: 0 0 160px; padding: 12px 10px; }
+            .district-scroll .district-card { flex: 0 0 150px; padding: 12px 10px; }
         }
         @media (max-width: 480px) {
             .hero { min-height: 80vh; }
@@ -1418,8 +1438,6 @@
             .trust-grid { grid-template-columns: 1fr; }
             .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 6px; }
             .contact-grid { gap: 20px; }
-            .slogan-text { font-size: 0.65rem; }
-            .logo-divider { font-size: 0.8rem; }
             .logo { font-size: 1.4rem; }
         }
         @media (max-width: 360px) {
@@ -1431,8 +1449,6 @@
             .service-card h3 { font-size: 0.8rem; }
             .bestseller-card { flex: 0 0 140px; }
             .district-scroll .district-card { flex: 0 0 140px; }
-            .slogan-text { display: none; }
-            .logo-divider { display: none; }
         }
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after { animation-duration: 0ms !important; transition-duration: 0ms !important; }
@@ -1661,10 +1677,10 @@
             <div class="contact-card">
                 <h3><i class="fas fa-map-marked-alt"></i> Konumlarımız</h3>
                 <p><strong><i class="fas fa-industry"></i> Toraman Matbaa</strong></p>
-                <p>2. Matbaacılar Sitesi 5.Kat E Blok 3NE19 Topkapı - İSTANBUL</p>
+                <p class="address-line">2. Matbaacılar Sitesi 5.Kat E Blok 3NE19 Topkapı - İSTANBUL</p>
                 <p><a href="https://toramanmatbaa.com" target="_blank" rel="noopener noreferrer" style="color:var(--secondary);">toramanmatbaa.com</a> | 444 5 340</p>
                 <p style="margin-top:12px;"><strong><i class="fas fa-store"></i> Uzman Reklam</strong></p>
-                <p>Emirefendi Mh. Çizmeli 2.Sk. No:33, Bafra / SAMSUN</p>
+                <p class="address-line">Emirefendi Mh. Çizmeli 2.Sk. No:33, Bafra / SAMSUN</p>
                 <p><a href="https://samsuntabela.tr" target="_blank" rel="noopener noreferrer" style="color:var(--secondary);">samsuntabela.tr</a> | 0532 220 46 49</p>
                 <div style="display:flex; gap:12px; margin-top:16px; flex-wrap:wrap;">
                     <a href="https://maps.app.goo.gl/fu8u5zSVSsvjjc6C6" target="_blank" rel="noopener noreferrer" class="btn-wa" style="background:rgba(255,255,255,0.15); color:#fff; border:1px solid rgba(255,255,255,0.2);"><i class="fas fa-map-pin"></i> Toraman Harita</a>
@@ -1819,6 +1835,36 @@
         if (btn) btn.setAttribute('aria-expanded', isOpen);
         document.body.classList.toggle('no-scroll', isOpen);
     };
+
+    // Hamburger menü linklerine tıklanınca menüyü kapat ve hedefe yumuşak scroll
+    document.addEventListener('DOMContentLoaded', function() {
+        var navLinks = document.querySelectorAll('#navLinks a');
+        navLinks.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                // Menüyü kapat
+                var nav = document.getElementById('navLinks');
+                var bars = document.getElementById('menuIconBars');
+                var times = document.getElementById('menuIconTimes');
+                var btn = document.getElementById('menuToggle');
+                nav.classList.remove('open');
+                bars.style.display = 'inline-block';
+                times.style.display = 'none';
+                if (btn) btn.setAttribute('aria-expanded', 'false');
+                document.body.classList.remove('no-scroll');
+                // Eğer link bir anchor ise ve sayfa içi bir hedefe gidiyorsa, scroll'u yumuşak yap
+                var href = link.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    var targetId = href.substring(1);
+                    var target = document.getElementById(targetId);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+                // Eğer link normal bir URL'ye gidiyorsa (örn. https://...), tıklama işlemi devam etsin
+            });
+        });
+    });
 
     window.toggleFaq = function() {
         var content = document.getElementById('faqContent');
