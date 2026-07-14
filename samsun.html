@@ -257,8 +257,9 @@
         }
         .logo-wrapper {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 10px;
+            gap: 4px;
         }
         .logo {
             font-size: 1.8rem;
@@ -269,10 +270,12 @@
         }
         .logo span { color: var(--secondary); }
         .slogan-text {
-            font-size: 1rem;
+            font-size: 0.85rem;
             font-weight: 600;
-            color: #b0c4de;
+            color: #fff;
             letter-spacing: 0.3px;
+            text-shadow: 0 0 12px rgba(255,255,255,0.15), 0 0 30px rgba(244,123,32,0.1);
+            opacity: 0.9;
             white-space: nowrap;
         }
         .nav-links {
@@ -332,7 +335,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(145deg, rgba(10,30,58,0.78) 0%, rgba(10,30,58,0.55) 50%, rgba(10,30,58,0.70) 100%);
+            background: linear-gradient(145deg, rgba(10,30,58,0.6) 0%, rgba(10,30,58,0.35) 50%, rgba(10,30,58,0.5) 100%);
             z-index: 1;
         }
         .hero .container {
@@ -394,30 +397,31 @@
             flex-wrap: wrap;
             margin-bottom: 30px;
         }
+        /* Hero badges - mobile 3'lü düzen */
         .hero-badges {
             display: flex;
             justify-content: center;
-            gap: 16px;
+            gap: 12px;
             flex-wrap: wrap;
         }
         .hero-badges span {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             background: rgba(255,255,255,0.12);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
-            padding: 6px 18px;
+            padding: 6px 14px;
             border-radius: 40px;
             border: 1px solid rgba(255,255,255,0.15);
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 500;
             letter-spacing: 0.3px;
             color: #fff;
             transition: background 0.3s;
         }
         .hero-badges span:hover { background: rgba(255,255,255,0.22); }
-        .hero-badges i { color: var(--secondary); font-size: 0.9rem; }
+        .hero-badges i { color: var(--secondary); font-size: 0.85rem; }
 
         /* ========== SECTION TITLE ========== */
         .section-title {
@@ -492,8 +496,28 @@
         }
         .service-card .btn-wa { width: 100%; max-width: 180px; }
 
-        /* ========== BESTSELLERS & PRICE CARDS ========== */
-        .bestseller-card, .price-card {
+        /* ========== BESTSELLERS - Horizontal Scroll ========== */
+        .bestsellers-scroll {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 10px 4px 20px 4px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+        }
+        .bestsellers-scroll::-webkit-scrollbar {
+            height: 4px;
+            background: var(--light-gray);
+            border-radius: 4px;
+        }
+        .bestsellers-scroll::-webkit-scrollbar-thumb {
+            background: var(--secondary);
+            border-radius: 4px;
+        }
+        .bestseller-card {
+            flex: 0 0 280px;
+            scroll-snap-align: start;
             background: #fff;
             border-radius: 18px;
             padding: 22px 20px;
@@ -506,7 +530,7 @@
             overflow: hidden;
             cursor: pointer;
         }
-        .bestseller-card::before, .price-card::before {
+        .bestseller-card::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0;
@@ -516,12 +540,12 @@
             transform-origin: left;
             transition: transform 0.4s ease;
         }
-        .bestseller-card:hover, .price-card:hover {
+        .bestseller-card:hover {
             border-color: var(--secondary);
             box-shadow: 0 16px 40px rgba(244, 123, 32, 0.13);
             transform: translateY(-6px);
         }
-        .bestseller-card:hover::before, .price-card:hover::before { transform: scaleX(1); }
+        .bestseller-card:hover::before { transform: scaleX(1); }
         .bestseller-card .badge {
             position: absolute;
             top: 14px;
@@ -577,6 +601,37 @@
             font-size: 0.8rem;
             pointer-events: auto;
         }
+
+        /* ========== PRICE CARDS (grid) ========== */
+        .price-card {
+            background: #fff;
+            border-radius: 18px;
+            padding: 22px 20px;
+            border: 1px solid var(--light-gray);
+            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), #ffa550);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        .price-card:hover {
+            border-color: var(--secondary);
+            box-shadow: 0 16px 40px rgba(244, 123, 32, 0.13);
+            transform: translateY(-6px);
+        }
+        .price-card:hover::before { transform: scaleX(1); }
 
         /* ========== COMPARISON TABLE ========== */
         .comparison {
@@ -647,49 +702,53 @@
             margin-top: 4px;
         }
 
-        /* ========== BENEFITS ========== */
+        /* ========== BENEFITS - iOS kalitesinde grid ========== */
         .benefits {
             padding: clamp(50px, 10vw, 80px) 0;
             background: #fff;
         }
         .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
         }
         .benefit-item {
             text-align: center;
-            padding: 25px 15px;
+            padding: 20px 12px;
             border-radius: 16px;
+            background: #f8f9fc;
             transition: all 0.3s ease;
+            border: 1px solid transparent;
             cursor: default;
         }
         .benefit-item:hover {
             background: #fff;
             box-shadow: 0 8px 24px rgba(244, 123, 32, 0.08);
             transform: translateY(-6px);
+            border-color: var(--secondary);
         }
         .benefit-item i {
-            font-size: 3rem;
+            font-size: 2.6rem;
             color: var(--secondary);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             display: inline-block;
             transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .benefit-item:hover i {
-            transform: scale(1.2) rotate(-6deg);
+            transform: scale(1.15) rotate(-4deg);
             color: var(--primary);
             filter: drop-shadow(0 4px 12px rgba(244,123,32,0.3));
         }
         .benefit-item h3 {
             font-weight: 700;
             color: var(--primary);
-            margin-bottom: 8px;
-            font-size: 1.1rem;
+            margin-bottom: 4px;
+            font-size: 1rem;
         }
         .benefit-item p {
             color: var(--gray);
-            font-size: 0.95rem;
+            font-size: 0.85rem;
+            line-height: 1.5;
         }
 
         /* ========== SERVICE AREAS ========== */
@@ -874,7 +933,7 @@
         }
         .faq-answer.show { display: block; }
 
-        /* ========== CONTACT ========== */
+        /* ========== CONTACT - iOS kartlar ========== */
         .contact {
             padding: clamp(50px, 10vw, 80px) 0;
             padding-bottom: calc(clamp(50px, 10vw, 80px) + var(--safe-bottom));
@@ -889,21 +948,21 @@
             margin: 0 auto;
         }
         .contact-card {
-            background: rgba(255,255,255,0.07);
+            background: #fff;
             border-radius: 20px;
             padding: 28px 24px;
-            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
             transition: 0.3s;
+            color: #1a1a2e;
         }
         .contact-card:hover {
-            background: rgba(255,255,255,0.12);
-            border-color: var(--secondary);
-            transform: translateY(-4px);
+            transform: translateY(-6px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.2);
         }
         .contact-card h3 {
             font-size: 1.2rem;
             font-weight: 800;
-            color: #fff;
+            color: var(--primary);
             margin-bottom: 16px;
             display: flex;
             align-items: center;
@@ -918,22 +977,29 @@
             opacity: 0.9;
             font-size: 0.95rem;
             line-height: 1.6;
+            color: #1a1a2e;
         }
         .contact-card i { color: var(--secondary); width: 20px; text-align: center; }
         .contact-card a {
-            color: #fff;
+            color: var(--primary);
             transition: color 0.3s;
         }
         .contact-card a:hover { color: var(--secondary); }
         .contact-card .bank-info {
-            background: rgba(255,255,255,0.05);
+            background: #f8f9fc;
             border-radius: 12px;
             padding: 14px 16px;
             margin-top: 12px;
             font-size: 0.9rem;
+            border: 1px solid var(--light-gray);
         }
         .contact-card .bank-info p { margin-bottom: 4px; }
         .contact-card .bank-info strong { color: var(--secondary); }
+        .contact-card .btn-primary {
+            margin-top: 16px;
+            width: 100%;
+            justify-content: center;
+        }
 
         /* ========== ABOUT ========== */
         .about-section {
@@ -1177,6 +1243,7 @@
             .about-grid { grid-template-columns: 1fr; gap: 30px; }
             .contact-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
             .trust-grid { grid-template-columns: repeat(2, 1fr); }
+            .benefits-grid { grid-template-columns: repeat(3, 1fr); }
         }
         @media (max-width: 768px) {
             .mobile-menu-btn { display: block; }
@@ -1209,12 +1276,13 @@
                 min-height: 52px;
                 border-bottom: none;
             }
-            .grid-3 { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+            /* Mobil grid 3'lü */
+            .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 12px; }
             .hero-buttons { flex-direction: column; align-items: center; }
             .hero-buttons .btn-primary { width: 100%; max-width: 340px; }
-            .hero-badges { gap: 10px; font-size: 0.7rem; }
-            .hero-badges span { padding: 4px 14px; }
-            .hero-features { gap: 8px 16px; }
+            .hero-badges { gap: 8px; }
+            .hero-badges span { font-size: 0.7rem; padding: 4px 12px; }
+            .hero-features { gap: 8px 12px; }
             .hero-features span { font-size: 0.8rem; padding: 4px 14px; }
             .floating-buttons { bottom: calc(16px + var(--safe-bottom)); right: calc(16px + var(--safe-right)); gap: 12px; }
             .float-btn { width: 54px; height: 54px; font-size: 1.4rem; }
@@ -1230,22 +1298,32 @@
             .modal-table th, .modal-table td { padding: 10px 12px; }
             .modal-table .btn-wa { font-size: 0.65rem; padding: 4px 10px; }
             .about-grid { grid-template-columns: 1fr; }
-            .slogan-text { font-size: 0.85rem; }
+            .slogan-text { font-size: 0.75rem; }
             .district-grid { grid-template-columns: 1fr 1fr; }
+            .benefits-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 580px) {
-            .grid-3 { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-            .service-card { padding: 20px 14px; }
-            .service-card img { width: 80px; height: 80px; }
-            .service-card h3 { font-size: 1rem; }
-            .service-card p { font-size: 0.8rem; }
-            .bestseller-card, .price-card { padding: 16px 14px; }
-            .bestseller-card .product-name, .price-card .product-name { font-size: 1rem; }
-            .product-price { font-size: 1.2rem; }
+            .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+            .service-card { padding: 16px 10px; }
+            .service-card img { width: 70px; height: 70px; }
+            .service-card h3 { font-size: 0.9rem; }
+            .service-card p { font-size: 0.75rem; }
+            .bestseller-card { flex: 0 0 240px; padding: 16px 14px; }
+            .bestseller-card .product-name { font-size: 0.95rem; }
+            .product-price { font-size: 1.1rem; }
+            .price-card { padding: 16px 12px; }
+            .price-card .product-name { font-size: 0.95rem; }
             .price-card .btn-wa { width: 100%; justify-content: center; }
             .trust-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
             .modal-table .btn-wa { display: block; width: 100%; text-align: center; }
             .district-grid { grid-template-columns: 1fr; }
+            .hero-badges span { font-size: 0.65rem; padding: 3px 10px; }
+            .hero-features span { font-size: 0.7rem; padding: 3px 10px; }
+            .benefits-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .benefit-item { padding: 14px 8px; }
+            .benefit-item i { font-size: 2rem; }
+            .benefit-item h3 { font-size: 0.85rem; }
+            .benefit-item p { font-size: 0.75rem; }
         }
         @media (max-width: 480px) {
             .hero { min-height: 70vh; }
@@ -1253,7 +1331,6 @@
             .hero .hero-desc { font-size: 0.95rem; margin-bottom: 20px; }
             .hero .slogan { font-size: 1rem; }
             .section-title h2 { font-size: 1.8rem; }
-            .benefits-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
             .city-tags { gap: 6px; }
             .city-tag { padding: 4px 12px; font-size: 0.7rem; }
             .faq-toggle-header h2 { font-size: 1.2rem; }
@@ -1263,7 +1340,7 @@
             .modal-box { padding: 16px 12px; }
             .modal-box h2 { font-size: 1.4rem; }
             .trust-grid { grid-template-columns: 1fr; }
-            .grid-3 { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 6px; }
             .slogan-text { display: none; }
             .contact-card { padding: 20px 16px; }
         }
@@ -1271,9 +1348,10 @@
             .hero h1 { font-size: 1.5rem; }
             .benefits-grid { grid-template-columns: 1fr; }
             .logo { font-size: 1.5rem; }
-            .grid-3 { grid-template-columns: 1fr 1fr; gap: 8px; }
-            .service-card img { width: 70px; height: 70px; }
-            .service-card h3 { font-size: 0.85rem; }
+            .grid-3 { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+            .service-card img { width: 60px; height: 60px; }
+            .service-card h3 { font-size: 0.8rem; }
+            .bestseller-card { flex: 0 0 200px; }
         }
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after { animation-duration: 0ms !important; transition-duration: 0ms !important; }
@@ -1310,13 +1388,13 @@
     <div class="hero-overlay"></div>
     <div class="container">
         <div class="slogan">Fiyatı Gör, WhatsApp'tan Yaz, Baskını Al.</div>
-        <h1>Samsun'da <span>Matbaa</span> – Uzman Reklam İşbirliğiyle</h1>
-        <p class="hero-desc">Bafra merkezli Uzman Reklam ile Samsun'un 17 ilçesine hızlı teslimat. Kartvizit 195 TL'den, üyelik yok, WhatsApp'tan sipariş.</p>
+        <h1>Samsun'da <span>Matbaa</span> – Hızlı, Şeffaf, Üyeliksiz</h1>
+        <p class="hero-desc">Kartvizit 195 TL'den başlayan fiyatlarla, 16 kategoride baskı hizmeti. WhatsApp'tan sipariş, ertesi gün kargo.</p>
         <div class="hero-features">
-            <span><i class="fas fa-check-circle"></i> 16 Kategori</span>
+            <span><i class="fas fa-th-list"></i> 16 Kategori</span>
             <span><i class="fas fa-truck"></i> Ertesi Gün Kargo</span>
-            <span><i class="fas fa-handshake"></i> Uzman Reklam İşbirliği</span>
             <span><i class="fas fa-map-marker-alt"></i> 17 İlçe</span>
+            <span><i class="fas fa-check-circle"></i> KDV Dahil</span>
         </div>
         <div class="hero-buttons">
             <a href="https://wa.me/905016675755?text=Merhaba,%20karadenizmatbaa.com%20üzerinden%20teklif%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn-primary">
@@ -1327,22 +1405,21 @@
             </a>
         </div>
         <div class="hero-badges">
-            <span><i class="fas fa-check-circle"></i> KDV Dahil Fiyat</span>
-            <span><i class="fas fa-map-marker-alt"></i> 17 İlçeye Teslimat</span>
-            <span><i class="fas fa-truck"></i> Ertesi Gün Kargo</span>
-            <span><i class="fas fa-handshake"></i> Uzman Reklam İşbirliği</span>
+            <span><i class="fas fa-check-circle"></i> KDV Dahil</span>
+            <span><i class="fas fa-map-marker-alt"></i> 17 İlçe</span>
+            <span><i class="fas fa-truck"></i> Ertesi Gün</span>
         </div>
     </div>
 </section>
 
-<!-- ========== BESTSELLERS ========== -->
+<!-- ========== BESTSELLERS (Horizontal Scroll) ========== -->
 <section class="bestsellers" id="cok-satanlar">
     <div class="container">
         <div class="section-title fade-in">
             <h2>Çok Satanlar</h2>
             <p>En çok tercih edilen ürünlerimiz, en uygun fiyatlarla</p>
         </div>
-        <div class="grid-3" id="bestsellersGrid"></div>
+        <div class="bestsellers-scroll" id="bestsellersScroll"></div>
     </div>
 </section>
 
@@ -1420,7 +1497,7 @@
     <div class="container">
         <div class="section-title fade-in">
             <h2>Samsun'da Hizmet Verdiğimiz İlçeler</h2>
-            <p>Bafra merkezli Uzman Reklam işbirliğiyle Samsun'un 17 ilçesinin tamamına hızlı teslimat sağlıyoruz</p>
+            <p>Samsun'un 17 ilçesine hızlı teslimat sağlıyoruz</p>
         </div>
         <div class="city-tags" id="cityList"></div>
         <div class="district-grid" id="districtGrid"></div>
@@ -1466,7 +1543,7 @@
     </div>
 </section>
 
-<!-- ========== CONTACT ========== -->
+<!-- ========== CONTACT (iOS kartlar) ========== -->
 <section class="contact" id="iletisim">
     <div class="container">
         <div class="section-title" style="color: #fff; margin-bottom: 40px;">
@@ -1481,7 +1558,7 @@
                 <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/905016675755" target="_blank" rel="noopener noreferrer">WhatsApp ile Yazın</a></p>
                 <p><i class="fas fa-envelope"></i> <a href="mailto:info@karadenizmatbaa.com">info@karadenizmatbaa.com</a></p>
                 <p><i class="fas fa-clock"></i> Hafta içi 09:00-19:00, Cmt 09:00-15:00</p>
-                <a href="https://wa.me/905016675755?text=Merhaba,%20karadenizmatbaa.com%20üzerinden%20teklif%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn-primary" style="margin-top:16px; width:100%;"><i class="fab fa-whatsapp"></i> WhatsApp ile Yaz</a>
+                <a href="https://wa.me/905016675755?text=Merhaba,%20karadenizmatbaa.com%20üzerinden%20teklif%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn-primary"><i class="fab fa-whatsapp"></i> WhatsApp ile Yaz</a>
             </div>
             <!-- Banka Bilgileri Kartı -->
             <div class="contact-card">
@@ -1506,8 +1583,8 @@
                 <p>Emirefendi Mh. Çizmeli 2.Sk. No:33, Bafra / SAMSUN</p>
                 <p><a href="https://samsuntabela.tr" target="_blank" rel="noopener noreferrer" style="color:var(--secondary);">samsuntabela.tr</a> | 0532 220 46 49</p>
                 <div style="display:flex; gap:12px; margin-top:16px; flex-wrap:wrap;">
-                    <a href="https://maps.app.goo.gl/fu8u5zSVSsvjjc6C6" target="_blank" rel="noopener noreferrer" class="btn-wa" style="background:rgba(255,255,255,0.15); color:#fff; border:1px solid rgba(255,255,255,0.2);"><i class="fas fa-map-pin"></i> Toraman Harita</a>
-                    <a href="https://share.google/BummaKok6BCqbsT3f" target="_blank" rel="noopener noreferrer" class="btn-wa" style="background:rgba(255,255,255,0.15); color:#fff; border:1px solid rgba(255,255,255,0.2);"><i class="fas fa-map-pin"></i> Uzman Reklam</a>
+                    <a href="https://maps.app.goo.gl/fu8u5zSVSsvjjc6C6" target="_blank" rel="noopener noreferrer" class="btn-wa" style="background:var(--primary); color:#fff; border:1px solid var(--light-gray);"><i class="fas fa-map-pin"></i> Toraman Harita</a>
+                    <a href="https://share.google/BummaKok6BCqbsT3f" target="_blank" rel="noopener noreferrer" class="btn-wa" style="background:var(--primary); color:#fff; border:1px solid var(--light-gray);"><i class="fas fa-map-pin"></i> Uzman Reklam</a>
                 </div>
             </div>
         </div>
@@ -1970,7 +2047,7 @@
         // ========== DOM ELEMANLARI ==========
         var cityListEl = document.getElementById('cityList');
         var districtGridEl = document.getElementById('districtGrid');
-        var bestsellersGridEl = document.getElementById('bestsellersGrid');
+        var bestsellersScrollEl = document.getElementById('bestsellersScroll');
         var servicesGridEl = document.getElementById('servicesGrid');
         var priceGridEl = document.getElementById('priceGrid');
         var faqListEl = document.getElementById('faqList');
@@ -2049,7 +2126,6 @@
                 districtVisibleCount = districtCards.length;
             }
             updateDistrictVisibility();
-            // Kaydırma yardımı
             if (districtVisibleCount === districtCards.length) {
                 setTimeout(function() {
                     districtGridEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -2062,14 +2138,14 @@
         }
 
         function renderBestsellers() {
-            if (!bestsellersGridEl) return;
-            bestsellersGridEl.innerHTML = '';
+            if (!bestsellersScrollEl) return;
+            bestsellersScrollEl.innerHTML = '';
             bestsellers.forEach(function(cat, idx) {
                 var card = document.createElement('div');
-                card.className = 'bestseller-card fade-in';
+                card.className = 'bestseller-card';
                 card.dataset.category = cat.id;
                 card.innerHTML = '<span class="badge">' + (idx === 0 ? 'En Çok Satan' : 'Popüler') + '</span><div class="product-name">' + cat.name + ' <span class="product-code">(' + cat.variants[0].code + ')</span></div><div class="product-desc">' + cat.desc + '</div><div class="product-meta"><span class="product-price">' + cat.highlightPrice + '</span><a href="https://wa.me/905016675755?text=Merhaba,%20' + encodeURIComponent(cat.name) + '%20fiyatı%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn-wa"><i class="fab fa-whatsapp"></i> Sipariş</a></div>';
-                bestsellersGridEl.appendChild(card);
+                bestsellersScrollEl.appendChild(card);
             });
         }
 
@@ -2265,7 +2341,7 @@
         // ========== SCROLL FADE-IN ==========
         var observer;
         function initFadeIn() {
-            var fadeEls = document.querySelectorAll('.fade-in, .service-card, .bestseller-card, .price-card, .benefit-item, .city-tag, .district-card, .faq-item, .trust-item');
+            var fadeEls = document.querySelectorAll('.fade-in, .service-card, .price-card, .benefit-item, .city-tag, .district-card, .faq-item, .trust-item');
             fadeEls.forEach(function(el, i) {
                 el.classList.add('fade-in');
                 var parent = el.parentElement;
