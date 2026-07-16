@@ -304,8 +304,8 @@
         /* ========== HERO ========== */
         .hero {
             position: relative;
-            min-height: 100vh;
-            min-height: 100dvh;
+            min-height: 90vh;
+            min-height: 90dvh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -320,13 +320,12 @@
             left: 0;
             width: 100%;
             height: 100%;
+            background: linear-gradient(145deg, #06152a 0%, #0a1e3a 30%, #0d2547 60%, #0a1e3a 100%);
+            background-image: url('makinaparkuru.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             z-index: 0;
-        }
-        .hero-bg img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
         }
         .hero-overlay {
             position: absolute;
@@ -1299,7 +1298,8 @@
                 min-height: 52px;
                 border-bottom: none;
             }
-            .logo-divider,            nav .container { flex-wrap: nowrap; }
+            .logo-divider, .slogan-text { display: none; }
+            nav .container { flex-wrap: nowrap; }
             .logo-wrapper { gap: 0; }
             .logo { font-size: 1.6rem; }
             .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 12px; }
@@ -1406,9 +1406,7 @@
 
 <!-- ========== HERO ========== -->
 <section class="hero">
-    <div class="hero-bg">
-        <img src="makinaparkuru.png" alt="Karadeniz Matbaa Makine Parkuru" />
-    </div>
+    <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
     <div class="container">
         <div class="slogan">81 İl • 16 Kategori • Ertesi Gün Kargo</div>
@@ -1651,8 +1649,8 @@
             <a href="#hakkimizda">Hakkımızda</a>
             <a href="#faqToggle">Sık Sorulanlar</a>
             <a href="#iletisim">İletişim</a>
-            <a onclick="openModal('kvkk')">KVKK</a>
-            <a onclick="openModal('gizlilik')">Gizlilik Politikası</a>
+            <a href="javascript:void(0)" onclick="openModal('kvkk')">KVKK</a>
+            <a href="javascript:void(0)" onclick="openModal('gizlilik')">Gizlilik Politikası</a>
         </div>
         <div class="footer-col">
             <h4>Bize Ulaşın</h4>
@@ -1669,7 +1667,7 @@
 <!-- ========== KVKK MODAL ========== -->
 <div class="modal-overlay" id="kvkkModal">
     <div class="modal-box">
-        <span class="close-modal" onclick="closeModal('kvkkModal')">&times;</span>
+        <button class="close-modal" onclick="closeModal('kvkkModal')">&times;</button>
         <h2>KVKK Aydınlatma Metni</h2>
         <p><strong>Karadeniz Matbaa</strong> olarak, 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) uyarınca, veri sorumlusu sıfatıyla, kişisel verilerinizin güvenliğine ve hukuka uygun olarak işlenmesine azami hassasiyet göstermekteyiz. Bu aydınlatma metni, sitemizi ziyaret eden ve bizimle iletişime geçen tüm kullanıcılarımızı bilgilendirmek amacıyla hazırlanmıştır.</p>
         <h3 style="color:var(--primary); margin: 20px 0 10px; font-size:1.1rem;">1. İşlenen Kişisel Veriler ve İşleme Amaçları</h3>
@@ -1692,7 +1690,7 @@
 <!-- ========== GİZLİLİK MODAL ========== -->
 <div class="modal-overlay" id="gizlilikModal">
     <div class="modal-box">
-        <span class="close-modal" onclick="closeModal('gizlilikModal')">&times;</span>
+        <button class="close-modal" onclick="closeModal('gizlilikModal')">&times;</button>
         <h2>Gizlilik Politikası</h2>
         <p><strong>Karadeniz Matbaa</strong> olarak, müşteri gizliliğine azami özen gösteriyoruz. Sitemizi ziyaret eden kullanıcıların bilgileri yalnızca sipariş süreçleri ve hizmet kalitemizi artırmak amacıyla kullanılır.</p>
         <h3 style="color:var(--primary); margin: 20px 0 10px; font-size:1.1rem;">Çerezler (Cookies)</h3>
@@ -1707,7 +1705,7 @@
 <!-- ========== FİYAT MODALI ========== -->
 <div class="modal-overlay" id="productModal">
     <div class="modal-box">
-        <span class="close-modal" onclick="closeProductModal()">&times;</span>
+        <button class="close-modal" onclick="closeProductModal()">&times;</button>
         <div style="display:flex; align-items:center; gap:18px; flex-wrap:wrap;">
             <img id="modalImg" alt="" class="modal-img" />
             <div>
@@ -1727,7 +1725,7 @@
 <!-- ========== MAKALE MODALI ========== -->
 <div class="modal-overlay" id="articleModal">
     <div class="modal-box">
-        <span class="close-modal" onclick="closeArticleModal()">&times;</span>
+        <button class="close-modal" onclick="closeArticleModal()">&times;</button>
         <div style="display:flex; align-items:center; gap:18px; flex-wrap:wrap;">
             <img id="articleModalImg" src="" alt="" class="modal-img" />
             <h2 id="articleTitle">Makale Başlığı</h2>
@@ -1836,23 +1834,45 @@
         document.querySelectorAll('.fade-in:not(.visible)').forEach(el => observer.observe(el));
     }
 
-    // Navbar Mobile Menu
-    let _savedScrollY = 0;
-    function toggleMenu() {
-        var nav = document.getElementById('navLinks');
-        var isOpen = nav.classList.toggle('open');
-        var bars = document.getElementById('menuIconBars');
-        var times = document.getElementById('menuIconTimes');
-        var btn = document.getElementById('menuToggle');
-        if (isOpen) {
-            bars.style.display = 'none'; times.style.display = 'inline-block';
-            _savedScrollY = window.scrollY;
-        }
-        else { bars.style.display = 'inline-block'; times.style.display = 'none'; }
-        if (btn) btn.setAttribute('aria-expanded', isOpen);
-        document.body.classList.toggle('no-scroll', isOpen);
-        if (!isOpen) { window.scrollTo(0, _savedScrollY); }
+// ========== GLOBAL FONKSİYONLAR (window'a bağlı) ==========
+var _savedScrollY = 0;
+window.toggleMenu = function() {
+    var nav = document.getElementById('navLinks');
+    var isOpen = nav.classList.toggle('open');
+    var bars = document.getElementById('menuIconBars');
+    var times = document.getElementById('menuIconTimes');
+    var btn = document.getElementById('menuToggle');
+    if (isOpen) {
+        bars.style.display = 'none'; times.style.display = 'inline-block';
+        _savedScrollY = window.scrollY;
+    } else {
+        bars.style.display = 'inline-block'; times.style.display = 'none';
     }
+    if (btn) btn.setAttribute('aria-expanded', isOpen);
+    document.body.classList.toggle('no-scroll', isOpen);
+    if (!isOpen) { window.scrollTo(0, _savedScrollY); }
+};
+
+// ========== NAV LİNK TIKLAYINCA MENÜ KAPANSIN ==========
+document.addEventListener('DOMContentLoaded', function() {
+    var navLinks = document.querySelectorAll('#navLinks a');
+    navLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            var nav = document.getElementById('navLinks');
+            if (nav && nav.classList.contains('open')) {
+                var bars = document.getElementById('menuIconBars');
+                var times = document.getElementById('menuIconTimes');
+                var btn = document.getElementById('menuToggle');
+                nav.classList.remove('open');
+                bars.style.display = 'inline-block';
+                times.style.display = 'none';
+                if (btn) btn.setAttribute('aria-expanded', 'false');
+                document.body.classList.remove('no-scroll');
+                window.scrollTo(0, _savedScrollY);
+            }
+        });
+    });
+});
 
     // ========== FAQ ==========
     function toggleFaq() {
@@ -1888,16 +1908,16 @@
         btn.setAttribute('aria-expanded', !isOpen);
     }
 
-    function openModal(type) {
+    window.openModal = function(type) {
         if (type === 'kvkk') document.getElementById('kvkkModal').classList.add('active');
         else if (type === 'gizlilik') document.getElementById('gizlilikModal').classList.add('active');
         document.body.style.overflow = 'hidden';
-    }
+    };
 
-    function closeModal(id) {
+    window.closeModal = function(id) {
         document.getElementById(id).classList.remove('active');
         document.body.style.overflow = 'auto';
-    }
+    };
 
     document.querySelectorAll('.modal-overlay').forEach(modal => {
         modal.addEventListener('click', function(e) {
@@ -2332,10 +2352,10 @@
         document.body.style.overflow = 'hidden';
     }
 
-    function closeProductModal() {
+    window.closeProductModal = function() {
         document.getElementById('productModal').classList.remove('active');
         document.body.style.overflow = 'auto';
-    }
+    };
 
     function openArticleModal(categoryId) {
         const cat = categories.find(c => c.id === categoryId);
@@ -2354,10 +2374,10 @@
         document.body.style.overflow = 'hidden';
     }
 
-    function closeArticleModal() {
+    window.closeArticleModal = function() {
         document.getElementById('articleModal').classList.remove('active');
         document.body.style.overflow = 'auto';
-    }
+    };
 
     // ========== CARD CLICK ==========
     document.addEventListener('DOMContentLoaded', function() {
