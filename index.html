@@ -37,7 +37,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-    <link rel="preload" as="image" href="https://karadenizmatbaa.com/makinaparkuru.png" />
+    <link rel="preload" as="image" href="makinaparkuru.png" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'" />
     
@@ -304,15 +304,15 @@
         /* ========== HERO ========== */
         .hero {
             position: relative;
-            min-height: 90vh;
-            min-height: 90dvh;
+            min-height: 100vh;
+            min-height: 100dvh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: #fff;
             overflow: hidden;
-            background-color: var(--primary);
+            background-color: #0a1e3a;
         }
         .hero-bg {
             position: absolute;
@@ -320,8 +320,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(145deg, #06152a 0%, #0a1e3a 30%, #0d2547 60%, #0a1e3a 100%);
             z-index: 0;
+        }
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
         }
         .hero-overlay {
             position: absolute;
@@ -329,7 +334,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(145deg, rgba(10,30,58,0.78) 0%, rgba(10,30,58,0.55) 50%, rgba(10,30,58,0.70) 100%);
+            background: linear-gradient(145deg, rgba(10,30,58,0.92) 0%, rgba(10,30,58,0.65) 50%, rgba(10,30,58,0.85) 100%);
             z-index: 1;
         }
         .hero .container {
@@ -1355,7 +1360,8 @@
             .faq-toggle-header h2 { font-size: 1.2rem; }
             .float-btn { width: 48px; height: 48px; font-size: 1.2rem; }
             .floating-buttons { bottom: calc(12px + var(--safe-bottom)); right: calc(12px + var(--safe-right)); gap: 10px; }
-            footer .container { gap: 24px; }            .modal-box { padding: 16px 12px; }
+            footer .container { gap: 24px; }
+            .modal-box { padding: 16px 12px; }
             .modal-box h2 { font-size: 1.4rem; }
             .trust-grid { grid-template-columns: 1fr; }
             .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 6px; }        }
@@ -1400,7 +1406,9 @@
 
 <!-- ========== HERO ========== -->
 <section class="hero">
-    <div class="hero-bg"></div>
+    <div class="hero-bg">
+        <img src="makinaparkuru.png" alt="Karadeniz Matbaa Makine Parkuru" />
+    </div>
     <div class="hero-overlay"></div>
     <div class="container">
         <div class="slogan">81 İl • 16 Kategori • Ertesi Gün Kargo</div>
