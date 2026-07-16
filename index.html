@@ -1298,17 +1298,19 @@
                 min-height: 52px;
                 border-bottom: none;
             }
-            .logo-divider, .slogan-text { display: none; }
+            nav { padding: 6px 0; }
             nav .container { flex-wrap: nowrap; }
-            .logo-wrapper { gap: 0; }
-            .logo { font-size: 1.6rem; }
+            .logo-wrapper { gap: 4px; }
+            .logo { font-size: 1.3rem; }
+            .logo-divider { display: inline; font-size: 0.75rem; }
+            .slogan-text { display: inline; font-size: 0.55rem; white-space: nowrap; }
             .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 12px; }
             .hero-buttons { flex-direction: column; align-items: center; }
             .hero-buttons .btn-primary { width: 100%; max-width: 340px; }
-            .hero-badges { gap: 10px; }
-            .hero-badges span { font-size: 0.75rem; padding: 6px 14px; }
-            .hero-features { gap: 8px 12px; }
-            .hero-features span { font-size: 0.85rem; padding: 6px 14px; }
+            .hero-badges { gap: 8px; }
+            .hero-badges span { font-size: 0.7rem; padding: 5px 12px; }
+            .hero-features { gap: 6px 10px; }
+            .hero-features span { font-size: 0.8rem; padding: 5px 12px; }
             .floating-buttons { bottom: calc(16px + var(--safe-bottom)); right: calc(16px + var(--safe-right)); gap: 12px; }
             .float-btn { width: 54px; height: 54px; font-size: 1.4rem; }
             .faq-toggle-header { padding: 20px 24px; }
@@ -1316,63 +1318,149 @@
             .faq-list { padding: 20px; gap: 14px; }
             .faq-question { font-size: 1rem; }
             .contact-grid { grid-template-columns: 1fr; gap: 20px; }
-            .comp-table th, .comp-table td { padding: 12px 16px; font-size: 0.85rem; }
-            .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+            .contact-card { padding: 20px 18px; }
+            .contact-card h3 { font-size: 1rem; }
+            .contact-card p { font-size: 0.85rem; }
+            .contact-card .bank-info { font-size: 0.8rem; padding: 10px 12px; }
+            .contact { padding: 30px 0; padding-bottom: calc(30px + var(--safe-bottom)); }
+            .comp-table th, .comp-table td { padding: 10px 12px; font-size: 0.75rem; }
             .modal-box { padding: 24px 18px; }
             .modal-table { font-size: 0.8rem; }
             .modal-table th, .modal-table td { padding: 10px 12px; }
             .modal-table .btn-wa { font-size: 0.65rem; padding: 4px 10px; }
             .about-grid { grid-template-columns: 1fr; }
-            .slogan-text { font-size: 0.6rem; }
-            .bestseller-card { flex: 0 0 165px; padding: 14px 12px; }
-            .bestseller-card .product-name { font-size: 0.85rem; }
-            .bestseller-card .product-price { font-size: 1rem; }
-            .bestseller-card .btn-wa { font-size: 0.65rem; padding: 4px 10px; }            .about-image img { max-height: 280px; object-fit: cover; }
-            .about-text p { font-size: 0.95rem; line-height: 1.7; }
-            .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+            .about-section { padding: 30px 0; }
+            .about-text h2 { font-size: 1.4rem; }
+            .about-text p { font-size: 0.85rem; line-height: 1.6; }
+            .about-image img { max-height: 220px; object-fit: cover; }
+            .section-title { margin-bottom: 24px; }
+            .section-title h2 { font-size: 1.6rem; }
+            .section-title p { font-size: 0.85rem; }
+            .hero-bg { background-size: contain; }
+            .trust-grid { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+            .trust-item { padding: 8px; }
+            .trust-item i { font-size: 1.8rem; }
+            .trust-item h4 { font-size: 0.8rem; }
+            .trust-item p { font-size: 0.65rem; }
+            .benefits-grid { display: flex; flex-wrap: nowrap; gap: 10px; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 8px; }
+            .benefit-item { flex: 0 0 140px; padding: 14px 10px; }
+            .benefit-item i { font-size: 1.8rem; margin-bottom: 8px; }
+            .benefit-item h3 { font-size: 0.8rem; margin-bottom: 4px; }
+            .benefit-item p { font-size: 0.7rem; }
+            .comparison { padding: 30px 0; }
+            .benefits { padding: 0; }
+            .bestseller-card { flex: 0 0 130px; padding: 10px 8px; }
+            .bestseller-card .product-name { font-size: 0.75rem; }
+            .bestseller-card .product-code { font-size: 0.6rem; }
+            .bestseller-card .product-desc { font-size: 0.65rem; margin: 4px 0 6px; display: none; }
+            .bestseller-card .product-meta { padding-top: 8px; }
+            .bestseller-card .product-price { font-size: 0.85rem; }
+            .bestseller-card .product-price small { font-size: 0.55rem; }
+            .bestseller-card .btn-wa { font-size: 0.6rem; padding: 3px 8px; min-height: 26px; }
+            .bestseller-card .badge { font-size: 0.5rem; padding: 2px 8px; top: 6px; right: 6px; }
+            .price-card { padding: 12px 10px; }
+            .price-card .product-name { font-size: 0.8rem; }
+            .price-card .product-code { font-size: 0.65rem; }
+            .price-card .product-desc { font-size: 0.7rem; margin: 4px 0 6px; }
+            .price-card .product-meta { padding-top: 8px; gap: 4px; }
+            .price-card .product-price { font-size: 0.9rem; }
+            .price-card .product-price small { font-size: 0.6rem; }
+            .price-card .btn-wa { font-size: 0.65rem; padding: 4px 8px; }
         }
         @media (max-width: 580px) {
-            .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 8px; }
-            .service-card { padding: 16px 10px; }
-            .service-card img { width: 70px; height: 70px; }
-            .service-card h3 { font-size: 0.85rem; }
-            .service-card p { font-size: 0.75rem; }
-            .bestseller-card { flex: 0 0 160px; padding: 14px 12px; }
-            .bestseller-card .product-name { font-size: 0.85rem; }
-            .bestseller-card .product-price { font-size: 0.95rem; }
-            .price-card { padding: 16px 12px; }
-            .price-card .product-name { font-size: 0.95rem; }
-            .price-card .btn-wa { width: 100%; justify-content: center; }
-            .trust-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-            .modal-table .btn-wa { display: block; width: 100%; text-align: center; }
-            .hero-badges span { font-size: 0.7rem; padding: 4px 12px; }
-            .hero-features span { font-size: 0.75rem; padding: 4px 12px; }        }
-        @media (max-width: 480px) {
-            .hero { min-height: 80vh; }
-            .hero h1 { font-size: 2.2rem; line-height: 1.2; }
-            .hero .hero-desc { font-size: 1rem; margin-bottom: 20px; }
-            .hero .slogan { font-size: 1.1rem; }
-            .hero .sub-title { font-size: 1rem; }
-            .section-title h2 { font-size: 1.8rem; }
-            .benefits-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
-            .city-tags { gap: 6px; }
-            .city-tag { padding: 4px 12px; font-size: 0.7rem; }
-            .faq-toggle-header h2 { font-size: 1.2rem; }
-            .float-btn { width: 48px; height: 48px; font-size: 1.2rem; }
-            .floating-buttons { bottom: calc(12px + var(--safe-bottom)); right: calc(12px + var(--safe-right)); gap: 10px; }
-            footer .container { gap: 24px; }
-            .modal-box { padding: 16px 12px; }
-            .modal-box h2 { font-size: 1.4rem; }
-            .trust-grid { grid-template-columns: 1fr; }
-            .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 6px; }        }
-        @media (max-width: 360px) {
-            .hero h1 { font-size: 1.8rem; }
-            .benefits-grid { grid-template-columns: 1fr; }
-            .logo { font-size: 1.5rem; }
-            .grid-3 { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+            .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+            .service-card { padding: 14px 8px; }
             .service-card img { width: 60px; height: 60px; }
             .service-card h3 { font-size: 0.8rem; }
-            .bestseller-card { flex: 0 0 140px; }        }
+            .service-card p { font-size: 0.7rem; }
+            .bestseller-card { flex: 0 0 120px; padding: 8px 6px; }
+            .bestseller-card .product-name { font-size: 0.7rem; }
+            .bestseller-card .product-price { font-size: 0.8rem; }
+            .price-card { padding: 10px 8px; }
+            .price-card .product-name { font-size: 0.75rem; }
+            .price-card .product-desc { display: none; }
+            .price-card .btn-wa { width: 100%; justify-content: center; font-size: 0.6rem; padding: 3px 6px; }
+            .trust-grid { gap: 4px; }
+            .trust-item i { font-size: 1.5rem; }
+            .trust-item h4 { font-size: 0.7rem; }
+            .trust-item p { font-size: 0.55rem; display: none; }
+            .benefit-item { flex: 0 0 120px; padding: 10px 8px; }
+            .benefit-item i { font-size: 1.5rem; }
+            .benefit-item h3 { font-size: 0.7rem; }
+            .benefit-item p { font-size: 0.6rem; }
+            .hero-badges span { font-size: 0.65rem; padding: 4px 10px; }
+            .hero-features span { font-size: 0.7rem; padding: 4px 10px; }
+            .comp-table th, .comp-table td { padding: 8px 10px; font-size: 0.65rem; }
+            .contact-card { padding: 16px 14px; }
+            .contact-card h3 { font-size: 0.9rem; }
+            .contact-card p { font-size: 0.8rem; }
+            .contact-card .bank-info { font-size: 0.75rem; padding: 8px 10px; }
+            footer .container { gap: 20px; }
+        }
+        @media (max-width: 480px) {
+            .hero { min-height: 70vh; }
+            .hero h1 { font-size: 2rem; line-height: 1.15; }
+            .hero .hero-desc { font-size: 0.9rem; margin-bottom: 16px; }
+            .hero .slogan { font-size: 1rem; }
+            .hero .sub-title { font-size: 0.9rem; }
+            .section-title h2 { font-size: 1.4rem; }
+            .benefits-grid { gap: 8px; }
+            .benefit-item { flex: 0 0 105px; padding: 8px 6px; }
+            .city-tags { gap: 5px; }
+            .city-tag { padding: 3px 10px; font-size: 0.65rem; }
+            .faq-toggle-header h2 { font-size: 1.1rem; }
+            .float-btn { width: 44px; height: 44px; font-size: 1.1rem; }
+            .floating-buttons { bottom: calc(10px + var(--safe-bottom)); right: calc(10px + var(--safe-right)); gap: 8px; }
+            footer .container { gap: 20px; }
+            .modal-box { padding: 14px 10px; }
+            .modal-box h2 { font-size: 1.2rem; }
+            .trust-grid { gap: 2px; }
+            .trust-item i { font-size: 1.3rem; }
+            .trust-item h4 { font-size: 0.65rem; }
+            .trust-item p { display: none; }
+            .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 4px; }
+            .bestseller-card { flex: 0 0 105px; padding: 6px 4px; }
+            .bestseller-card .product-name { font-size: 0.65rem; }
+            .bestseller-card .product-price { font-size: 0.75rem; }
+            .bestseller-card .product-price small { font-size: 0.5rem; }
+            .bestseller-card .btn-wa { font-size: 0.55rem; padding: 2px 6px; min-height: 22px; }
+            .price-card { padding: 8px 6px; }
+            .price-card .product-name { font-size: 0.7rem; }
+            .price-card .product-code { font-size: 0.6rem; }
+            .price-card .product-price { font-size: 0.8rem; }
+            .price-card .btn-wa { font-size: 0.55rem; padding: 2px 6px; }
+            nav { padding: 4px 0; }
+            .logo { font-size: 1.1rem; }
+            .slogan-text { font-size: 0.45rem; }
+            .logo-divider { font-size: 0.6rem; }
+            .hero-bg { background-size: contain; }
+        }
+        @media (max-width: 360px) {
+            .hero h1 { font-size: 1.5rem; }
+            .benefits-grid { gap: 6px; }
+            .benefit-item { flex: 0 0 90px; padding: 6px 4px; }
+            .benefit-item i { font-size: 1.2rem; }
+            .benefit-item h3 { font-size: 0.6rem; }
+            .logo { font-size: 1rem; }
+            .slogan-text { display: none; }
+            .grid-3 { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+            .service-card img { width: 50px; height: 50px; }
+            .service-card h3 { font-size: 0.75rem; }
+            .bestseller-card { flex: 0 0 90px; padding: 4px; }
+            .bestseller-card .product-name { font-size: 0.6rem; }
+            .bestseller-card .product-price { font-size: 0.7rem; }
+            .price-card { padding: 6px 4px; }
+            .price-card .product-name { font-size: 0.65rem; }
+            .price-card .product-price { font-size: 0.7rem; }
+            .hero h1 { font-size: 1.4rem; }
+            .hero .sub-title { font-size: 0.8rem; }
+            .hero .slogan { font-size: 0.85rem; }
+            .trust-grid { gap: 2px; }
+            .trust-item i { font-size: 1.1rem; }
+            .trust-item h4 { font-size: 0.55rem; }
+            .contact-card { padding: 12px 10px; }
+            .contact-card p { font-size: 0.75rem; }
+        }
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
             .fade-in { opacity: 1; transform: none; }
