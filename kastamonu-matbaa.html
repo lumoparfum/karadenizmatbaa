@@ -14,9 +14,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="format-detection" content="telephone=yes" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
-    <title>Kastamonu Matbaa | Karadeniz Matbaa – Kartvizit 195 TL, 20 İlçeye Hızlı Teslimat</title>
+    <title>Kastamonu Matbaa | Kartvizit 195 TL, 20 İlçeye Hızlı Teslimat</title>
     <meta name="description" content="Kastamonu matbaa hizmetinde yeni nesil çözüm. 20 ilçeye hızlı teslimat, kartvizit 195 TL, broşür, afiş, magnet, etiket ve 16 kategoride şeffaf fiyat. WhatsApp'tan sipariş, üyelik yok. Kastamonu Merkez, Taşköprü, Tosya, İnebolu ve tüm ilçelere hizmet." />
-    <meta name="keywords" content="kastamonu matbaa, matbaa kastamonu, kartvizit kastamonu, baskı kastamonu, taşköprü matbaa, tosya matbaa, inebolu matbaa, ucuz matbaa kastamonu, broşür baskı kastamonu, online matbaa kastamonu, dijital baskı kastamonu, karadeniz matbaa" />
     <link rel="canonical" href="https://karadenizmatbaa.com/kastamonu-matbaa" />
 
     <!-- Open Graph -->
@@ -38,6 +37,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link rel="preload" as="image" href="https://karadenizmatbaa.com/makinaparkuru.png" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'" />
 
@@ -135,11 +135,27 @@
       "@type": "Product",
       "name": "Kartvizit Baskı",
       "description": "1000 adet 250gr Bristol Tek Yön Parlak Selefonlu kartvizit.",
+      "image": "https://karadenizmatbaa.com/kartvizit.webp",
+      "brand": {
+        "@type": "Brand",
+        "name": "Karadeniz Matbaa"
+      },
       "offers": {
         "@type": "Offer",
         "priceCurrency": "TRY",
         "price": "195",
-        "availability": "https://schema.org/InStock"
+        "priceValidUntil": "2027-07-16",
+        "availability": "https://schema.org/InStock",
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "TR",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
+        "additionalProperty": {
+          "@type": "PropertyValue",
+          "name": "Not",
+          "value": "Kişiye özel üretim olduğu için standart iade kapsamı dışındadır. Baskı hatası veya kargo hasarı durumunda ücretsiz yeniden basım yapılır."
+        }
+      }
       }
     }
     </script>
@@ -271,6 +287,8 @@
             letter-spacing: -1px;
             cursor: pointer;
             white-space: nowrap;
+            text-decoration: none;
+            display: inline;
         }
         .logo span { color: var(--secondary); }
         .logo-divider {
@@ -332,6 +350,7 @@
         }
         .hero-bg {
             position: absolute;
+            background: linear-gradient(145deg, #06152a 0%, #0a1e3a 30%, #0d2547 60%, #0a1e3a 100%);
             top: 0;
             left: 0;
             width: 100%;
@@ -472,6 +491,11 @@
             gap: 25px;
         }
 
+        
+        .services {
+            padding: clamp(50px, 10vw, 80px) 0;
+        }
+
         /* ========== SERVICES / CATEGORY CARDS ========== */
         .service-card {
             background: #fff;
@@ -520,6 +544,11 @@
             flex: 1;
         }
         .service-card .btn-wa { width: 100%; max-width: 180px; }
+
+        
+        .bestsellers {
+            padding: clamp(50px, 10vw, 80px) 0;
+        }
 
         /* ========== BESTSELLERS - Horizontal Scroll (Auto Infinite) ========== */
         .bestsellers-scroll-wrapper {
@@ -630,6 +659,11 @@
             padding: 4px 12px;
             font-size: 0.7rem;
             min-height: 32px;
+        }
+
+        
+        .pricing {
+            padding: clamp(50px, 10vw, 80px) 0;
         }
 
         /* ========== PRICE CARDS (grid) ========== */
@@ -986,6 +1020,12 @@
             align-items: center;
             user-select: none;
             transition: color 0.2s;
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            padding: 0;
+            font-family: inherit;
         }
         .faq-question:hover { color: var(--secondary); }
         .faq-q-icon {
@@ -1464,12 +1504,13 @@
     </style>
 </head>
 <body>
+<noscript><div style="background:#f47b20;color:#fff;text-align:center;padding:12px;font-family:sans-serif;font-weight:700;">Bu sayfanın tamamını görebilmek için lütfen JavaScript'i etkinleştirin. Sipariş için <a href="https://wa.me/905016675755" style="color:#fff;text-decoration:underline;">WhatsApp</a> veya <a href="tel:+905016675755" style="color:#fff;text-decoration:underline;">0 501 667 57 55</a> numaralı telefondan bize ulaşabilirsiniz.</div></noscript>
 
 <!-- ========== NAVBAR ========== -->
 <nav>
     <div class="container">
         <div class="logo-wrapper">
-            <div class="logo" onclick="location.href='/'">Karadeniz<span>Matbaa</span></div>
+            <a class="logo" href="/">Karadeniz<span>Matbaa</span></a>
             <span class="logo-divider">|</span>
             <span class="slogan-text">Yeni Nesil Dijital Matbaa</span>
         </div>
@@ -1510,11 +1551,11 @@
                 <i class="fas fa-phone"></i> Hemen Ara
             </a>
         </div>
-        <div class="hero-badges">
-            <span><i class="fas fa-check-circle"></i> KDV Dahil</span>
-            <span><i class="fas fa-map-marker-alt"></i> 20 İlçe</span>
-            <span><i class="fas fa-truck"></i> Ertesi Gün</span>
-        </div>
+       <div class="hero-badges">
+    <span><i class="fas fa-user-check"></i> Üyelik Gerekmez</span>
+    <span><i class="fas fa-file-invoice-dollar"></i> Anında Teklif</span>
+    <span><i class="fas fa-headset"></i> 7/24 WhatsApp</span>
+</div>
     </div>
 </section>
 
@@ -1744,19 +1785,25 @@
             <p><i class="fas fa-envelope"></i> <a href="mailto:karadenizmatbaa1@gmail.com">karadenizmatbaa1@gmail.com</a></p>
         </div>
         <div class="footer-col">
-            <h4>Diğer Bölgeler</h4>
+            <h4>Karadeniz Bölgesi</h4>
                 <a href="/">Ana Sayfa</a>
+                <a href="/samsun-matbaa">Samsun Matbaa</a>
+                <a href="/trabzon-matbaa">Trabzon Matbaa</a>
+                <a href="/ordu-matbaa">Ordu Matbaa</a>
+                <a href="/giresun-matbaa">Giresun Matbaa</a>
+                <a href="/rize-matbaa">Rize Matbaa</a>
                 <a href="/artvin-matbaa">Artvin Matbaa</a>
+                <a href="/zonguldak-matbaa">Zonguldak Matbaa</a>
+                <a href="/sinop-matbaa">Sinop Matbaa</a>
+                <a href="/bartin-matbaa">Bartın Matbaa</a>
+                <a href="/karabuk-matbaa">Karabük Matbaa</a>
                 <a href="/bolu-matbaa">Bolu Matbaa</a>
                 <a href="/duzce-matbaa">Düzce Matbaa</a>
-                <a href="/giresun-matbaa">Giresun Matbaa</a>
-                <a href="/karabuk-matbaa">Karabük Matbaa</a>
-                <a href="/ordu-matbaa">Ordu Matbaa</a>
-                <a href="/rize-matbaa">Rize Matbaa</a>
-                <a href="/samsun-matbaa">Samsun Matbaa</a>
-                <a href="/sinop-matbaa">Sinop Matbaa</a>
-                <a href="/trabzon-matbaa">Trabzon Matbaa</a>
-                <a href="/zonguldak-matbaa">Zonguldak Matbaa</a>
+                <a href="/amasya-matbaa">Amasya Matbaa</a>
+                <a href="/corum-matbaa">Çorum Matbaa</a>
+                <a href="/tokat-matbaa">Tokat Matbaa</a>
+                <a href="/gumushane-matbaa">Gümüşhane Matbaa</a>
+                <a href="/bayburt-matbaa">Bayburt Matbaa</a>
         </div>
     </div>
     <div class="footer-bottom">
@@ -1807,7 +1854,7 @@
     <div class="modal-box">
         <button class="close-modal" onclick="closeProductModal(event)">&times;</button>
         <div style="display:flex; align-items:center; gap:18px; flex-wrap:wrap;">
-            <img id="modalImg" src="" alt="" class="modal-img" />
+            <img id="modalImg" alt="" class="modal-img" />
             <div>
                 <h2 id="modalTitle">Kategori</h2>
                 <p class="sub-title" id="modalSubtitle">Tüm varyasyonlar ve fiyatlar</p>
@@ -1846,16 +1893,19 @@
 <!-- ========== SCRIPTS ========== -->
 <script>
     // ========== GLOBAL FONKSİYONLAR (window'a bağlı) ==========
+    var _savedScrollY = 0;
     window.toggleMenu = function() {
         var nav = document.getElementById('navLinks');
         var isOpen = nav.classList.toggle('open');
         var bars = document.getElementById('menuIconBars');
         var times = document.getElementById('menuIconTimes');
         var btn = document.getElementById('menuToggle');
-        if (isOpen) { bars.style.display = 'none'; times.style.display = 'inline-block'; }
+        if (isOpen) { bars.style.display = 'none'; times.style.display = 'inline-block';
+            _savedScrollY = window.scrollY; }
         else { bars.style.display = 'inline-block'; times.style.display = 'none'; }
         if (btn) btn.setAttribute('aria-expanded', isOpen);
         document.body.classList.toggle('no-scroll', isOpen);
+        if (!isOpen) { window.scrollTo(0, _savedScrollY); }
     };
 
     // Hamburger menü linklerine tıklanınca menüyü kapat ve hedefe yumuşak scroll
@@ -1872,13 +1922,14 @@
                 times.style.display = 'none';
                 if (btn) btn.setAttribute('aria-expanded', 'false');
                 document.body.classList.remove('no-scroll');
+                window.scrollTo(0, _savedScrollY);
                 var href = link.getAttribute('href');
                 if (href && href.startsWith('#')) {
                     e.preventDefault();
                     var targetId = href.substring(1);
                     var target = document.getElementById(targetId);
                     if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
+                        target.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth' });
                     }
                 }
             });
@@ -2343,6 +2394,8 @@
         bestsellers.forEach(function(cat, idx) {
             var card = document.createElement('div');
             card.className = 'bestseller-card';
+            card.setAttribute('role', 'button');
+            card.setAttribute('tabindex', '0');
             card.dataset.category = cat.id;
             card.innerHTML = '<span class="badge">' + (idx === 0 ? 'En Çok Satan' : 'Popüler') + '</span><div class="product-name">' + cat.name + ' <span class="product-code">(' + cat.variants[0].code + ')</span></div><div class="product-desc">' + cat.desc + '</div><div class="product-meta"><span class="product-price">' + cat.highlightPrice + '</span><a href="https://wa.me/905016675755?text=Merhaba,%20' + encodeURIComponent(cat.name) + '%20fiyatı%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn-wa"><i class="fab fa-whatsapp"></i> Sipariş</a></div>';
             container.appendChild(card);
@@ -2351,19 +2404,21 @@
         var scrollEl = container;
         var scrollInterval;
         var isDragging = false;
+        var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
         function autoScroll() {
             if (isDragging || scrollEl.scrollWidth <= scrollEl.clientWidth) return;
             var maxScroll = scrollEl.scrollWidth - scrollEl.clientWidth;
             var currentScroll = scrollEl.scrollLeft;
             if (currentScroll >= maxScroll - 1) {
-                scrollEl.scrollTo({ left: 0, behavior: 'smooth' });
+                scrollEl.scrollTo({ left: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
             } else {
-                scrollEl.scrollBy({ left: 200, behavior: 'smooth' });
+                scrollEl.scrollBy({ left: 200, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
             }
         }
 
         function startAutoScroll() {
+            if (prefersReducedMotion) return;
             if (scrollInterval) clearInterval(scrollInterval);
             scrollInterval = setInterval(autoScroll, 3000);
         }
@@ -2391,6 +2446,8 @@
             var delay = (idx % 3) + 1;
             var card = document.createElement('div');
             card.className = 'service-card fade-in fade-in-delay-' + delay;
+            card.setAttribute('role', 'button');
+            card.setAttribute('tabindex', '0');
             card.dataset.article = cat.id;
             card.dataset.link = cat.link || '';
             card.innerHTML = '<img src="' + cat.img + '" alt="' + cat.name + '" loading="lazy" width="100" height="100" /><h3>' + cat.name + '</h3><p>' + cat.desc + '</p><span style="font-size:0.8rem; color:#f47b20; font-weight:600;"><i class="fas fa-book-open"></i> Rehber</span>';
@@ -2406,6 +2463,8 @@
             var delay = (idx % 3) + 1;
             var card = document.createElement('div');
             card.className = 'price-card fade-in fade-in-delay-' + delay;
+            card.setAttribute('role', 'button');
+            card.setAttribute('tabindex', '0');
             card.dataset.category = cat.id;
             var first = cat.variants[0];
             card.innerHTML = '<div class="product-name">' + cat.name + ' <span class="product-code">(' + first.code + ')</span></div><div class="product-desc">' + cat.desc + '</div><div class="product-meta"><span class="product-price">' + cat.highlightPrice + '</span><a href="https://wa.me/905016675755?text=Merhaba,%20' + encodeURIComponent(cat.name) + '%20için%20sipariş%20vermek%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn-wa"><i class="fab fa-whatsapp"></i> Sipariş</a></div>';
@@ -2420,7 +2479,7 @@
         faqData.forEach(function(item) {
             var div = document.createElement('div');
             div.className = 'faq-item';
-            div.innerHTML = '<div class="faq-question" onclick="toggleAnswer(this)"><span>' + item.q + '</span><span class="faq-q-icon">+</span></div><div class="faq-answer"><p>' + item.a + '</p></div>';
+            div.innerHTML = '<button class="faq-question" onclick="toggleAnswer(this)"><span>' + item.q + '</span><span class="faq-q-icon">+</span></button><div class="faq-answer"><p>' + item.a + '</p></div>';
             list.appendChild(div);
         });
     }
@@ -2465,6 +2524,12 @@
                 }
                 if (key && articleData[key]) window.openArticleModal(key);
             });
+            card.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
         });
 
         document.querySelectorAll('.bestseller-card, .price-card').forEach(function(card) {
@@ -2472,6 +2537,12 @@
                 if (e.target.closest('.btn-wa')) return;
                 var key = this.dataset.category;
                 if (key) window.openProductModal(key);
+            });
+            card.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
             });
         });
 

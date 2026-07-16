@@ -16,7 +16,6 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
     <title>Karadeniz Matbaa | Yeni Nesil Dijital Matbaa – Fiyatı Gör, WhatsApp'tan Yaz, Baskını Al</title>
     <meta name="description" content="Karadeniz Matbaa, Toraman Matbaa ve Uzman Reklam işbirliğiyle yeni nesil dijital matbaa hizmeti. Tüm matbaa ürünlerinde şeffaf fiyat, üyelik yok, ertesi gün kargo. Kartvizit, broşür, afiş, magnet, etiket, davetiye, karton çanta, zarf, makbuz, amerikan servis, cepli dosya, antetli, oto paspas, bloknot, ambalaj kutusu, kapı askılık ve fason baskı. Hem profesyoneller hem herkes için!" />
-    <meta name="keywords" content="Karadeniz matbaa, yeni nesil dijital matbaa, kartvizit baskı, broşür baskı, fason baskı, etiket baskı, magnet baskı, davetiye baskı, online matbaa, ucuz matbaa, amerikan servis, cepli dosya, karton çanta, antetli, oto paspas, afiş, bloknot, zarf, ambalaj kutusu, kapı askılık" />
     <link rel="canonical" href="https://karadenizmatbaa.com" />
 
     <!-- Open Graph -->
@@ -38,6 +37,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link rel="preload" as="image" href="https://karadenizmatbaa.com/makinaparkuru.png" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'" />
     
@@ -109,18 +109,18 @@
         "@type": "Offer",
         "priceCurrency": "TRY",
         "price": "195",
+        "priceValidUntil": "2027-07-16",
         "availability": "https://schema.org/InStock",
-        "hasMerchantReturnPolicy": {
-          "@type": "MerchantReturnPolicy",
-          "applicableCountry": "TR",
-          "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
-          "returnPolicySeasonalOverride": [],
-          "additionalProperty": {
-            "@type": "PropertyValue",
-            "name": "Not",
-            "value": "Kişiye özel üretim olduğu için standart iade kapsamı dışındadır. Baskı hatası veya kargo hasarı durumunda ücretsiz yeniden basım yapılır."
-          }
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "applicableCountry": "TR",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
+        "additionalProperty": {
+          "@type": "PropertyValue",
+          "name": "Not",
+          "value": "Kişiye özel üretim olduğu için standart iade kapsamı dışındadır. Baskı hatası veya kargo hasarı durumunda ücretsiz yeniden basım yapılır."
         }
+      }
       }
     }
     </script>
@@ -405,6 +405,11 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 25px;
+        }
+
+        
+        .services {
+            padding: clamp(50px, 10vw, 80px) 0;
         }
 
         /* ========== SERVICES / CATEGORY CARDS ========== */
@@ -764,6 +769,12 @@
             align-items: center;
             user-select: none;
             transition: color 0.2s;
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            padding: 0;
+            font-family: inherit;
         }
         .faq-question:hover { color: var(--secondary); }
         .faq-q-icon {
@@ -1148,6 +1159,7 @@
     </style>
 </head>
 <body>
+<noscript><div style="background:#f47b20;color:#fff;text-align:center;padding:12px;font-family:sans-serif;font-weight:700;">Bu sayfanın tamamını görebilmek için lütfen JavaScript'i etkinleştirin. Sipariş için <a href="https://wa.me/905016675755" style="color:#fff;text-decoration:underline;">WhatsApp</a> veya <a href="tel:+905016675755" style="color:#fff;text-decoration:underline;">0 501 667 57 55</a> numaralı telefondan bize ulaşabilirsiniz.</div></noscript>
 
 <!-- ========== NAVBAR ========== -->
 <nav>
@@ -1446,7 +1458,7 @@
     <div class="modal-box">
         <span class="close-modal" onclick="closeProductModal()">&times;</span>
         <div style="display:flex; align-items:center; gap:18px; flex-wrap:wrap;">
-            <img id="modalImg" src="" alt="" class="modal-img" />
+            <img id="modalImg" alt="" class="modal-img" />
             <div>
                 <h2 id="modalTitle">Kategori</h2>
                 <p class="sub-title" id="modalSubtitle">Tüm varyasyonlar ve fiyatlar</p>
@@ -1497,10 +1509,33 @@
     ];
 
     const cityPages = {
-        "Artvin": "artvin-matbaa", "Bolu": "bolu-matbaa", "Düzce": "duzce-matbaa",
-        "Giresun": "giresun-matbaa", "Karabük": "karabuk-matbaa", "Kastamonu": "kastamonu-matbaa",
-        "Ordu": "ordu-matbaa", "Rize": "rize-matbaa", "Samsun": "samsun-matbaa",
-        "Sinop": "sinop-matbaa", "Trabzon": "trabzon-matbaa", "Zonguldak": "zonguldak-matbaa"
+        "Adana": "adana-matbaa", "Adıyaman": "adiyaman-matbaa", "Afyonkarahisar": "afyon-matbaa",
+        "Ağrı": "agri-matbaa", "Aksaray": "aksaray-matbaa", "Amasya": "amasya-matbaa",
+        "Ankara": "ankara-matbaa", "Antalya": "antalya-matbaa", "Ardahan": "ardahan-matbaa",
+        "Artvin": "artvin-matbaa", "Aydın": "aydin-matbaa", "Balıkesir": "balikesir-matbaa",
+        "Bartın": "bartin-matbaa", "Batman": "batman-matbaa", "Bayburt": "bayburt-matbaa",
+        "Bilecik": "bilecik-matbaa", "Bingöl": "bingol-matbaa", "Bitlis": "bitlis-matbaa",
+        "Bolu": "bolu-matbaa", "Burdur": "burdur-matbaa", "Bursa": "bursa-matbaa",
+        "Çanakkale": "canakkale-matbaa", "Çankırı": "cankiri-matbaa", "Çorum": "corum-matbaa",
+        "Denizli": "denizli-matbaa", "Diyarbakır": "diyarbakir-matbaa", "Düzce": "duzce-matbaa",
+        "Edirne": "edirne-matbaa", "Elazığ": "elazig-matbaa", "Erzincan": "erzincan-matbaa",
+        "Erzurum": "erzurum-matbaa", "Eskişehir": "eskisehir-matbaa", "Gaziantep": "gaziantep-matbaa",
+        "Giresun": "giresun-matbaa", "Gümüşhane": "gumushane-matbaa", "Hakkâri": "hakkari-matbaa",
+        "Hatay": "hatay-matbaa", "Iğdır": "igdir-matbaa", "Isparta": "isparta-matbaa",
+        "İstanbul": "istanbul-matbaa", "İzmir": "izmir-matbaa", "Kahramanmaraş": "kahramanmaras-matbaa",
+        "Karabük": "karabuk-matbaa", "Karaman": "karaman-matbaa", "Kars": "kars-matbaa",
+        "Kastamonu": "kastamonu-matbaa", "Kayseri": "kayseri-matbaa", "Kırıkkale": "kirikkale-matbaa",
+        "Kırklareli": "kirklareli-matbaa", "Kırşehir": "kirsehir-matbaa", "Kilis": "kilis-matbaa",
+        "Kocaeli": "kocaeli-matbaa", "Konya": "konya-matbaa", "Kütahya": "kutahya-matbaa",
+        "Malatya": "malatya-matbaa", "Manisa": "manisa-matbaa", "Mardin": "mardin-matbaa",
+        "Mersin": "mersin-matbaa", "Muğla": "mugla-matbaa", "Muş": "mus-matbaa",
+        "Nevşehir": "nevsehir-matbaa", "Niğde": "nigde-matbaa", "Ordu": "ordu-matbaa",
+        "Osmaniye": "osmaniye-matbaa", "Rize": "rize-matbaa", "Sakarya": "sakarya-matbaa",
+        "Samsun": "samsun-matbaa", "Siirt": "siirt-matbaa", "Sinop": "sinop-matbaa",
+        "Sivas": "sivas-matbaa", "Şanlıurfa": "sanliurfa-matbaa", "Şırnak": "sirnak-matbaa",
+        "Tekirdağ": "tekirdag-matbaa", "Tokat": "tokat-matbaa", "Trabzon": "trabzon-matbaa",
+        "Tunceli": "tunceli-matbaa", "Uşak": "usak-matbaa", "Van": "van-matbaa",
+        "Yalova": "yalova-matbaa", "Yozgat": "yozgat-matbaa", "Zonguldak": "zonguldak-matbaa"
     };
 
     function renderCities() {
@@ -1958,7 +1993,7 @@
             const div = document.createElement('div');
             div.className = 'faq-item';
             div.innerHTML = `
-                <div class="faq-question" onclick="toggleAnswer(this)">
+                <button class="faq-question" onclick="toggleAnswer(this)">
                     <span>${item.q}</span>
                     <span class="faq-q-icon">+</span>
                 </div>
