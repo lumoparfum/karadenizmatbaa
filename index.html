@@ -149,7 +149,7 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-        body.no-scroll { overflow: hidden; }
+        body.no-scroll { overflow: hidden; position: fixed; width: 100%; }
         a { text-decoration: none; color: inherit; }
         img { max-width: 100%; height: auto; display: block; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
@@ -252,13 +252,23 @@
             color: #fff;
             letter-spacing: -1px;
             cursor: pointer;
+            white-space: nowrap;
+            text-decoration: none;
+            display: inline;
         }
         .logo span { color: var(--secondary); }
+        .logo-divider {
+            color: rgba(255,255,255,0.3);
+            font-weight: 300;
+            font-size: 1.4rem;
+        }
         .slogan-text {
-            font-size: 0.7rem;
-            font-weight: 500;
-            color: #b0c4de;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
             letter-spacing: 0.3px;
+            text-shadow: 0 0 12px rgba(255,255,255,0.1);
+            opacity: 0.9;
             white-space: nowrap;
         }
         .nav-links {
@@ -302,14 +312,15 @@
             text-align: center;
             color: #fff;
             overflow: hidden;
+            background-color: var(--primary);
         }
-        .hero-image {
+        .hero-bg {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            background: linear-gradient(145deg, #06152a 0%, #0a1e3a 30%, #0d2547 60%, #0a1e3a 100%);
             z-index: 0;
         }
         .hero-overlay {
@@ -328,60 +339,94 @@
             max-width: 900px;
         }
         .hero .slogan {
-            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            font-size: clamp(1.4rem, 3vw, 2.2rem);
             font-weight: 700;
             color: var(--secondary);
             margin-bottom: 12px;
             letter-spacing: 1px;
-            text-shadow: 0 2px 15px rgba(0,0,0,0.3);
+            text-shadow: 0 2px 20px rgba(0,0,0,0.5);
         }
         .hero h1 {
-            font-size: clamp(2.4rem, 6vw, 4.2rem);
+            font-size: clamp(2.8rem, 7vw, 5rem);
             font-weight: 900;
-            line-height: 1.15;
-            margin-bottom: 16px;
-            text-shadow: 0 4px 30px rgba(0,0,0,0.4);
+            line-height: 1.1;
+            margin-bottom: 8px;
+            text-shadow: 0 4px 40px rgba(0,0,0,0.6);
         }
         .hero h1 span { color: var(--secondary); }
-        .hero p {
-            font-size: clamp(1rem, 1.8vw, 1.25rem);
-            max-width: 700px;
-            margin: 0 auto 30px;
-            opacity: 0.95;
-            line-height: 1.8;
-            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        .hero .sub-title {
+            font-size: clamp(1.2rem, 2.2vw, 1.8rem);
+            font-weight: 500;
+            color: rgba(255,255,255,0.95);
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 25px rgba(0,0,0,0.5);
         }
+        .hero .hero-desc {
+            font-size: clamp(1.15rem, 1.8vw, 1.5rem);
+            max-width: 750px;
+            margin: 0 auto 28px;
+            opacity: 0.98;
+            line-height: 1.8;
+            text-shadow: 0 2px 30px rgba(0,0,0,0.6);
+            font-weight: 400;
+            color: #fff;
+        }
+        .hero-features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px 24px;
+            margin-bottom: 32px;
+        }
+        .hero-features span {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 8px 22px;
+            border-radius: 40px;
+            border: 1px solid rgba(255,255,255,0.2);
+            text-shadow: 0 1px 10px rgba(0,0,0,0.3);
+        }
+        .hero-features i { color: var(--secondary); font-size: 1.1rem; }
         .hero-buttons {
             display: flex;
             gap: 16px;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
         .hero-badges {
             display: flex;
             justify-content: center;
-            gap: 16px;
+            gap: 12px;
             flex-wrap: wrap;
         }
         .hero-badges span {
             display: flex;
             align-items: center;
             gap: 8px;
-            background: rgba(255,255,255,0.12);
+            background: rgba(255,255,255,0.15);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
-            padding: 6px 18px;
+            padding: 8px 18px;
             border-radius: 40px;
-            border: 1px solid rgba(255,255,255,0.15);
-            font-size: 0.8rem;
-            font-weight: 500;
+            border: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.85rem;
+            font-weight: 600;
             letter-spacing: 0.3px;
             color: #fff;
             transition: background 0.3s;
+            text-shadow: 0 1px 10px rgba(0,0,0,0.3);
         }
-        .hero-badges span:hover { background: rgba(255,255,255,0.22); }
-        .hero-badges i { color: var(--secondary); font-size: 0.9rem; }
+        .hero-badges span:hover { background: rgba(255,255,255,0.25); }
+        .hero-badges i { color: var(--secondary); font-size: 1rem; }
 
         /* ========== SECTION TITLE ========== */
         .section-title {
@@ -461,8 +506,126 @@
         }
         .service-card .btn-wa { width: 100%; max-width: 180px; }
 
-        /* ========== BESTSELLERS & PRICE CARDS ========== */
-        .bestseller-card, .price-card {
+        /* ========== BESTSELLERS - Horizontal Scroll ========== */
+        .bestsellers {
+            padding: clamp(50px, 10vw, 80px) 0;
+            background: #f8f9fc;
+        }
+        .bestsellers-scroll-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+        .bestsellers-scroll {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            padding: 10px 4px 20px 4px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            transition: transform 0.5s ease;
+        }
+        .bestsellers-scroll::-webkit-scrollbar {
+            height: 3px;
+            background: var(--light-gray);
+            border-radius: 4px;
+        }
+        .bestsellers-scroll::-webkit-scrollbar-thumb {
+            background: var(--secondary);
+            border-radius: 4px;
+        }
+        .bestseller-card {
+            flex: 0 0 200px;
+            scroll-snap-align: start;
+            background: #fff;
+            border-radius: 16px;
+            padding: 18px 16px;
+            border: 1px solid var(--light-gray);
+            transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .bestseller-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--secondary), #ffa550);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        .bestseller-card:hover {
+            border-color: var(--secondary);
+            box-shadow: 0 16px 40px rgba(244, 123, 32, 0.13);
+            transform: translateY(-6px);
+        }
+        .bestseller-card:hover::before { transform: scaleX(1); }
+        .bestseller-card .badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--secondary);
+            color: #fff;
+            font-size: 0.55rem;
+            font-weight: 800;
+            padding: 3px 12px;
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .bestseller-card .product-name {
+            font-weight: 800;
+            font-size: 0.95rem;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+        .bestseller-card .product-code {
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: 0.7rem;
+        }
+        .bestseller-card .product-desc {
+            color: var(--gray);
+            font-size: 0.8rem;
+            margin: 6px 0 10px;
+            flex: 1;
+        }
+        .bestseller-card .product-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 12px;
+            border-top: 1px solid var(--light-gray);
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .bestseller-card .product-price {
+            font-weight: 900;
+            font-size: 1.1rem;
+            color: var(--primary);
+        }
+        .bestseller-card .product-price small {
+            font-weight: 400;
+            font-size: 0.65rem;
+            color: var(--gray);
+        }
+        .bestseller-card .btn-wa {
+            padding: 4px 12px;
+            font-size: 0.7rem;
+            min-height: 32px;
+        }
+
+        /* ========== PRICE CARDS (grid) ========== */
+        .pricing {
+            padding: clamp(50px, 10vw, 80px) 0;
+        }
+        .price-card {
             background: #fff;
             border-radius: 18px;
             padding: 22px 20px;
@@ -475,7 +638,7 @@
             overflow: hidden;
             cursor: pointer;
         }
-        .bestseller-card::before, .price-card::before {
+        .price-card::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0;
@@ -485,25 +648,12 @@
             transform-origin: left;
             transition: transform 0.4s ease;
         }
-        .bestseller-card:hover, .price-card:hover {
+        .price-card:hover {
             border-color: var(--secondary);
             box-shadow: 0 16px 40px rgba(244, 123, 32, 0.13);
             transform: translateY(-6px);
         }
-        .bestseller-card:hover::before, .price-card:hover::before { transform: scaleX(1); }
-        .bestseller-card .badge {
-            position: absolute;
-            top: 14px;
-            right: 14px;
-            background: var(--secondary);
-            color: #fff;
-            font-size: 0.6rem;
-            font-weight: 800;
-            padding: 4px 14px;
-            border-radius: 30px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+        .price-card:hover::before { transform: scaleX(1); }
         .product-name {
             font-weight: 800;
             font-size: 1.1rem;
@@ -541,12 +691,10 @@
             font-size: 0.75rem;
             color: var(--gray);
         }
-        .bestseller-card .btn-wa, .price-card .btn-wa {
+        .price-card .btn-wa {
             padding: 6px 14px;
             font-size: 0.8rem;
         }
-
-        /* ========== COMPARISON TABLE ========== */
         .comparison {
             padding: clamp(50px, 10vw, 80px) 0;
             background: #f8f9fc;
@@ -804,43 +952,74 @@
         }
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
         }
-        .contact-info h3 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            margin-bottom: 20px;
+        .contact-card {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 20px;
+            padding: 28px 24px;
+            transition: 0.3s;
             color: #fff;
         }
-        .contact-info p {
-            margin-bottom: 12px;
+        .contact-card:hover {
+            background: rgba(255,255,255,0.14);
+            transform: translateY(-6px);
+            border-color: var(--secondary);
+        }
+        .contact-card h3 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 16px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
+        }
+        .contact-card h3 i { color: var(--secondary); }
+        .contact-card p {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
             opacity: 0.9;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: rgba(255,255,255,0.9);
         }
-        .contact-info i {
-            color: var(--secondary);
-            font-size: 1.2rem;
-            width: 24px;
-            text-align: center;
-        }
-        .contact-info a {
+        .contact-card i { color: var(--secondary); width: 20px; text-align: center; }
+        .contact-card a {
             color: #fff;
             transition: color 0.3s;
         }
-        .contact-info a:hover { color: var(--secondary); }
-        .address-block {
-            background: rgba(255,255,255,0.08);
-            padding: 24px;
-            border-radius: 14px;
-            margin-top: 25px;
-            margin-bottom: 25px;
-            border-left: 4px solid var(--secondary);
+        .contact-card a:hover { color: var(--secondary); }
+        .contact-card .bank-info {
+            background: rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 14px 16px;
+            margin-top: 12px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.08);
         }
-        .address-block p { margin-bottom: 6px; }
-        .address-block strong { color: var(--secondary); }
+        .contact-card .bank-info p { margin-bottom: 4px; display: block; }
+        .contact-card .bank-info strong { color: var(--secondary); }
+        .contact-card .btn-primary {
+            margin-top: 16px;
+            width: 100%;
+            justify-content: center;
+            background: var(--secondary);
+            color: #fff;
+        }
+        .contact-card .btn-primary:hover { background: #d96a0e; }
+        .contact-card .address-line {
+            display: block !important;
+            align-items: flex-start !important;
+        }
 
         /* ========== ABOUT ========== */
         .about-section {
@@ -904,6 +1083,31 @@
             transition: color 0.3s;
         }
         footer a:hover { color: var(--secondary); }
+        .footer-accordion-header {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: none;
+            border: none;
+            width: 100%;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 800;
+            padding: 0;
+            font-family: inherit;
+            transition: color 0.2s;
+        }
+        .footer-accordion-header:hover { color: var(--secondary); }
+        .footer-accordion-header .fa-chevron-down {
+            font-size: 0.8rem;
+            transition: transform 0.3s;
+        }
+        .footer-accordion-header.active .fa-chevron-down { transform: rotate(180deg); }
+        .footer-accordion-content {
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
         .footer-bottom {
             text-align: center;
             padding-top: 20px;
@@ -1056,7 +1260,7 @@
         /* ========== RESPONSIVE ========== */
         @media (max-width: 992px) {
             .about-grid { grid-template-columns: 1fr; gap: 30px; }
-            .contact-grid { grid-template-columns: 1fr; gap: 30px; }
+            .contact-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
             .trust-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 768px) {
@@ -1073,8 +1277,9 @@
                 overflow: hidden;
                 transition: max-height 0.35s ease;
                 box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+                pointer-events: none;
             }
-            .nav-links.open { max-height: 500px; }
+            .nav-links.open { max-height: 500px; pointer-events: auto; }
             .nav-links a {
                 padding: 16px 24px;
                 border-bottom: 1px solid rgba(255,255,255,0.06);
@@ -1089,19 +1294,23 @@
                 min-height: 52px;
                 border-bottom: none;
             }
-            .grid-3 { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+            .logo-divider,            nav .container { flex-wrap: nowrap; }
+            .logo-wrapper { gap: 0; }
+            .logo { font-size: 1.6rem; }
+            .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 12px; }
             .hero-buttons { flex-direction: column; align-items: center; }
             .hero-buttons .btn-primary { width: 100%; max-width: 340px; }
-            .hero-badges { gap: 10px; font-size: 0.7rem; }
-            .hero-badges span { padding: 4px 14px; }
+            .hero-badges { gap: 10px; }
+            .hero-badges span { font-size: 0.75rem; padding: 6px 14px; }
+            .hero-features { gap: 8px 12px; }
+            .hero-features span { font-size: 0.85rem; padding: 6px 14px; }
             .floating-buttons { bottom: calc(16px + var(--safe-bottom)); right: calc(16px + var(--safe-right)); gap: 12px; }
             .float-btn { width: 54px; height: 54px; font-size: 1.4rem; }
             .faq-toggle-header { padding: 20px 24px; }
             .faq-toggle-header h2 { font-size: 1.4rem; }
             .faq-list { padding: 20px; gap: 14px; }
             .faq-question { font-size: 1rem; }
-            .contact-grid { gap: 24px; }
-            .address-block { padding: 18px; }
+            .contact-grid { grid-template-columns: 1fr; gap: 20px; }
             .comp-table th, .comp-table td { padding: 12px 16px; font-size: 0.85rem; }
             .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
             .modal-box { padding: 24px 18px; }
@@ -1110,25 +1319,35 @@
             .modal-table .btn-wa { font-size: 0.65rem; padding: 4px 10px; }
             .about-grid { grid-template-columns: 1fr; }
             .slogan-text { font-size: 0.6rem; }
+            .bestseller-card { flex: 0 0 165px; padding: 14px 12px; }
+            .bestseller-card .product-name { font-size: 0.85rem; }
+            .bestseller-card .product-price { font-size: 1rem; }
+            .bestseller-card .btn-wa { font-size: 0.65rem; padding: 4px 10px; }            .about-image img { max-height: 280px; object-fit: cover; }
+            .about-text p { font-size: 0.95rem; line-height: 1.7; }
+            .benefits-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 580px) {
-            .grid-3 { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-            .service-card { padding: 20px 14px; }
-            .service-card img { width: 80px; height: 80px; }
-            .service-card h3 { font-size: 1rem; }
-            .service-card p { font-size: 0.8rem; }
-            .bestseller-card, .price-card { padding: 16px 14px; }
-            .bestseller-card .product-name, .price-card .product-name { font-size: 1rem; }
-            .product-price { font-size: 1.2rem; }
+            .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+            .service-card { padding: 16px 10px; }
+            .service-card img { width: 70px; height: 70px; }
+            .service-card h3 { font-size: 0.85rem; }
+            .service-card p { font-size: 0.75rem; }
+            .bestseller-card { flex: 0 0 160px; padding: 14px 12px; }
+            .bestseller-card .product-name { font-size: 0.85rem; }
+            .bestseller-card .product-price { font-size: 0.95rem; }
+            .price-card { padding: 16px 12px; }
+            .price-card .product-name { font-size: 0.95rem; }
             .price-card .btn-wa { width: 100%; justify-content: center; }
             .trust-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
             .modal-table .btn-wa { display: block; width: 100%; text-align: center; }
-        }
+            .hero-badges span { font-size: 0.7rem; padding: 4px 12px; }
+            .hero-features span { font-size: 0.75rem; padding: 4px 12px; }        }
         @media (max-width: 480px) {
             .hero { min-height: 80vh; }
-            .hero h1 { font-size: 1.8rem; line-height: 1.2; }
-            .hero p { font-size: 0.95rem; margin-bottom: 24px; }
-            .hero .slogan { font-size: 1rem; }
+            .hero h1 { font-size: 2.2rem; line-height: 1.2; }
+            .hero .hero-desc { font-size: 1rem; margin-bottom: 20px; }
+            .hero .slogan { font-size: 1.1rem; }
+            .hero .sub-title { font-size: 1rem; }
             .section-title h2 { font-size: 1.8rem; }
             .benefits-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
             .city-tags { gap: 6px; }
@@ -1136,22 +1355,18 @@
             .faq-toggle-header h2 { font-size: 1.2rem; }
             .float-btn { width: 48px; height: 48px; font-size: 1.2rem; }
             .floating-buttons { bottom: calc(12px + var(--safe-bottom)); right: calc(12px + var(--safe-right)); gap: 10px; }
-            footer .container { gap: 24px; }
-            .contact-info h3 { font-size: 1.4rem; }
-            .modal-box { padding: 16px 12px; }
+            footer .container { gap: 24px; }            .modal-box { padding: 16px 12px; }
             .modal-box h2 { font-size: 1.4rem; }
             .trust-grid { grid-template-columns: 1fr; }
-            .grid-3 { grid-template-columns: 1fr 1fr; gap: 10px; }
-            .slogan-text { display: none; } /* çok küçük ekranda slogan gizle */
-        }
+            .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 6px; }        }
         @media (max-width: 360px) {
-            .hero h1 { font-size: 1.5rem; }
+            .hero h1 { font-size: 1.8rem; }
             .benefits-grid { grid-template-columns: 1fr; }
             .logo { font-size: 1.5rem; }
-            .grid-3 { grid-template-columns: 1fr 1fr; gap: 8px; }
-            .service-card img { width: 70px; height: 70px; }
-            .service-card h3 { font-size: 0.85rem; }
-        }
+            .grid-3 { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+            .service-card img { width: 60px; height: 60px; }
+            .service-card h3 { font-size: 0.8rem; }
+            .bestseller-card { flex: 0 0 140px; }        }
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
             .fade-in { opacity: 1; transform: none; }
@@ -1165,7 +1380,8 @@
 <nav>
     <div class="container">
         <div class="logo-wrapper">
-            <div class="logo" onclick="location.href='#'">Karadeniz<span>Matbaa</span></div>
+            <a class="logo" href="/">Karadeniz<span>Matbaa</span></a>
+            <span class="logo-divider">|</span>
             <span class="slogan-text">Yeni Nesil Dijital Matbaa</span>
         </div>
         <button class="mobile-menu-btn" id="menuToggle" onclick="toggleMenu()" aria-label="Menüyü aç/kapat" aria-expanded="false">
@@ -1184,12 +1400,19 @@
 
 <!-- ========== HERO ========== -->
 <section class="hero">
-    <img src="makinaparkuru.png" alt="Karadeniz Matbaa Makine Parkuru" class="hero-image" />
+    <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
     <div class="container">
-        <div class="slogan">Fiyatı Gör, WhatsApp'tan Yaz, Baskını Al.</div>
-        <h1>Karadeniz Matbaa – <span>Yeni Nesil</span> Dijital Matbaa</h1>
-        <p>Kartvizit 195 TL'den başlayan fiyatlarla. Broşür, afiş, magnet, etiket, davetiye, karton çanta, zarf, makbuz, amerikan servis, cepli dosya, antetli, oto paspas, bloknot, ambalaj kutusu, kapı askılık ve fason baskıda şeffaf fiyat, üyelik yok, ertesi gün kargo. Hem profesyoneller hem herkes için!</p>
+        <div class="slogan">81 İl • 16 Kategori • Ertesi Gün Kargo</div>
+        <h1>Karadeniz <span>Matbaa</span></h1>
+        <div class="sub-title">Fiyatı Gör <span>•</span> WhatsApp'tan Yaz <span>•</span> Baskını Al</div>
+        <p class="hero-desc">16 kategoride baskı, KDV dahil fiyatlar, WhatsApp'tan anında sipariş. Türkiye'nin 81 iline ertesi gün kargo. Kartvizit 195 TL'den başlayan fiyatlarla.</p>
+        <div class="hero-features">
+            <span><i class="fas fa-th-list"></i> 16 Kategori</span>
+            <span><i class="fas fa-truck"></i> Ertesi Gün Kargo</span>
+            <span><i class="fas fa-map-marker-alt"></i> 81 İl</span>
+            <span><i class="fas fa-check-circle"></i> KDV Dahil</span>
+        </div>
         <div class="hero-buttons">
             <a href="https://wa.me/905016675755?text=Merhaba,%20karadenizmatbaa.com%20üzerinden%20teklif%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn-primary">
                 <i class="fab fa-whatsapp"></i> WhatsApp ile Yaz
@@ -1201,7 +1424,7 @@
         <div class="hero-badges">
             <span><i class="fas fa-check-circle"></i> KDV Dahil</span>
             <span><i class="fas fa-truck"></i> Ertesi Gün Kargo</span>
-            <span><i class="fas fa-headset"></i> 7/24 WhatsApp</span>
+            <span><i class="fas fa-headset"></i> WhatsApp Sipariş</span>
             <span><i class="fas fa-print"></i> Toraman Matbaa &amp; Uzman Reklam</span>
         </div>
     </div>
@@ -1214,7 +1437,9 @@
             <h2>Çok Satanlar</h2>
             <p>En çok tercih edilen ürünlerimiz, en uygun fiyatlarla</p>
         </div>
-        <div class="grid-3" id="bestsellersGrid"></div>
+        <div class="bestsellers-scroll-wrapper">
+            <div class="bestsellers-scroll" id="bestsellersScroll"></div>
+        </div>
     </div>
 </section>
 
@@ -1249,7 +1474,7 @@
         <div class="trust-grid">
             <div class="trust-item"><i class="fas fa-file-invoice-dollar"></i><h4>Şeffaf Fiyat</h4><p>Tüm fiyatlar KDV dahil, sitede net olarak yazılı.</p></div>
             <div class="trust-item"><i class="fas fa-truck-fast"></i><h4>Ertesi Gün Kargo</h4><p>Siparişiniz ertesi gün anlaşmalı kargoya teslim.</p></div>
-            <div class="trust-item"><i class="fab fa-whatsapp"></i><h4>7/24 WhatsApp</h4><p>Her an sorularınıza cevap, anında teklif.</p></div>
+            <div class="trust-item"><i class="fab fa-whatsapp"></i><h4>WhatsApp ile Sipariş</h4><p>Tasarımınızı gönderin, anında teklif alın, kolayca sipariş verin.</p></div>
             <div class="trust-item"><i class="fas fa-handshake"></i><h4>Toraman Matbaa İşbirliği</h4><p>Yarım asırlık güvenin arkasındayız.</p></div>
         </div>
     </div>
@@ -1270,7 +1495,7 @@
                     <tr><td>Sipariş Süreci</td><td class="highlight"><i class="fas fa-check check"></i> WhatsApp, 1 dakika</td><td><i class="fas fa-times cross"></i> Sepet, üyelik, form doldurma</td></tr>
                     <tr><td>Teslimat Süresi</td><td class="highlight"><i class="fas fa-check check"></i> Ertesi gün kargo</td><td><i class="fas fa-times cross"></i> 3-5 iş günü</td></tr>
                     <tr><td>KDV Dahil Fiyat</td><td class="highlight"><i class="fas fa-check check"></i> Evet</td><td><i class="fas fa-times cross"></i> Hayır, sonradan eklenir</td></tr>
-                    <tr><td>7/24 Destek</td><td class="highlight"><i class="fas fa-check check"></i> WhatsApp ile her zaman</td><td><i class="fas fa-times cross"></i> Sadece mesai saatleri</td></tr>
+                    <tr><td>Destek</td><td class="highlight"><i class="fas fa-check check"></i> WhatsApp ile hızlı yanıt</td><td><i class="fas fa-times cross"></i> Sadece mesai saatleri</td></tr>
                 </tbody>
             </table>
         </div>
@@ -1280,7 +1505,7 @@
                 <div class="benefit-item"><i class="fas fa-tachometer-alt"></i><h3>Hızlı Teslimat</h3><p>Ertesi gün kargoda, acil işlerinizde yanınızdayız.</p></div>
                 <div class="benefit-item"><i class="fas fa-tag"></i><h3>Uygun Fiyat</h3><p>Aracısız, direkt fabrika fiyatları. Reklamcılara özel indirimler.</p></div>
                 <div class="benefit-item"><i class="fas fa-check-circle"></i><h3>Kaliteli Malzeme</h3><p>1. sınıf kağıt, mürekkep ve selefon kullanıyoruz.</p></div>
-                <div class="benefit-item"><i class="fas fa-headset"></i><h3>7/24 Destek</h3><p>WhatsApp hattımızdan anında yanıt, profesyonel grafik desteği.</p></div>
+                <div class="benefit-item"><i class="fas fa-headset"></i><h3>Hızlı Destek</h3><p>WhatsApp hattımızdan hızlı yanıt, profesyonel grafik desteği.</p></div>
                 <div class="benefit-item"><i class="fas fa-truck"></i><h3>Türkiye’ye Kargo</h3><p>Karadeniz’in her noktasına ve Türkiye’nin dört bir yanına hızlı kargo.</p></div>
             </div>
         </div>
@@ -1342,27 +1567,41 @@
             <p style="color: rgba(255,255,255,0.8);">Bize ulaşın, projenizi hemen başlatalım</p>
         </div>
         <div class="contact-grid">
-            <div class="contact-info">
-                <h3>Hemen Teklif Alın</h3>
+            <!-- İletişim Kartı -->
+            <div class="contact-card">
+                <h3><i class="fas fa-phone-alt"></i> İletişim</h3>
                 <p><i class="fas fa-phone-alt"></i> <a href="tel:+905016675755">0 501 667 57 55</a></p>
                 <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/905016675755" target="_blank" rel="noopener noreferrer">WhatsApp ile Yazın</a></p>
                 <p><i class="fas fa-envelope"></i> <a href="mailto:karadenizmatbaa1@gmail.com">karadenizmatbaa1@gmail.com</a></p>
-                <div class="address-block">
-                    <p><strong><i class="fas fa-print"></i> Toraman Matbaa</strong></p>
-                    <p>2. Matbaacılar Sitesi 5.Kat E Blok 3NE19 Topkapı - İSTANBUL</p>
-                    <p><a href="https://toramanmatbaa.com" target="_blank" rel="noopener noreferrer" style="color: var(--secondary);">toramanmatbaa.com</a> | 444 5 340</p>
-                    <p style="margin-top:15px;"><strong><i class="fas fa-store"></i> Uzman Reklam</strong></p>
-                    <p>Emirefendi Mh. Çizmeli 2.Sk. No:33, Bafra / SAMSUN</p>
-                    <p><a href="https://samsuntabela.tr" target="_blank" rel="noopener noreferrer" style="color: var(--secondary);">samsuntabela.tr</a> | 0532 220 46 49</p>
-                </div>
+                <p><i class="fas fa-clock"></i> Hafta içi 09:00-19:00, Cmt 09:00-15:00</p>
                 <a href="https://wa.me/905016675755?text=Merhaba,%20karadenizmatbaa.com%20üzerinden%20teklif%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn-primary"><i class="fab fa-whatsapp"></i> WhatsApp ile Yaz</a>
             </div>
-            <div>
-                <h3 style="color: #fff;">Çalışma Saatleri</h3>
-                <p><strong>Hafta içi:</strong> 09:00 – 19:00</p>
-                <p><strong>Cumartesi:</strong> 09:00 – 15:00</p>
-                <p><strong>Pazar:</strong> Kapalı (WhatsApp'tan yazabilirsiniz)</p>
-                <p style="margin-top:20px;"><i class="fas fa-clock" style="color:var(--secondary);"></i> Acil işleriniz için WhatsApp hattımız her zaman açıktır.</p>
+            <!-- Banka Bilgileri Kartı -->
+            <div class="contact-card">
+                <h3><i class="fas fa-university"></i> Banka Hesabı</h3>
+                <div class="bank-info">
+                    <p><strong>Banka:</strong> Garanti Bankası</p>
+                    <p><strong>Şube Kodu:</strong> 520</p>
+                    <p><strong>Hesap No:</strong> 6297473</p>
+                    <p><strong>IBAN:</strong> <span style="font-family:monospace; font-size:0.9rem; word-break:break-all;">TR12 0006 2000 5200 0006 2974 73</span></p>
+                </div>
+                <p style="margin-top:12px;"><strong>Vergi Dairesi:</strong> BAFRA V.D.</p>
+                <p><strong>Vergi No:</strong> 214 7659 4794</p>
+                <p><strong>Firma Sahibi:</strong> Abdurrahman TORAMAN</p>
+            </div>
+            <!-- Konum Kartı -->
+            <div class="contact-card">
+                <h3><i class="fas fa-map-marked-alt"></i> Konumlarımız</h3>
+                <p><strong><i class="fas fa-industry"></i> Toraman Matbaa</strong></p>
+                <p class="address-line">2. Matbaacılar Sitesi 5.Kat E Blok 3NE19 Topkapı - İSTANBUL</p>
+                <p><a href="https://toramanmatbaa.com" target="_blank" rel="noopener noreferrer" style="color:var(--secondary);">toramanmatbaa.com</a> | 444 5 340</p>
+                <p style="margin-top:12px;"><strong><i class="fas fa-store"></i> Uzman Reklam</strong></p>
+                <p class="address-line">Emirefendi Mh. Çizmeli 2.Sk. No:33, Bafra / SAMSUN</p>
+                <p><a href="https://samsuntabela.tr" target="_blank" rel="noopener noreferrer" style="color:var(--secondary);">samsuntabela.tr</a> | 0532 220 46 49</p>
+                <div style="display:flex; gap:12px; margin-top:16px; flex-wrap:wrap;">
+                    <a href="https://maps.app.goo.gl/fu8u5zSVSsvjjc6C6" target="_blank" rel="noopener noreferrer" class="btn-wa" style="background:rgba(255,255,255,0.15); color:#fff; border:1px solid rgba(255,255,255,0.2);"><i class="fas fa-map-pin"></i> Toraman Harita</a>
+                    <a href="https://share.google/BummaKok6BCqbsT3f" target="_blank" rel="noopener noreferrer" class="btn-wa" style="background:rgba(255,255,255,0.15); color:#fff; border:1px solid rgba(255,255,255,0.2);"><i class="fas fa-map-pin"></i> Uzman Reklam</a>
+                </div>
             </div>
         </div>
     </div>
@@ -1376,24 +1615,28 @@
             <p>Yeni nesil dijital matbaa. 16 farklı ürün kategorisinde şeffaf fiyat, hızlı teslimat.</p>
         </div>
         <div class="footer-col">
-            <h4>Hizmetler</h4>
-            <a href="#hizmetler">Kartvizit</a>
-            <a href="#hizmetler">Broşür</a>
-            <a href="#hizmetler">Afiş</a>
-            <a href="#hizmetler">Magnet</a>
-            <a href="#hizmetler">Etiket</a>
-            <a href="#hizmetler">Davetiye</a>
-            <a href="#hizmetler">Karton Çanta</a>
-            <a href="#hizmetler">Zarf</a>
-            <a href="#hizmetler">Makbuz</a>
-            <a href="#hizmetler">Amerikan Servis</a>
-            <a href="#hizmetler">Cepli Dosya</a>
-            <a href="#hizmetler">Antetli</a>
-            <a href="#hizmetler">Oto Paspas</a>
-            <a href="#hizmetler">Bloknot</a>
-            <a href="#hizmetler">Ambalaj Kutusu</a>
-            <a href="#hizmetler">Kapı Askılık</a>
-            <a href="#hizmetler">Fason Baskı</a>
+            <button class="footer-accordion-header" onclick="toggleFooterSection(this)" aria-expanded="false">
+                Hizmetler <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="footer-accordion-content" style="max-height:0;">
+                <a href="#hizmetler">Kartvizit</a>
+                <a href="#hizmetler">Broşür</a>
+                <a href="#hizmetler">Afiş</a>
+                <a href="#hizmetler">Magnet</a>
+                <a href="#hizmetler">Etiket</a>
+                <a href="#hizmetler">Davetiye</a>
+                <a href="#hizmetler">Karton Çanta</a>
+                <a href="#hizmetler">Zarf</a>
+                <a href="#hizmetler">Makbuz</a>
+                <a href="#hizmetler">Amerikan Servis</a>
+                <a href="#hizmetler">Cepli Dosya</a>
+                <a href="#hizmetler">Antetli</a>
+                <a href="#hizmetler">Oto Paspas</a>
+                <a href="#hizmetler">Bloknot</a>
+                <a href="#hizmetler">Ambalaj Kutusu</a>
+                <a href="#hizmetler">Kapı Askılık</a>
+                <a href="#hizmetler">Fason Baskı</a>
+            </div>
         </div>
         <div class="footer-col">
             <h4>Kurumsal</h4>
@@ -1586,16 +1829,21 @@
     }
 
     // Navbar Mobile Menu
+    let _savedScrollY = 0;
     function toggleMenu() {
         var nav = document.getElementById('navLinks');
         var isOpen = nav.classList.toggle('open');
         var bars = document.getElementById('menuIconBars');
         var times = document.getElementById('menuIconTimes');
         var btn = document.getElementById('menuToggle');
-        if (isOpen) { bars.style.display = 'none'; times.style.display = 'inline-block'; }
+        if (isOpen) {
+            bars.style.display = 'none'; times.style.display = 'inline-block';
+            _savedScrollY = window.scrollY;
+        }
         else { bars.style.display = 'inline-block'; times.style.display = 'none'; }
         if (btn) btn.setAttribute('aria-expanded', isOpen);
         document.body.classList.toggle('no-scroll', isOpen);
+        if (!isOpen) { window.scrollTo(0, _savedScrollY); }
     }
 
     // ========== FAQ ==========
@@ -1624,6 +1872,14 @@
     }
 
     // ========== KVKK / Gizlilik Modals ==========
+    function toggleFooterSection(btn) {
+        var content = btn.nextElementSibling;
+        var isOpen = content.style.maxHeight !== '0px' && content.style.maxHeight !== '';
+        content.style.maxHeight = isOpen ? '0px' : content.scrollHeight + 'px';
+        btn.classList.toggle('active', !isOpen);
+        btn.setAttribute('aria-expanded', !isOpen);
+    }
+
     function openModal(type) {
         if (type === 'kvkk') document.getElementById('kvkkModal').classList.add('active');
         else if (type === 'gizlilik') document.getElementById('gizlilikModal').classList.add('active');
@@ -1926,12 +2182,14 @@
 
     // ========== RENDER FUNCTIONS ==========
     function renderBestsellers() {
-        const grid = document.getElementById('bestsellersGrid');
-        grid.innerHTML = '';
+        const container = document.getElementById('bestsellersScroll');
+        if (!container) return;
+        container.innerHTML = '';
         bestsellers.forEach((cat, idx) => {
-            const delay = (idx % 3) + 1;
             const card = document.createElement('div');
-            card.className = `bestseller-card fade-in fade-in-delay-${delay}`;
+            card.className = 'bestseller-card';
+            card.setAttribute('role', 'button');
+            card.setAttribute('tabindex', '0');
             card.dataset.category = cat.id;
             card.innerHTML = `
                 <span class="badge">${idx === 0 ? 'En Çok Satan' : 'Popüler'}</span>
@@ -1942,8 +2200,42 @@
                     <a href="https://wa.me/905016675755?text=Merhaba,%20${encodeURIComponent(cat.name)}%20fiyatı%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn-wa"><i class="fab fa-whatsapp"></i> Sipariş</a>
                 </div>
             `;
-            grid.appendChild(card);
+            container.appendChild(card);
         });
+
+        const scrollEl = container;
+        let scrollInterval;
+        let isDragging = false;
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function autoScroll() {
+            if (isDragging || scrollEl.scrollWidth <= scrollEl.clientWidth) return;
+            const maxScroll = scrollEl.scrollWidth - scrollEl.clientWidth;
+            const currentScroll = scrollEl.scrollLeft;
+            const behavior = prefersReducedMotion ? 'auto' : 'smooth';
+            if (currentScroll >= maxScroll - 1) {
+                scrollEl.scrollTo({ left: 0, behavior });
+            } else {
+                scrollEl.scrollBy({ left: 200, behavior });
+            }
+        }
+
+        function startAutoScroll() {
+            if (prefersReducedMotion) return;
+            if (scrollInterval) clearInterval(scrollInterval);
+            scrollInterval = setInterval(autoScroll, 3000);
+        }
+
+        function stopAutoScroll() {
+            if (scrollInterval) { clearInterval(scrollInterval); scrollInterval = null; }
+        }
+
+        scrollEl.addEventListener('mouseenter', stopAutoScroll);
+        scrollEl.addEventListener('mouseleave', startAutoScroll);
+        scrollEl.addEventListener('touchstart', () => { isDragging = true; stopAutoScroll(); });
+        scrollEl.addEventListener('touchend', () => { isDragging = false; startAutoScroll(); });
+
+        startAutoScroll();
     }
 
     function renderServices() {
