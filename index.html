@@ -1340,6 +1340,26 @@
             .about-text h2 { font-size: 1.4rem; }
             .about-text p { font-size: 0.85rem; line-height: 1.6; }
             .about-image img { max-height: 220px; object-fit: cover; }
+            .city-tags .city-hidden { display: none; }
+            .city-tags.expanded .city-hidden { display: inline-flex; }
+            .city-toggle {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                background: var(--secondary);
+                color: #fff;
+                border: none;
+                padding: 10px 24px;
+                border-radius: 40px;
+                font-weight: 700;
+                font-size: 0.85rem;
+                cursor: pointer;
+                transition: 0.3s;
+                margin-top: 12px;
+                width: 100%;
+                justify-content: center;
+            }
+            .city-toggle:hover { background: #d96a0e; }
             .section-title { margin-bottom: 24px; }
             .section-title h2 { font-size: 1.6rem; }
             .section-title p { font-size: 0.85rem; }
@@ -1428,6 +1448,7 @@
             .benefit-item { flex: 0 0 55px; padding: 6px 4px; }
             .city-tags { gap: 5px; }
             .city-tag { padding: 3px 10px; font-size: 0.65rem; }
+            .city-toggle { font-size: 0.75rem; padding: 8px 16px; }
             .faq-toggle-header h2 { font-size: 1.1rem; }
             .float-btn { width: 45px; height: 45px; font-size: 1.13rem; }
             .floating-buttons { bottom: calc(10px + var(--safe-bottom)); right: calc(10px + var(--safe-right)); gap: 8px; }
@@ -1903,10 +1924,13 @@
     function renderCities() {
         const container = document.getElementById('cityList');
         container.innerHTML = '';
-        cities.forEach(city => {
+        const isMobile = window.innerWidth <= 768;
+        const visibleCount = 10;
+        cities.forEach((city, index) => {
             const hasPage = cityPages[city];
             const tag = document.createElement(hasPage ? 'a' : 'span');
             tag.className = hasPage ? 'city-tag city-tag-active' : 'city-tag';
+            if (isMobile && index >= visibleCount) tag.classList.add('city-hidden');
             if (hasPage) tag.href = `/${cityPages[city]}`;
             tag.innerHTML = `<i class="fas fa-map-marker-alt"></i> ${city}`;
             container.appendChild(tag);
@@ -1918,6 +1942,17 @@
         kargo.style.borderColor = 'var(--secondary)';
         kargo.innerHTML = `<i class="fas fa-truck"></i> Türkiye’nin her yerine kargo`;
         container.appendChild(kargo);
+        if (isMobile) {
+            const btn = document.createElement('button');
+            btn.className = 'city-toggle';
+            btn.innerHTML = `Tümünü Göster (${cities.length} İl) <i class="fas fa-chevron-down"></i>`;
+            btn.onclick = function () {
+                container.querySelectorAll('.city-hidden').forEach(el => el.classList.remove('city-hidden'));
+                container.classList.add('expanded');
+                btn.style.display = 'none';
+            };
+            container.appendChild(btn);
+        }
     }
 
     // ========== SCROLL FADE-IN ==========
