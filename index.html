@@ -1341,7 +1341,26 @@
             .about-text h2 { font-size: 1.4rem; }
             .about-text p { font-size: 0.85rem; line-height: 1.6; }
             .about-image img { max-height: 220px; object-fit: cover; }
-
+            .city-tags .city-hidden { display: none; }
+            .city-tags.expanded .city-hidden { display: inline-flex; }
+            .city-toggle {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                background: var(--secondary);
+                color: #fff;
+                border: none;
+                padding: 10px 24px;
+                border-radius: 40px;
+                font-weight: 700;
+                font-size: 0.85rem;
+                cursor: pointer;
+                transition: 0.3s;
+                margin-top: 12px;
+                width: 100%;
+                justify-content: center;
+            }
+            .city-toggle:hover { background: #d96a0e; }
             .section-title { margin-bottom: 24px; }
             .section-title h2 { font-size: 1.6rem; }
             .section-title p { font-size: 0.85rem; }
@@ -1525,14 +1544,14 @@
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
     <div class="container">
-        <div class="slogan">10 Büyükşehir • 16 Kategori • Ertesi Gün Kargo</div>
+        <div class="slogan">81 İl • 16 Kategori • Ertesi Gün Kargo</div>
         <h1>Karadeniz <span>Matbaa</span></h1>
         <div class="sub-title">Fiyatı Gör <span>•</span> WhatsApp'tan Yaz <span>•</span> Baskını Al</div>
-        <p class="hero-desc">16 kategoride baskı, KDV dahil fiyatlar, WhatsApp'tan anında sipariş. Türkiye'nin 10 büyükşehrine ertesi gün kargo. Kartvizit 195 TL'den başlayan fiyatlarla.</p>
+        <p class="hero-desc">16 kategoride baskı, KDV dahil fiyatlar, WhatsApp'tan anında sipariş. Türkiye'nin 81 iline ertesi gün kargo. Kartvizit 195 TL'den başlayan fiyatlarla.</p>
         <div class="hero-features">
             <span><i class="fas fa-th-list"></i> 16 Kategori</span>
             <span><i class="fas fa-truck"></i> Ertesi Gün Kargo</span>
-            <span><i class="fas fa-map-marker-alt"></i> 10 Büyükşehir</span>
+            <span><i class="fas fa-map-marker-alt"></i> 81 İl</span>
             <span><i class="fas fa-check-circle"></i> KDV Dahil</span>
         </div>
         <div class="hero-buttons">
@@ -1638,8 +1657,8 @@
 <section class="service-areas">
     <div class="container">
         <div class="section-title fade-in">
-            <h2>Hizmet Verdiğimiz Büyükşehirler</h2>
-            <p>Türkiye'nin 10 büyükşehrinde yanınızdayız</p>
+            <h2>Hizmet Verdiğimiz İller</h2>
+            <p>Karadeniz bölgesinde ve Türkiye genelinde yanınızdayız – 81 il</p>
         </div>
         <div class="city-tags" id="cityList"></div>
     </div>
@@ -1861,26 +1880,58 @@
 
 <!-- ========== SCRIPTS ========== -->
 <script>
-    // ========== 10 BÜYÜKŞEHİR LİSTESİ ==========
+    // ========== 81 İL LİSTESİ ==========
     const cities = [
-        "İstanbul","Ankara","İzmir","Bursa","Antalya",
-        "Konya","Adana","Şanlıurfa","Gaziantep","Kocaeli"
+        "Adana","Adıyaman","Afyonkarahisar","Ağrı","Aksaray","Amasya","Ankara","Antalya","Ardahan","Artvin",
+        "Aydın","Balıkesir","Bartın","Batman","Bayburt","Bilecik","Bingöl","Bitlis","Bolu","Burdur",
+        "Bursa","Çanakkale","Çankırı","Çorum","Denizli","Diyarbakır","Düzce","Edirne","Elazığ","Erzincan",
+        "Erzurum","Eskişehir","Gaziantep","Giresun","Gümüşhane","Hakkâri","Hatay","Iğdır","Isparta","İstanbul",
+        "İzmir","Kahramanmaraş","Karabük","Karaman","Kars","Kastamonu","Kayseri","Kırıkkale","Kırklareli","Kırşehir",
+        "Kilis","Kocaeli","Konya","Kütahya","Malatya","Manisa","Mardin","Mersin","Muğla","Muş",
+        "Nevşehir","Niğde","Ordu","Osmaniye","Rize","Sakarya","Samsun","Siirt","Sinop","Sivas",
+        "Şanlıurfa","Şırnak","Tekirdağ","Tokat","Trabzon","Tunceli","Uşak","Van","Yalova","Yozgat","Zonguldak"
     ];
 
     const cityPages = {
-        "İstanbul": "istanbul-matbaa", "Ankara": "ankara-matbaa", "İzmir": "izmir-matbaa",
-        "Bursa": "bursa-matbaa", "Antalya": "antalya-matbaa", "Konya": "konya-matbaa",
-        "Adana": "adana-matbaa", "Şanlıurfa": "sanliurfa-matbaa", "Gaziantep": "gaziantep-matbaa",
-        "Kocaeli": "kocaeli-matbaa"
+        "Adana": "adana-matbaa", "Adıyaman": "adiyaman-matbaa", "Afyonkarahisar": "afyon-matbaa",
+        "Ağrı": "agri-matbaa", "Aksaray": "aksaray-matbaa", "Amasya": "amasya-matbaa",
+        "Ankara": "ankara-matbaa", "Antalya": "antalya-matbaa", "Ardahan": "ardahan-matbaa",
+        "Artvin": "artvin-matbaa", "Aydın": "aydin-matbaa", "Balıkesir": "balikesir-matbaa",
+        "Bartın": "bartin-matbaa", "Batman": "batman-matbaa", "Bayburt": "bayburt-matbaa",
+        "Bilecik": "bilecik-matbaa", "Bingöl": "bingol-matbaa", "Bitlis": "bitlis-matbaa",
+        "Bolu": "bolu-matbaa", "Burdur": "burdur-matbaa", "Bursa": "bursa-matbaa",
+        "Çanakkale": "canakkale-matbaa", "Çankırı": "cankiri-matbaa", "Çorum": "corum-matbaa",
+        "Denizli": "denizli-matbaa", "Diyarbakır": "diyarbakir-matbaa", "Düzce": "duzce-matbaa",
+        "Edirne": "edirne-matbaa", "Elazığ": "elazig-matbaa", "Erzincan": "erzincan-matbaa",
+        "Erzurum": "erzurum-matbaa", "Eskişehir": "eskisehir-matbaa", "Gaziantep": "gaziantep-matbaa",
+        "Giresun": "giresun-matbaa", "Gümüşhane": "gumushane-matbaa", "Hakkâri": "hakkari-matbaa",
+        "Hatay": "hatay-matbaa", "Iğdır": "igdir-matbaa", "Isparta": "isparta-matbaa",
+        "İstanbul": "istanbul-matbaa", "İzmir": "izmir-matbaa", "Kahramanmaraş": "kahramanmaras-matbaa",
+        "Karabük": "karabuk-matbaa", "Karaman": "karaman-matbaa", "Kars": "kars-matbaa",
+        "Kastamonu": "kastamonu-matbaa", "Kayseri": "kayseri-matbaa", "Kırıkkale": "kirikkale-matbaa",
+        "Kırklareli": "kirklareli-matbaa", "Kırşehir": "kirsehir-matbaa", "Kilis": "kilis-matbaa",
+        "Kocaeli": "kocaeli-matbaa", "Konya": "konya-matbaa", "Kütahya": "kutahya-matbaa",
+        "Malatya": "malatya-matbaa", "Manisa": "manisa-matbaa", "Mardin": "mardin-matbaa",
+        "Mersin": "mersin-matbaa", "Muğla": "mugla-matbaa", "Muş": "mus-matbaa",
+        "Nevşehir": "nevsehir-matbaa", "Niğde": "nigde-matbaa", "Ordu": "ordu-matbaa",
+        "Osmaniye": "osmaniye-matbaa", "Rize": "rize-matbaa", "Sakarya": "sakarya-matbaa",
+        "Samsun": "samsun-matbaa", "Siirt": "siirt-matbaa", "Sinop": "sinop-matbaa",
+        "Sivas": "sivas-matbaa", "Şanlıurfa": "sanliurfa-matbaa", "Şırnak": "sirnak-matbaa",
+        "Tekirdağ": "tekirdag-matbaa", "Tokat": "tokat-matbaa", "Trabzon": "trabzon-matbaa",
+        "Tunceli": "tunceli-matbaa", "Uşak": "usak-matbaa", "Van": "van-matbaa",
+        "Yalova": "yalova-matbaa", "Yozgat": "yozgat-matbaa", "Zonguldak": "zonguldak-matbaa"
     };
 
     function renderCities() {
         const container = document.getElementById('cityList');
         container.innerHTML = '';
-        cities.forEach((city) => {
+        const isMobile = window.innerWidth <= 768;
+        const visibleCount = 10;
+        cities.forEach((city, index) => {
             const hasPage = cityPages[city];
             const tag = document.createElement(hasPage ? 'a' : 'span');
             tag.className = hasPage ? 'city-tag city-tag-active' : 'city-tag';
+            if (isMobile && index >= visibleCount) tag.classList.add('city-hidden');
             if (hasPage) tag.href = `/${cityPages[city]}`;
             tag.innerHTML = `<i class="fas fa-map-marker-alt"></i> ${city}`;
             container.appendChild(tag);
@@ -1890,8 +1941,19 @@
         kargo.style.background = 'var(--secondary)';
         kargo.style.color = '#fff';
         kargo.style.borderColor = 'var(--secondary)';
-        kargo.innerHTML = `<i class="fas fa-truck"></i> +81 il kargo`;
+        kargo.innerHTML = `<i class="fas fa-truck"></i> Türkiye’nin her yerine kargo`;
         container.appendChild(kargo);
+        if (isMobile) {
+            const btn = document.createElement('button');
+            btn.className = 'city-toggle';
+            btn.innerHTML = `Tümünü Göster (${cities.length} İl) <i class="fas fa-chevron-down"></i>`;
+            btn.onclick = function () {
+                container.querySelectorAll('.city-hidden').forEach(el => el.classList.remove('city-hidden'));
+                container.classList.add('expanded');
+                btn.style.display = 'none';
+            };
+            container.appendChild(btn);
+        }
     }
 
     // ========== SCROLL FADE-IN ==========
