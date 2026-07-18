@@ -150,7 +150,8 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-        body.no-scroll { overflow: hidden; position: fixed; width: 100%; }
+        html.no-scroll { overflow: hidden; height: 100%; }
+        body.no-scroll { overflow: hidden; position: fixed; width: 100%; height: 100%; top: 0; left: 0; right: 0; -webkit-overflow-scrolling: touch; overscroll-behavior: none; }
         a { text-decoration: none; color: inherit; }
         img { max-width: 100%; height: auto; display: block; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
@@ -1278,13 +1279,14 @@
                 background: var(--primary);
                 flex-direction: column;
                 gap: 0;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.35s ease;
+                transform: translateY(-12px);
+                opacity: 0;
+                visibility: hidden;
+                transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s ease, visibility 0.4s ease;
                 box-shadow: 0 12px 30px rgba(0,0,0,0.3);
-                pointer-events: none;
+                will-change: transform, opacity;
             }
-            .nav-links.open { max-height: 500px; pointer-events: auto; }
+            .nav-links.open { transform: translateY(0); opacity: 1; visibility: visible; }
             .nav-links a {
                 padding: 16px 24px;
                 border-bottom: 1px solid rgba(255,255,255,0.06);
@@ -1305,7 +1307,7 @@
             .logo { font-size: 1.3rem; }
             .logo-divider { display: inline; font-size: 0.75rem; }
             .slogan-text { display: inline; font-size: 0.68rem; white-space: nowrap; }
-            body { overflow-x: hidden; }
+            html, body { overflow-x: hidden; }
             .service-card { padding: 0 0 14px 0; overflow: hidden; }
             .service-card img { width: 100%; height: 90px; object-fit: cover; border-radius: 0; margin-bottom: 0; border: none; outline: none; }
             .service-card h3 { padding: 14px 12px 4px; margin: 0; }
@@ -1986,19 +1988,24 @@
 var _savedScrollY = 0;
 window.toggleMenu = function() {
     var nav = document.getElementById('navLinks');
-    var isOpen = nav.classList.toggle('open');
+    var isOpen = !nav.classList.contains('open');
+    nav.classList.toggle('open');
     var bars = document.getElementById('menuIconBars');
     var times = document.getElementById('menuIconTimes');
     var btn = document.getElementById('menuToggle');
     if (isOpen) {
         bars.style.display = 'none'; times.style.display = 'inline-block';
         _savedScrollY = window.scrollY;
+        document.documentElement.classList.add('no-scroll');
+        document.body.style.top = '-' + _savedScrollY + 'px';
     } else {
         bars.style.display = 'inline-block'; times.style.display = 'none';
+        document.documentElement.classList.remove('no-scroll');
+        document.body.style.top = '';
+        window.scrollTo(0, _savedScrollY);
     }
     if (btn) btn.setAttribute('aria-expanded', isOpen);
     document.body.classList.toggle('no-scroll', isOpen);
-    if (!isOpen) { window.scrollTo(0, _savedScrollY); }
 };
 
 // ========== NAV LİNK TIKLAYINCA MENÜ KAPANSIN ==========
@@ -2015,7 +2022,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 bars.style.display = 'inline-block';
                 times.style.display = 'none';
                 if (btn) btn.setAttribute('aria-expanded', 'false');
+                document.documentElement.classList.remove('no-scroll');
                 document.body.classList.remove('no-scroll');
+                document.body.style.top = '';
                 window.scrollTo(0, _savedScrollY);
             }
         });
