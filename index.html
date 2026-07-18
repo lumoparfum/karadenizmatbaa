@@ -150,8 +150,7 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-        html.no-scroll { overflow: hidden; height: 100%; }
-        body.no-scroll { overflow: hidden; position: fixed; width: 100%; height: 100%; top: 0; left: 0; right: 0; -webkit-overflow-scrolling: touch; overscroll-behavior: none; }
+        body.no-scroll { overflow: hidden; position: relative; }
         a { text-decoration: none; color: inherit; }
         img { max-width: 100%; height: auto; display: block; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
@@ -1307,7 +1306,7 @@
             .logo { font-size: 1.3rem; }
             .logo-divider { display: inline; font-size: 0.75rem; }
             .slogan-text { display: inline; font-size: 0.68rem; white-space: nowrap; }
-            html, body { overflow-x: hidden; }
+            body { overflow-x: hidden; }
             .service-card { padding: 0 0 14px 0; overflow: hidden; }
             .service-card img { width: 100%; height: 90px; object-fit: cover; border-radius: 0; margin-bottom: 0; border: none; outline: none; }
             .service-card h3 { padding: 14px 12px 4px; margin: 0; }
@@ -1985,7 +1984,6 @@
     }
 
 // ========== GLOBAL FONKSİYONLAR (window'a bağlı) ==========
-var _savedScrollY = 0;
 window.toggleMenu = function() {
     var nav = document.getElementById('navLinks');
     var isOpen = !nav.classList.contains('open');
@@ -1995,14 +1993,8 @@ window.toggleMenu = function() {
     var btn = document.getElementById('menuToggle');
     if (isOpen) {
         bars.style.display = 'none'; times.style.display = 'inline-block';
-        _savedScrollY = window.scrollY;
-        document.documentElement.classList.add('no-scroll');
-        document.body.style.top = '-' + _savedScrollY + 'px';
     } else {
         bars.style.display = 'inline-block'; times.style.display = 'none';
-        document.documentElement.classList.remove('no-scroll');
-        document.body.style.top = '';
-        window.scrollTo(0, _savedScrollY);
     }
     if (btn) btn.setAttribute('aria-expanded', isOpen);
     document.body.classList.toggle('no-scroll', isOpen);
@@ -2022,10 +2014,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 bars.style.display = 'inline-block';
                 times.style.display = 'none';
                 if (btn) btn.setAttribute('aria-expanded', 'false');
-                document.documentElement.classList.remove('no-scroll');
                 document.body.classList.remove('no-scroll');
-                document.body.style.top = '';
-                window.scrollTo(0, _savedScrollY);
             }
         });
     });
