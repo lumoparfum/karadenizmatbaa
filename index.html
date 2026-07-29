@@ -856,6 +856,7 @@
             border-color: var(--secondary);
             box-shadow: 0 0 0 1px var(--secondary) inset;
         }
+        .city-toggle { display: none; }
 
         /* ========== FAQ ========== */
         .faq-section {
@@ -1666,7 +1667,91 @@
             <h2>Hizmet Verdiğimiz İller</h2>
             <p>Karadeniz bölgesinde ve Türkiye genelinde yanınızdayız – 81 il</p>
         </div>
-        <div class="city-tags" id="cityList"></div>
+        <div class="city-tags" id="cityList">
+            <a class="city-tag city-tag-active" href="/istanbul-matbaa"><i class="fas fa-map-marker-alt"></i> İstanbul</a>
+            <a class="city-tag city-tag-active" href="/ankara-matbaa"><i class="fas fa-map-marker-alt"></i> Ankara</a>
+            <a class="city-tag city-tag-active" href="/izmir-matbaa"><i class="fas fa-map-marker-alt"></i> İzmir</a>
+            <a class="city-tag city-tag-active" href="/bursa-matbaa"><i class="fas fa-map-marker-alt"></i> Bursa</a>
+            <a class="city-tag city-tag-active" href="/antalya-matbaa"><i class="fas fa-map-marker-alt"></i> Antalya</a>
+            <a class="city-tag city-tag-active" href="/konya-matbaa"><i class="fas fa-map-marker-alt"></i> Konya</a>
+            <a class="city-tag city-tag-active" href="/adana-matbaa"><i class="fas fa-map-marker-alt"></i> Adana</a>
+            <a class="city-tag city-tag-active" href="/sanliurfa-matbaa"><i class="fas fa-map-marker-alt"></i> Şanlıurfa</a>
+            <a class="city-tag city-tag-active" href="/gaziantep-matbaa"><i class="fas fa-map-marker-alt"></i> Gaziantep</a>
+            <a class="city-tag city-tag-active" href="/kocaeli-matbaa"><i class="fas fa-map-marker-alt"></i> Kocaeli</a>
+            <a class="city-tag city-tag-active city-hidden" href="/adiyaman-matbaa"><i class="fas fa-map-marker-alt"></i> Adıyaman</a>
+            <a class="city-tag city-tag-active city-hidden" href="/afyon-matbaa"><i class="fas fa-map-marker-alt"></i> Afyonkarahisar</a>
+            <a class="city-tag city-tag-active city-hidden" href="/agri-matbaa"><i class="fas fa-map-marker-alt"></i> Ağrı</a>
+            <a class="city-tag city-tag-active city-hidden" href="/aksaray-matbaa"><i class="fas fa-map-marker-alt"></i> Aksaray</a>
+            <a class="city-tag city-tag-active city-hidden" href="/amasya-matbaa"><i class="fas fa-map-marker-alt"></i> Amasya</a>
+            <a class="city-tag city-tag-active city-hidden" href="/ardahan-matbaa"><i class="fas fa-map-marker-alt"></i> Ardahan</a>
+            <a class="city-tag city-tag-active city-hidden" href="/artvin-matbaa"><i class="fas fa-map-marker-alt"></i> Artvin</a>
+            <a class="city-tag city-tag-active city-hidden" href="/aydin-matbaa"><i class="fas fa-map-marker-alt"></i> Aydın</a>
+            <a class="city-tag city-tag-active city-hidden" href="/balikesir-matbaa"><i class="fas fa-map-marker-alt"></i> Balıkesir</a>
+            <a class="city-tag city-tag-active city-hidden" href="/bartin-matbaa"><i class="fas fa-map-marker-alt"></i> Bartın</a>
+            <a class="city-tag city-tag-active city-hidden" href="/batman-matbaa"><i class="fas fa-map-marker-alt"></i> Batman</a>
+            <a class="city-tag city-tag-active city-hidden" href="/bayburt-matbaa"><i class="fas fa-map-marker-alt"></i> Bayburt</a>
+            <a class="city-tag city-tag-active city-hidden" href="/bilecik-matbaa"><i class="fas fa-map-marker-alt"></i> Bilecik</a>
+            <a class="city-tag city-tag-active city-hidden" href="/bingol-matbaa"><i class="fas fa-map-marker-alt"></i> Bingöl</a>
+            <a class="city-tag city-tag-active city-hidden" href="/bitlis-matbaa"><i class="fas fa-map-marker-alt"></i> Bitlis</a>
+            <a class="city-tag city-tag-active city-hidden" href="/bolu-matbaa"><i class="fas fa-map-marker-alt"></i> Bolu</a>
+            <a class="city-tag city-tag-active city-hidden" href="/burdur-matbaa"><i class="fas fa-map-marker-alt"></i> Burdur</a>
+            <a class="city-tag city-tag-active city-hidden" href="/canakkale-matbaa"><i class="fas fa-map-marker-alt"></i> Çanakkale</a>
+            <a class="city-tag city-tag-active city-hidden" href="/cankiri-matbaa"><i class="fas fa-map-marker-alt"></i> Çankırı</a>
+            <a class="city-tag city-tag-active city-hidden" href="/corum-matbaa"><i class="fas fa-map-marker-alt"></i> Çorum</a>
+            <a class="city-tag city-tag-active city-hidden" href="/denizli-matbaa"><i class="fas fa-map-marker-alt"></i> Denizli</a>
+            <a class="city-tag city-tag-active city-hidden" href="/diyarbakir-matbaa"><i class="fas fa-map-marker-alt"></i> Diyarbakır</a>
+            <a class="city-tag city-tag-active city-hidden" href="/duzce-matbaa"><i class="fas fa-map-marker-alt"></i> Düzce</a>
+            <a class="city-tag city-tag-active city-hidden" href="/edirne-matbaa"><i class="fas fa-map-marker-alt"></i> Edirne</a>
+            <a class="city-tag city-tag-active city-hidden" href="/elazig-matbaa"><i class="fas fa-map-marker-alt"></i> Elazığ</a>
+            <a class="city-tag city-tag-active city-hidden" href="/erzincan-matbaa"><i class="fas fa-map-marker-alt"></i> Erzincan</a>
+            <a class="city-tag city-tag-active city-hidden" href="/erzurum-matbaa"><i class="fas fa-map-marker-alt"></i> Erzurum</a>
+            <a class="city-tag city-tag-active city-hidden" href="/eskisehir-matbaa"><i class="fas fa-map-marker-alt"></i> Eskişehir</a>
+            <a class="city-tag city-tag-active city-hidden" href="/giresun-matbaa"><i class="fas fa-map-marker-alt"></i> Giresun</a>
+            <a class="city-tag city-tag-active city-hidden" href="/gumushane-matbaa"><i class="fas fa-map-marker-alt"></i> Gümüşhane</a>
+            <a class="city-tag city-tag-active city-hidden" href="/hakkari-matbaa"><i class="fas fa-map-marker-alt"></i> Hakkâri</a>
+            <a class="city-tag city-tag-active city-hidden" href="/hatay-matbaa"><i class="fas fa-map-marker-alt"></i> Hatay</a>
+            <a class="city-tag city-tag-active city-hidden" href="/igdir-matbaa"><i class="fas fa-map-marker-alt"></i> Iğdır</a>
+            <a class="city-tag city-tag-active city-hidden" href="/isparta-matbaa"><i class="fas fa-map-marker-alt"></i> Isparta</a>
+            <a class="city-tag city-tag-active city-hidden" href="/kahramanmaras-matbaa"><i class="fas fa-map-marker-alt"></i> Kahramanmaraş</a>
+            <a class="city-tag city-tag-active city-hidden" href="/karabuk-matbaa"><i class="fas fa-map-marker-alt"></i> Karabük</a>
+            <a class="city-tag city-tag-active city-hidden" href="/karaman-matbaa"><i class="fas fa-map-marker-alt"></i> Karaman</a>
+            <a class="city-tag city-tag-active city-hidden" href="/kars-matbaa"><i class="fas fa-map-marker-alt"></i> Kars</a>
+            <a class="city-tag city-tag-active city-hidden" href="/kastamonu-matbaa"><i class="fas fa-map-marker-alt"></i> Kastamonu</a>
+            <a class="city-tag city-tag-active city-hidden" href="/kayseri-matbaa"><i class="fas fa-map-marker-alt"></i> Kayseri</a>
+            <a class="city-tag city-tag-active city-hidden" href="/kirikkale-matbaa"><i class="fas fa-map-marker-alt"></i> Kırıkkale</a>
+            <a class="city-tag city-tag-active city-hidden" href="/kirklareli-matbaa"><i class="fas fa-map-marker-alt"></i> Kırklareli</a>
+            <a class="city-tag city-tag-active city-hidden" href="/kirsehir-matbaa"><i class="fas fa-map-marker-alt"></i> Kırşehir</a>
+            <a class="city-tag city-tag-active city-hidden" href="/kilis-matbaa"><i class="fas fa-map-marker-alt"></i> Kilis</a>
+            <a class="city-tag city-tag-active city-hidden" href="/kutahya-matbaa"><i class="fas fa-map-marker-alt"></i> Kütahya</a>
+            <a class="city-tag city-tag-active city-hidden" href="/malatya-matbaa"><i class="fas fa-map-marker-alt"></i> Malatya</a>
+            <a class="city-tag city-tag-active city-hidden" href="/manisa-matbaa"><i class="fas fa-map-marker-alt"></i> Manisa</a>
+            <a class="city-tag city-tag-active city-hidden" href="/mardin-matbaa"><i class="fas fa-map-marker-alt"></i> Mardin</a>
+            <a class="city-tag city-tag-active city-hidden" href="/mersin-matbaa"><i class="fas fa-map-marker-alt"></i> Mersin</a>
+            <a class="city-tag city-tag-active city-hidden" href="/mugla-matbaa"><i class="fas fa-map-marker-alt"></i> Muğla</a>
+            <a class="city-tag city-tag-active city-hidden" href="/mus-matbaa"><i class="fas fa-map-marker-alt"></i> Muş</a>
+            <a class="city-tag city-tag-active city-hidden" href="/nevsehir-matbaa"><i class="fas fa-map-marker-alt"></i> Nevşehir</a>
+            <a class="city-tag city-tag-active city-hidden" href="/nigde-matbaa"><i class="fas fa-map-marker-alt"></i> Niğde</a>
+            <a class="city-tag city-tag-active city-hidden" href="/ordu-matbaa"><i class="fas fa-map-marker-alt"></i> Ordu</a>
+            <a class="city-tag city-tag-active city-hidden" href="/osmaniye-matbaa"><i class="fas fa-map-marker-alt"></i> Osmaniye</a>
+            <a class="city-tag city-tag-active city-hidden" href="/rize-matbaa"><i class="fas fa-map-marker-alt"></i> Rize</a>
+            <a class="city-tag city-tag-active city-hidden" href="/sakarya-matbaa"><i class="fas fa-map-marker-alt"></i> Sakarya</a>
+            <a class="city-tag city-tag-active city-hidden" href="/samsun-matbaa"><i class="fas fa-map-marker-alt"></i> Samsun</a>
+            <a class="city-tag city-tag-active city-hidden" href="/siirt-matbaa"><i class="fas fa-map-marker-alt"></i> Siirt</a>
+            <a class="city-tag city-tag-active city-hidden" href="/sinop-matbaa"><i class="fas fa-map-marker-alt"></i> Sinop</a>
+            <a class="city-tag city-tag-active city-hidden" href="/sivas-matbaa"><i class="fas fa-map-marker-alt"></i> Sivas</a>
+            <a class="city-tag city-tag-active city-hidden" href="/sirnak-matbaa"><i class="fas fa-map-marker-alt"></i> Şırnak</a>
+            <a class="city-tag city-tag-active city-hidden" href="/tekirdag-matbaa"><i class="fas fa-map-marker-alt"></i> Tekirdağ</a>
+            <a class="city-tag city-tag-active city-hidden" href="/tokat-matbaa"><i class="fas fa-map-marker-alt"></i> Tokat</a>
+            <a class="city-tag city-tag-active city-hidden" href="/trabzon-matbaa"><i class="fas fa-map-marker-alt"></i> Trabzon</a>
+            <a class="city-tag city-tag-active city-hidden" href="/tunceli-matbaa"><i class="fas fa-map-marker-alt"></i> Tunceli</a>
+            <a class="city-tag city-tag-active city-hidden" href="/usak-matbaa"><i class="fas fa-map-marker-alt"></i> Uşak</a>
+            <a class="city-tag city-tag-active city-hidden" href="/van-matbaa"><i class="fas fa-map-marker-alt"></i> Van</a>
+            <a class="city-tag city-tag-active city-hidden" href="/yalova-matbaa"><i class="fas fa-map-marker-alt"></i> Yalova</a>
+            <a class="city-tag city-tag-active city-hidden" href="/yozgat-matbaa"><i class="fas fa-map-marker-alt"></i> Yozgat</a>
+            <a class="city-tag city-tag-active city-hidden" href="/zonguldak-matbaa"><i class="fas fa-map-marker-alt"></i> Zonguldak</a>
+            <span class="city-tag" style="background: var(--secondary); color: #fff; border-color: var(--secondary);"><i class="fas fa-truck"></i> Türkiye’nin her yerine kargo</span>
+            <button class="city-toggle" onclick="showAllCities(this)">Tümünü Göster (81 İl) <i class="fas fa-chevron-down"></i></button>
+        </div>
     </div>
 </section>
 
@@ -1886,80 +1971,11 @@
 
 <!-- ========== SCRIPTS ========== -->
 <script>
-    // ========== 81 İL LİSTESİ ==========
-    const cities = [
-        "İstanbul","Ankara","İzmir","Bursa","Antalya","Konya","Adana","Şanlıurfa","Gaziantep","Kocaeli",
-        "Adıyaman","Afyonkarahisar","Ağrı","Aksaray","Amasya","Ardahan","Artvin","Aydın","Balıkesir","Bartın",
-        "Batman","Bayburt","Bilecik","Bingöl","Bitlis","Bolu","Burdur","Çanakkale","Çankırı","Çorum",
-        "Denizli","Diyarbakır","Düzce","Edirne","Elazığ","Erzincan","Erzurum","Eskişehir","Giresun","Gümüşhane",
-        "Hakkâri","Hatay","Iğdır","Isparta","Kahramanmaraş","Karabük","Karaman","Kars","Kastamonu","Kayseri",
-        "Kırıkkale","Kırklareli","Kırşehir","Kilis","Kütahya","Malatya","Manisa","Mardin","Mersin","Muğla",
-        "Muş","Nevşehir","Niğde","Ordu","Osmaniye","Rize","Sakarya","Samsun","Siirt","Sinop",
-        "Sivas","Şırnak","Tekirdağ","Tokat","Trabzon","Tunceli","Uşak","Van","Yalova","Yozgat","Zonguldak"
-    ];
-
-    const cityPages = {
-        "Adana": "adana-matbaa", "Adıyaman": "adiyaman-matbaa", "Afyonkarahisar": "afyon-matbaa",
-        "Ağrı": "agri-matbaa", "Aksaray": "aksaray-matbaa", "Amasya": "amasya-matbaa",
-        "Ankara": "ankara-matbaa", "Antalya": "antalya-matbaa", "Ardahan": "ardahan-matbaa",
-        "Artvin": "artvin-matbaa", "Aydın": "aydin-matbaa", "Balıkesir": "balikesir-matbaa",
-        "Bartın": "bartin-matbaa", "Batman": "batman-matbaa", "Bayburt": "bayburt-matbaa",
-        "Bilecik": "bilecik-matbaa", "Bingöl": "bingol-matbaa", "Bitlis": "bitlis-matbaa",
-        "Bolu": "bolu-matbaa", "Burdur": "burdur-matbaa", "Bursa": "bursa-matbaa",
-        "Çanakkale": "canakkale-matbaa", "Çankırı": "cankiri-matbaa", "Çorum": "corum-matbaa",
-        "Denizli": "denizli-matbaa", "Diyarbakır": "diyarbakir-matbaa", "Düzce": "duzce-matbaa",
-        "Edirne": "edirne-matbaa", "Elazığ": "elazig-matbaa", "Erzincan": "erzincan-matbaa",
-        "Erzurum": "erzurum-matbaa", "Eskişehir": "eskisehir-matbaa", "Gaziantep": "gaziantep-matbaa",
-        "Giresun": "giresun-matbaa", "Gümüşhane": "gumushane-matbaa", "Hakkâri": "hakkari-matbaa",
-        "Hatay": "hatay-matbaa", "Iğdır": "igdir-matbaa", "Isparta": "isparta-matbaa",
-        "İstanbul": "istanbul-matbaa", "İzmir": "izmir-matbaa", "Kahramanmaraş": "kahramanmaras-matbaa",
-        "Karabük": "karabuk-matbaa", "Karaman": "karaman-matbaa", "Kars": "kars-matbaa",
-        "Kastamonu": "kastamonu-matbaa", "Kayseri": "kayseri-matbaa", "Kırıkkale": "kirikkale-matbaa",
-        "Kırklareli": "kirklareli-matbaa", "Kırşehir": "kirsehir-matbaa", "Kilis": "kilis-matbaa",
-        "Kocaeli": "kocaeli-matbaa", "Konya": "konya-matbaa", "Kütahya": "kutahya-matbaa",
-        "Malatya": "malatya-matbaa", "Manisa": "manisa-matbaa", "Mardin": "mardin-matbaa",
-        "Mersin": "mersin-matbaa", "Muğla": "mugla-matbaa", "Muş": "mus-matbaa",
-        "Nevşehir": "nevsehir-matbaa", "Niğde": "nigde-matbaa", "Ordu": "ordu-matbaa",
-        "Osmaniye": "osmaniye-matbaa", "Rize": "rize-matbaa", "Sakarya": "sakarya-matbaa",
-        "Samsun": "samsun-matbaa", "Siirt": "siirt-matbaa", "Sinop": "sinop-matbaa",
-        "Sivas": "sivas-matbaa", "Şanlıurfa": "sanliurfa-matbaa", "Şırnak": "sirnak-matbaa",
-        "Tekirdağ": "tekirdag-matbaa", "Tokat": "tokat-matbaa", "Trabzon": "trabzon-matbaa",
-        "Tunceli": "tunceli-matbaa", "Uşak": "usak-matbaa", "Van": "van-matbaa",
-        "Yalova": "yalova-matbaa", "Yozgat": "yozgat-matbaa", "Zonguldak": "zonguldak-matbaa"
-    };
-
-    function renderCities() {
+    function showAllCities(btn) {
         const container = document.getElementById('cityList');
-        container.innerHTML = '';
-        const isMobile = window.innerWidth <= 768;
-        const visibleCount = 10;
-        cities.forEach((city, index) => {
-            const hasPage = cityPages[city];
-            const tag = document.createElement(hasPage ? 'a' : 'span');
-            tag.className = hasPage ? 'city-tag city-tag-active' : 'city-tag';
-            if (isMobile && index >= visibleCount) tag.classList.add('city-hidden');
-            if (hasPage) tag.href = `/${cityPages[city]}`;
-            tag.innerHTML = `<i class="fas fa-map-marker-alt"></i> ${city}`;
-            container.appendChild(tag);
-        });
-        const kargo = document.createElement('span');
-        kargo.className = 'city-tag';
-        kargo.style.background = 'var(--secondary)';
-        kargo.style.color = '#fff';
-        kargo.style.borderColor = 'var(--secondary)';
-        kargo.innerHTML = `<i class="fas fa-truck"></i> Türkiye’nin her yerine kargo`;
-        container.appendChild(kargo);
-        if (isMobile) {
-            const btn = document.createElement('button');
-            btn.className = 'city-toggle';
-            btn.innerHTML = `Tümünü Göster (${cities.length} İl) <i class="fas fa-chevron-down"></i>`;
-            btn.onclick = function () {
-                container.querySelectorAll('.city-hidden').forEach(el => el.classList.remove('city-hidden'));
-                container.classList.add('expanded');
-                btn.style.display = 'none';
-            };
-            container.appendChild(btn);
-        }
+        container.querySelectorAll('.city-hidden').forEach(el => el.classList.remove('city-hidden'));
+        container.classList.add('expanded');
+        btn.style.display = 'none';
     }
 
     // ========== SCROLL FADE-IN ==========
@@ -2566,7 +2582,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ========== INIT ==========
-    try { renderCities(); } catch(e) { console.warn('renderCities:', e); }
     try { renderBestsellers(); } catch(e) { console.warn('renderBestsellers:', e); }
     try { renderServices(); } catch(e) { console.warn('renderServices:', e); }
     try { renderPriceList(); } catch(e) { console.warn('renderPriceList:', e); }
