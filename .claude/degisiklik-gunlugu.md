@@ -4,6 +4,12 @@ Her degisiklik: eski → yeni + neden. En yeni en ustte. (Repoda .claude/ altind
 
 ## 23 Eki 2026
 
+### Brosur fiyatlari +200 TL (82 sayfa)
+- **Eski -> Yeni (1.000 adet, 2.000 adet olan tek yon dahil):** 1CA6 400->600, 1CA7 600->800, 1CA5 800->1.000, 1CA4 1.350->1.550, 1CA3 2.700->2.900, 1GA6 425->625, 1GA5 850->1.050, 1GA4 1.400->1.600, 1HA5 950->1.150, 1HA4 1.750->1.950, 2TA6 425->625, 2TA5 850->1.050, 2TA4 1.450->1.650.
+- Kart fiyati (A6) 400->600 TL; acilan yazi "sadece 400 TL" -> "sadece 600 TL".
+- **Neden:** kullanici zam geldi, tum brosurlere +200 TL istedi.
+- **Dogrulama:** 82 dosyada 15'er satir (13 varyant + kart + yazi) degisti, baska yer degismedi.
+
 ### Brosur karti ve acilan yazi A5 -> A6 (82 sayfa)
 - **Eski:** "Cok Satanlar" brosur kartinda "A5, 115gr..." ve 800 TL, ama etiket 1CA6 idi (celiski). Acilan brosur yazisinda "A5 115gr Eko Cift Yon brosurumuz 1.000 adet icin sadece 800 TL".
 - **Yeni:** kart "A6, 115gr. Kuse, Cift Yon Parlak", ebat 90x135mm, 400 TL / 1.000 Adet. Acilan yazi "A6 115gr Eko Cift Yon brosurumuz 1.000 adet icin sadece 400 TL".
