@@ -4,6 +4,10 @@ Her degisiklik: eski → yeni + neden. En yeni en ustte. (Repoda .claude/ altind
 
 ## 23 Eki 2026
 
+### 10.000 adet magnet fiyatlari (82 sayfa)
+- **Eski -> Yeni:** 10MAG2 6.050->6.500, 10MAG1 6.550->7.000 (kullanici: ilk 6.000/6.500 fiyatina +500; onceki +50 zam bunun icinde eridi).
+- **Dogrulama:** 82 dosyada 2'ser satir degisti.
+
 ### Magnet fiyatlari +50 TL, MAG3 21->25 TL (82 sayfa)
 - **Eski -> Yeni:** MAG2 610->660, 10MAG2 6.000->6.050, MAG1 690->740, 10MAG1 6.500->6.550. MAG3 (1 cm kare) 21->25 TL (kullanici ozel istedi, +50 degil).
 - Kart fiyati 610->660 TL; acilan magnet yazisi "MAG2 modeli 1.000 adet icin 610 TL" -> 660 TL.
