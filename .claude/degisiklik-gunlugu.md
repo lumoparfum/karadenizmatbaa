@@ -4,6 +4,13 @@ Her degisiklik: eski → yeni + neden. En yeni en ustte. (Repoda .claude/ altind
 
 ## 23 Eki 2026
 
+### Kartvizit fiyatlari +50 TL (82 sayfa)
+- **Eski -> Yeni (1.000 adet):** NK 195->245, NKA 205->255, MN 230->280, CYP 290->340, CYM 300->350, KL 310->360, O-COK 390->440, S-COK 450->500, O-SEK 590->640, S-SEK 680->730, O-NKA 1.650->1.700, CYML 410->460, SEFFAF 3.950->4.000.
+- "Kartvizit 195 TL" gecen her yer 245 TL oldu: title/meta/og/twitter aciklamalari, hero yazisi, SSS (gorunen + JSON-LD), kartvizit yazisi, JSON-LD Product price "245".
+- **Neden:** kullanici zam geldi, tum kartvizitlere +50 TL istedi.
+- **Dogrulama:** 82 dosyada kalan "195" yok; 13 varyant + kart fiyati degisti.
+- **Not:** Search Console baslangic olcumunde basliklar "Kartvizit 195 TL" idi; fiyat degisimi kiyasi etkileyebilir.
+
 ### Brosur fiyatlari +200 TL (82 sayfa)
 - **Eski -> Yeni (1.000 adet, 2.000 adet olan tek yon dahil):** 1CA6 400->600, 1CA7 600->800, 1CA5 800->1.000, 1CA4 1.350->1.550, 1CA3 2.700->2.900, 1GA6 425->625, 1GA5 850->1.050, 1GA4 1.400->1.600, 1HA5 950->1.150, 1HA4 1.750->1.950, 2TA6 425->625, 2TA5 850->1.050, 2TA4 1.450->1.650.
 - Kart fiyati (A6) 400->600 TL; acilan yazi "sadece 400 TL" -> "sadece 600 TL".
