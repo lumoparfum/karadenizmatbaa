@@ -2,6 +2,14 @@
 
 Her degisiklik: eski → yeni + neden. En yeni en ustte. (Repoda .claude/ altinda; siteye cikmaz.)
 
+## 23 Eki 2026
+
+### Brosur karti ve acilan yazi A5 -> A6 (82 sayfa)
+- **Eski:** "Cok Satanlar" brosur kartinda "A5, 115gr..." ve 800 TL, ama etiket 1CA6 idi (celiski). Acilan brosur yazisinda "A5 115gr Eko Cift Yon brosurumuz 1.000 adet icin sadece 800 TL".
+- **Yeni:** kart "A6, 115gr. Kusе, Cift Yon Parlak", ebat 90x135mm, 400 TL / 1.000 Adet. Acilan yazi "A6 115gr Eko Cift Yon brosurumuz 1.000 adet icin sadece 400 TL".
+- **Neden:** kullanici A6 istedi. Fiyat listesinde 1CA6 (A6) = 400 TL, 800 TL A5'in fiyatiydi; A6 yazip 800 birakmak yanlis fiyat olurdu.
+- **Dogrulama:** 82 dosyada 2'ser satir degisti, kalan "A5 ... broşürümüz" yok, BOM/satir sonlari korundu.
+
 ## 12 Eki 2026
 
 ### Laptop icin proje notu
