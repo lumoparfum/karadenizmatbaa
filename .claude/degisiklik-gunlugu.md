@@ -4,6 +4,11 @@ Her degisiklik: eski → yeni + neden. En yeni en ustte. (Repoda .claude/ altind
 
 ## 23 Eki 2026
 
+### Magnet fiyatlari +50 TL, MAG3 21->25 TL (82 sayfa)
+- **Eski -> Yeni:** MAG2 610->660, 10MAG2 6.000->6.050, MAG1 690->740, 10MAG1 6.500->6.550. MAG3 (1 cm kare) 21->25 TL (kullanici ozel istedi, +50 degil).
+- Kart fiyati 610->660 TL; acilan magnet yazisi "MAG2 modeli 1.000 adet icin 610 TL" -> 660 TL.
+- **Dogrulama:** 82 dosyada 7'ser satir degisti, kalan 610/21 TL yok.
+
 ### Kartvizit fiyatlari +50 TL (82 sayfa)
 - **Eski -> Yeni (1.000 adet):** NK 195->245, NKA 205->255, MN 230->280, CYP 290->340, CYM 300->350, KL 310->360, O-COK 390->440, S-COK 450->500, O-SEK 590->640, S-SEK 680->730, O-NKA 1.650->1.700, CYML 410->460, SEFFAF 3.950->4.000.
 - "Kartvizit 195 TL" gecen her yer 245 TL oldu: title/meta/og/twitter aciklamalari, hero yazisi, SSS (gorunen + JSON-LD), kartvizit yazisi, JSON-LD Product price "245".
