@@ -4,6 +4,11 @@ Her degisiklik: eski → yeni + neden. En yeni en ustte. (Repoda .claude/ altind
 
 ## 23 Eki 2026
 
+### Etiket fiyatlari +50 TL, EA5/EA4/EA3 +100 TL (82 sayfa)
+- **Eski -> Yeni (1.000 adet):** E 290->340, 8x10CM-E 580->630, 10x17CM-E 1.160->1.210, EO 500->550 (+50). EA5 2.250->2.350, EA4 4.400->4.500, EA3 8.750->8.850 (+100).
+- Kart fiyati 290->340 TL; acilan etiket yazisi "E modeli ... 290 TL" -> 340 TL.
+- **Dogrulama:** 82 dosyada 9'ar satir degisti (7 varyant + kart + yazi).
+
 ### 10.000 adet magnet fiyatlari (82 sayfa)
 - **Eski -> Yeni:** 10MAG2 6.050->6.500, 10MAG1 6.550->7.000 (kullanici: ilk 6.000/6.500 fiyatina +500; onceki +50 zam bunun icinde eridi).
 - **Dogrulama:** 82 dosyada 2'ser satir degisti.
