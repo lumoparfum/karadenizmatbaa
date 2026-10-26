@@ -2562,6 +2562,15 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-ZLY5H5JPKR');
+
+  // WhatsApp ve telefon tiklamalarini say (Analytics > Olaylar: whatsapp_tikla, telefon_tikla)
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href*="wa.me"], a[href^="tel:"]');
+    if (!a) return;
+    var wa = a.href.indexOf('wa.me') > -1, txt = '';
+    try { txt = decodeURIComponent(a.href.split('text=')[1] || '').slice(0, 80); } catch (x) {}
+    gtag('event', wa ? 'whatsapp_tikla' : 'telefon_tikla', { sayfa: location.pathname, mesaj: txt, transport_type: 'beacon' });
+  });
 </script>
 
 </body>

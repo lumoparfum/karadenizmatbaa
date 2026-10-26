@@ -2,6 +2,14 @@
 
 Her degisiklik: eski → yeni + neden. En yeni en ustte. (Repoda .claude/ altinda; siteye cikmaz.)
 
+## 26 Eki 2026
+
+### WhatsApp / telefon tiklama sayaci (82 sayfa)
+- **Eski:** yalniz Google Analytics (G-ZLY5H5JPKR) ziyaretci sayiyordu; WhatsApp'a basan sayilmiyordu.
+- **Yeni:** GA kodunun altina tek bir tiklama dinleyicisi eklendi. wa.me linki -> olay `whatsapp_tikla`, tel: linki -> `telefon_tikla`; parametreler: `sayfa` (hangi sayfa), `mesaj` (WhatsApp mesaj metni, orn. urun adi). Gorunum degismedi.
+- **Nerede bakilir:** Analytics > Raporlar > Etkinlikler (gercek zamanli icin Gercek zamanli). Ozel parametreleri (sayfa, mesaj) raporda gormek icin Analytics'te ozel tanim gerekir (henuz yapilmadi). Analytics hesabinin kimde oldugu belirsiz (abi hesabi olabilir; kullanici Semih).
+- **Dogrulama:** 82 dosyada 9'ar satir eklendi, baska degisiklik yok.
+
 ## 23 Eki 2026
 
 ### Etiket fiyatlari +50 TL, EA5/EA4/EA3 +100 TL (82 sayfa)
