@@ -2,6 +2,13 @@
 
 Her degisiklik: eski → yeni + neden. En yeni en ustte. (Repoda .claude/ altinda; siteye cikmaz.)
 
+## 29 Eki 2026
+
+### Instagram adresi (82 sayfa)
+- **Eski:** https://www.instagram.com/toramanmatbaa (sag alttaki Instagram dugmesi + JSON-LD sameAs).
+- **Yeni:** https://www.instagram.com/uzman.reklamm/
+- **Neden:** kullanici istedi. Eski adres kalmadi (sayfa basina 2 yer, 164 degisiklik).
+
 ## 26 Eki 2026
 
 ### WhatsApp / telefon tiklama sayaci (82 sayfa)
