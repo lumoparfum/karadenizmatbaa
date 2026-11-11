@@ -40,9 +40,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'" />
     
     <!-- Schema Markup (geniş, eksiksiz) -->
     <script type="application/ld+json">
@@ -146,9 +144,8 @@
         :root {
             --navy: #0a1e3a;
             --orange: #f47b20;
-            --orange-d: #c2590a;
-            --orange-t: #c2590a;
-            --orange-btn: #e0660c;
+            --orange-btn: #c0520a;
+            --orange-hover: #a34507;
             --ink: #1d1d1f;
             --muted: #6e6e73;
             --bg: #ffffff;
@@ -159,159 +156,148 @@
             --wrap: 1120px;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: 72px; }
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: 72px; scrollbar-gutter: stable; }
         body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.55; font-size: 17px; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
         img { max-width: 100%; display: block; }
         a { color: inherit; text-decoration: none; }
-        button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+        button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; text-align: left; }
+        svg.i { width: 1.1em; height: 1.1em; flex: none; vertical-align: -0.15em; }
         :focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; border-radius: 6px; }
         .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 20px; }
         section { padding: 72px 0; }
         section + section { border-top: 1px solid var(--line); }
-        .alt { background: var(--bg2); }
-        h1, h2, h3 { color: var(--navy); letter-spacing: -0.02em; line-height: 1.15; }
-        h2 { font-size: clamp(1.75rem, 3.2vw, 2.5rem); font-weight: 700; line-height: 1.2; }
-        .lead { color: var(--muted); font-size: 1.125rem; margin-top: 10px; max-width: 640px; }
-        .head { margin-bottom: 40px; }
+        h1, h2, h3 { color: var(--navy); letter-spacing: -0.02em; line-height: 1.2; text-wrap: balance; }
+        h2 { font-size: clamp(1.375rem, 2.4vw, 1.75rem); font-weight: 700; }
+        p { text-wrap: pretty; }
+        .head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 24px; }
+        .head small { color: var(--muted); font-size: .9375rem; }
 
-        /* ========== BUTONLAR ========== */
-        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 50px; padding: 0 24px; border-radius: 999px; font-weight: 600; font-size: 1rem; transition: background .2s, color .2s, border-color .2s; white-space: nowrap; }
-        .btn-main { background: var(--orange-btn); color: #fff; }
-        .btn-main:hover { background: var(--orange-d); }
-        .btn-line { border: 1.5px solid var(--navy); color: var(--navy); }
-        .btn-line:hover { background: var(--navy); color: #fff; }
-        .btn-sm { height: 40px; padding: 0 18px; font-size: .9375rem; }
+        /* ========== DUGME ========== */
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 50px; padding: 0 24px; border-radius: 999px; font-weight: 600; font-size: 1rem; white-space: nowrap; background: var(--orange-btn); color: #fff; transition: background .2s; }
+        .btn:hover { background: var(--orange-hover); }
+        .btn-sm { height: 44px; padding: 0 18px; font-size: .9375rem; }
 
         /* ========== UST MENU ========== */
-        .nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.86); -webkit-backdrop-filter: saturate(180%) blur(18px); backdrop-filter: saturate(180%) blur(18px); border-bottom: 1px solid var(--line); }
-        .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 20px; }
-        .logo { display: flex; flex-direction: column; line-height: 1.1; }
+        .nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.88); -webkit-backdrop-filter: saturate(180%) blur(18px); backdrop-filter: saturate(180%) blur(18px); border-bottom: 1px solid var(--line); }
+        .nav .wrap { display: flex; align-items: center; height: 64px; gap: 20px; }
+        .logo { display: inline-flex; flex-direction: column; justify-content: center; min-height: 44px; line-height: 1.15; margin-right: auto; }
         .logo b { font-size: 1.25rem; font-weight: 700; color: var(--navy); letter-spacing: -0.02em; }
         .logo b span { color: var(--orange-btn); }
-        .logo small { font-size: .75rem; color: var(--muted); font-weight: 500; margin-top: 2px; }
+        .logo small { font-size: .75rem; color: var(--muted); font-weight: 500; }
         .nav-links { display: flex; align-items: center; gap: 28px; font-size: .9375rem; font-weight: 500; }
-        .nav-links a:not(.btn) { color: var(--ink); opacity: .8; }
-        .nav-links a:not(.btn):hover { opacity: 1; color: var(--orange); }
-        .menu-btn { display: none; width: 44px; height: 44px; font-size: 1.25rem; color: var(--navy); }
+        .nav-links a { color: var(--ink); }
+        .nav-links a:hover { color: var(--orange-btn); }
+        .nav-wa { display: none; }
+        .menu-btn { display: none; width: 44px; height: 44px; align-items: center; justify-content: center; color: var(--navy); }
+        .menu-btn svg { width: 24px; height: 24px; }
+        .menu-btn .x, .menu-btn[aria-expanded="true"] .bars { display: none; }
+        .menu-btn[aria-expanded="true"] .x { display: block; }
 
         /* ========== GIRIS ========== */
-        .hero { background: var(--bg2); padding: 64px 0 72px; }
-        .hero .wrap { display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: center; }
+        .hero { background: var(--bg2); padding: 72px 0; }
+        .hero .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
         .hero .wrap > * { min-width: 0; }
-        .hero h1 { font-size: clamp(1.875rem, 3.2vw, 2.5rem); line-height: 1.1; font-weight: 700; letter-spacing: -0.035em; }
-        .hero-slogan { font-size: 1.125rem; font-weight: 400; color: var(--muted); margin-top: 12px; }
-        .hero-btn { margin-top: 28px; }
-        .quote { background: var(--bg); border-radius: var(--r); border: 1px solid var(--line); padding: 6px 0 0; }
-        .q-head { display: flex; justify-content: space-between; align-items: baseline; padding: 14px 22px 10px; }
-        .q-head b { color: var(--navy); font-size: 1.0625rem; }
-        .q-head span { font-size: .8125rem; color: var(--muted); }
-        .q-row { display: flex; align-items: center; gap: 14px; width: 100%; padding: 12px 22px; border-top: 1px solid var(--line); text-align: left; transition: background .2s; }
-        .q-row:hover { background: var(--bg2); }
-        .q-row img { width: 48px; height: 48px; border-radius: var(--rs); object-fit: cover; flex: none; }
+        .hero h1 { font-size: clamp(1.875rem, 3.6vw, 2.75rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; }
+        .hero-slogan { font-size: 1.125rem; color: var(--muted); margin-top: 12px; }
+        .hero .btn { margin-top: 28px; }
+        .quote { border-top: 1px solid var(--line); }
+        .q-row { display: flex; align-items: center; gap: 14px; width: 100%; padding: 12px 0; border-bottom: 1px solid var(--line); }
+        .q-row img { width: 48px; height: 48px; border-radius: var(--rs); object-fit: cover; }
         .q-row span { flex: 1; min-width: 0; }
-        .q-row span b { display: block; color: var(--ink); font-weight: 600; font-size: .9875rem; }
-        .q-row span small { display: block; color: var(--muted); font-size: .8125rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .q-row b { display: block; font-weight: 600; font-size: 1rem; }
+        .q-row small { display: block; color: var(--muted); font-size: .8125rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .q-row strong { color: var(--navy); font-size: 1.0625rem; white-space: nowrap; }
-        .q-row i { color: #c7c7cc; font-size: .8rem; }
-        .q-all { display: flex; justify-content: center; align-items: center; gap: 6px; padding: 14px; border-top: 1px solid var(--line); color: var(--orange-t); font-weight: 600; font-size: .9375rem; }
+        .q-row:hover b { color: var(--orange-btn); }
+        .q-row .chev { color: #c7c7cc; width: 16px; height: 16px; }
 
         /* ========== URUNLER ========== */
         .grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); column-gap: 48px; border-top: 1px solid var(--line); }
-        .card { display: flex; align-items: center; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); text-align: left; cursor: pointer; }
-        .card:hover h3 { color: var(--orange-t); }
-        .card img { width: 64px; height: 64px; border-radius: var(--rs); object-fit: cover; flex: none; background: var(--bg2); }
-        .card-body { flex: 1; min-width: 0; }
-        .card h3 { font-size: 1.0625rem; font-weight: 600; line-height: 1.3; }
-        .card p { font-size: .875rem; color: var(--muted); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .card .price { margin-top: 4px; display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
-        .card .price strong { font-size: 1.125rem; color: var(--navy); }
-        .card .price strong small { font-size: .8125rem; color: var(--muted); font-weight: 500; }
-        .card .price em { font-style: normal; font-size: .875rem; color: var(--orange-t); font-weight: 600; white-space: nowrap; }
-        .fason { display: flex; justify-content: space-between; align-items: center; gap: 16px; width: 100%; margin-top: 24px; padding: 18px 0; color: var(--muted); text-align: left; font-size: .9375rem; }
-        .fason b { color: var(--ink); font-weight: 600; margin-right: 6px; }
-        .fason em { font-style: normal; color: var(--orange-t); font-weight: 600; white-space: nowrap; }
-
-        /* ========== NASIL CALISIR ========== */
-        .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .step { background: var(--bg); border-radius: var(--r); padding: 30px 28px; }
-        .step h3 { font-size: 1.125rem; font-weight: 600; line-height: 1.3; }
-        .step h3 i { color: var(--orange); margin-right: 8px; font-size: 1.1rem; }
-        .step p { color: var(--muted); margin-top: 8px; font-size: .9875rem; }
-
-        /* ========== ILLER ========== */
-        .cities { columns: 6; column-gap: 24px; font-size: .9375rem; }
-        .cities a { display: block; padding: 5px 0; color: var(--ink); opacity: .85; break-inside: avoid; }
-        .cities a:hover { color: var(--orange); opacity: 1; }
+        .card { display: flex; align-items: center; gap: 16px; width: 100%; padding: 14px 0; border-bottom: 1px solid var(--line); }
+        .card:focus-visible { outline-offset: -3px; }
+        .card img { width: 64px; height: 64px; border-radius: var(--rs); object-fit: cover; background: var(--bg2); }
+        .card > span { flex: 1; min-width: 0; }
+        .card .t { display: block; font-size: 1.0625rem; font-weight: 600; color: var(--navy); line-height: 1.3; }
+        .card .d { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-size: .875rem; color: var(--muted); margin-top: 2px; }
+        .card .p { display: block; margin-top: 4px; font-weight: 700; color: var(--navy); }
+        .card .p small { font-size: .8125rem; color: var(--muted); font-weight: 500; }
+        .card .chev { color: #c7c7cc; width: 16px; height: 16px; }
+        .card:hover .t { color: var(--orange-btn); }
+        .fason { display: flex; justify-content: space-between; align-items: center; gap: 16px; width: 100%; margin-top: 8px; padding: 16px 0; color: var(--muted); font-size: .9375rem; }
+        .fason b { color: var(--navy); font-weight: 600; margin-right: 6px; }
+        .fason em { font-style: normal; color: var(--navy); font-weight: 600; white-space: nowrap; }
 
         /* ========== SSS ========== */
-        .faq { max-width: 820px; }
+        .faq { max-width: 820px; border-top: 1px solid var(--line); }
         .faq details { border-bottom: 1px solid var(--line); }
-        .faq summary { list-style: none; cursor: pointer; padding: 20px 36px 20px 0; font-weight: 600; font-size: 1.0625rem; color: var(--navy); position: relative; }
+        .faq summary { list-style: none; cursor: pointer; padding: 18px 36px 18px 0; font-weight: 600; font-size: 1.0625rem; color: var(--navy); position: relative; text-wrap: balance; }
         .faq summary::-webkit-details-marker { display: none; }
-        .faq summary::after { content: "+"; position: absolute; right: 4px; top: 16px; font-size: 1.5rem; font-weight: 400; color: var(--orange); }
+        .faq summary::after { content: "+"; position: absolute; right: 4px; top: 14px; font-size: 1.5rem; font-weight: 400; color: var(--navy); }
         .faq details[open] summary::after { content: "−"; }
-        .faq details p { color: var(--muted); padding: 0 0 20px; }
+        .faq details p { color: var(--muted); padding: 0 0 18px; }
 
         /* ========== HAKKIMIZDA ========== */
         .about { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
-        .about p { color: var(--muted); margin-top: 14px; }
+        .about p { color: var(--muted); margin-top: 12px; }
         .about p strong { color: var(--ink); font-weight: 600; }
-        .about img { border-radius: var(--r); background: #fff; padding: 20px; border: 1px solid var(--line); }
+        .about img { width: 100%; height: auto; border-radius: var(--rs); }
 
         /* ========== ILETISIM ========== */
-        .contact { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .box { padding: 0; }
-        .box h3 { font-size: 1.125rem; font-weight: 600; margin-bottom: 14px; }
-        .box p { color: var(--muted); font-size: .9375rem; margin-top: 8px; }
-        .box p a { color: var(--ink); font-weight: 500; display: inline-block; padding: 6px 0; }
-        .box p a:hover { color: var(--orange); }
-        .box i { color: var(--orange); width: 20px; }
-        .box .btn { margin-top: 18px; }
-        .box h4 { font-size: .9375rem; color: var(--navy); margin-top: 16px; }
-        .box h4:first-of-type { margin-top: 0; }
-        .box details summary { cursor: pointer; color: var(--navy); font-weight: 600; font-size: .9375rem; margin-top: 18px; }
-        .box details p { font-size: .875rem; }
-        .mono { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .85rem; word-break: break-all; }
+        .contact { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+        .box h3 { font-size: 1.0625rem; font-weight: 600; margin-bottom: 6px; }
+        .box h4 { font-size: .9375rem; color: var(--navy); font-weight: 600; margin-top: 14px; }
+        .box h3 + h4 { margin-top: 0; }
+        .box p { color: var(--muted); font-size: .9375rem; }
+        .box p a { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; color: var(--ink); font-weight: 500; }
+        .box p a:hover { color: var(--orange-btn); }
+        .box p a .i { color: var(--muted); }
+        .box .btn { margin-top: 12px; }
+        .box details summary { cursor: pointer; color: var(--navy); font-weight: 600; font-size: .9375rem; padding: 12px 0; }
+        .box details p { font-size: .875rem; margin-top: 2px; }
+        .num { font-variant-numeric: tabular-nums; letter-spacing: .02em; word-break: break-all; }
+        .nw { white-space: nowrap; }
 
         /* ========== ALT ========== */
-        .iller-wrap { display: block !important; padding-bottom: 32px; margin-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,.12); }
-        .iller-h { color: #fff; font-size: 1.125rem; font-weight: 600; margin-bottom: 16px; }
-        footer .cities a { color: rgba(255,255,255,.72); opacity: 1; padding: 4px 0; font-size: .875rem; }
-        footer .cities a:hover { color: #fff; }
-        footer { background: var(--navy); color: rgba(255,255,255,.72); padding: 40px 0 calc(96px + env(safe-area-inset-bottom)); font-size: .875rem; }
-        footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+        footer { background: var(--navy); color: rgba(255,255,255,.72); padding: 48px 0 calc(40px + env(safe-area-inset-bottom)); font-size: .875rem; }
+        footer h2 { color: #fff; font-size: 1.0625rem; font-weight: 600; }
+        .iller summary { list-style: none; padding-bottom: 12px; pointer-events: none; }
+        .iller summary::-webkit-details-marker { display: none; }
+        .iller { padding-bottom: 32px; margin-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,.12); }
+        .cities { columns: 6; column-gap: 24px; }
+        .cities a { display: block; padding: 4px 0; color: rgba(255,255,255,.72); break-inside: avoid; }
+        .cities a:hover { color: #fff; }
+        .foot { display: flex; justify-content: space-between; align-items: center; gap: 12px 24px; flex-wrap: wrap; }
         footer .logo b { color: #fff; }
+        footer .logo b span { color: var(--orange); }
         footer .logo small { color: rgba(255,255,255,.72); }
-        footer nav { display: flex; gap: 20px; flex-wrap: wrap; }
-        footer nav a, footer nav button { color: rgba(255,255,255,.8); font-size: .875rem; }
+        footer nav { display: flex; gap: 0 20px; flex-wrap: wrap; }
+        footer nav a, footer nav button { display: inline-flex; align-items: center; min-height: 44px; color: rgba(255,255,255,.85); font-size: .875rem; }
         footer nav a:hover, footer nav button:hover { color: #fff; }
-        .copy { width: 100%; border-top: 1px solid rgba(255,255,255,.12); padding-top: 18px; margin-top: 4px; font-size: .8125rem; color: rgba(255,255,255,.72); }
+        .copy { width: 100%; padding-top: 12px; font-size: .8125rem; }
 
-        /* ========== WHATSAPP DUGMESI ========== */
-        .wa-float { position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom)); z-index: 60; width: 56px; height: 56px; border-radius: 50%; background: var(--orange); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; box-shadow: 0 6px 18px rgba(10,30,58,.25); background: var(--orange-btn); transition: opacity .25s; }
-        .wa-float.gizli { opacity: 0; pointer-events: none; }
-        .wa-float:hover { background: var(--orange-d); }
-
-        /* ========== PENCERELER ========== */
-        .modal { position: fixed; inset: 0; z-index: 100; background: rgba(10,30,58,.45); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); display: none; align-items: center; justify-content: center; padding: 20px; }
-        .modal.active { display: flex; }
-        .modal-box { background: #fff; overscroll-behavior: contain; border-radius: 24px; max-width: 760px; width: 100%; max-height: 88vh; overflow-y: auto; padding: 32px; position: relative; }
-        .modal-box h2 { font-size: 1.75rem; padding-right: 40px; }
-        .modal-box h3 { font-size: 1.05rem; margin: 20px 0 8px; }
+        /* ========== PENCERE ========== */
+        .modal { position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 100; background: rgba(10,30,58,.45); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); display: none; align-items: center; justify-content: center; padding: 20px; }
+        .modal.active { display: flex; animation: fade .2s ease-out; }
+        .modal-box { background: #fff; border-radius: 24px; max-width: 720px; width: 100%; max-height: 88vh; max-height: 88dvh; overflow-y: auto; overscroll-behavior: contain; padding: 28px; position: relative; animation: rise .28s cubic-bezier(.2,.8,.2,1); }
+        .modal-box:focus { outline: none; }
+        .modal-box h2 { font-size: 1.375rem; padding-right: 48px; }
+        .modal-box h3 { font-size: 1.0625rem; margin: 18px 0 6px; }
         .modal-box p, .modal-box li { color: var(--muted); font-size: .9375rem; margin-top: 8px; }
         .modal-box ul { padding-left: 20px; }
-        .close-modal { position: absolute; top: 14px; right: 14px; width: 44px; height: 44px; border-radius: 50%; background: var(--bg2); font-size: 1.3rem; color: var(--navy); }
-        .m-head { display: flex; gap: 16px; align-items: center; margin-bottom: 18px; }
-        .m-head img { width: 72px; height: 72px; border-radius: var(--rs); object-fit: cover; }
+        .close-modal { position: absolute; top: 12px; right: 12px; width: 44px; height: 44px; border-radius: 50%; background: var(--bg2); font-size: 1.4rem; line-height: 1; color: var(--navy); display: flex; align-items: center; justify-content: center; }
+        .m-head { display: flex; gap: 16px; align-items: center; margin-bottom: 12px; }
+        .m-head img { width: 64px; height: 64px; border-radius: var(--rs); object-fit: cover; }
         .m-head p { margin-top: 2px; }
         .vt { width: 100%; border-collapse: collapse; font-size: .9375rem; }
-        .vt td { padding: 12px 8px; border-bottom: 1px solid var(--line); vertical-align: middle; }
-        .vt td:first-child { color: var(--muted); font-size: .8125rem; white-space: nowrap; }
+        .vt td { padding: 12px 8px 12px 0; border-bottom: 1px solid var(--line); vertical-align: middle; }
         .vt td.p { font-weight: 700; color: var(--navy); white-space: nowrap; text-align: right; }
-        .vt td:last-child { text-align: right; width: 1%; }
-        .vt .btn { height: 44px; padding: 0 16px; font-size: .9375rem; }
-        .art { margin-top: 24px; padding-top: 8px; border-top: 1px solid var(--line); }
+        .vt td:last-child { text-align: right; width: 1%; padding-right: 0; }
+        .vt a { display: inline-flex; align-items: center; height: 40px; padding: 0 16px; border-radius: 999px; border: 1.5px solid var(--navy); color: var(--navy); font-weight: 600; font-size: .875rem; white-space: nowrap; }
+        .vt a:hover { background: var(--navy); color: #fff; }
+        .art { margin-top: 20px; }
         .art h3 { color: var(--navy); }
+        .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+        @keyframes fade { from { opacity: 0; } }
+        @keyframes rise { from { transform: translateY(24px); opacity: 0; } }
 
         /* ========== TABLET ========== */
         @media (max-width: 960px) {
@@ -322,53 +308,64 @@
         /* ========== TELEFON ========== */
         @media (max-width: 760px) {
             body { font-size: 16px; }
-            section { padding: 64px 0; }
-            .menu-btn { display: inline-flex; align-items: center; justify-content: center; }
-            .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; background: #fff; flex-direction: column; align-items: stretch; gap: 0; padding: 8px 20px 20px; border-bottom: 1px solid var(--line); box-shadow: 0 20px 30px rgba(10,30,58,.08); }
-            .nav-links.open { display: flex; }
-            .nav-links a:not(.btn) { padding: 14px 0; border-bottom: 1px solid var(--line); opacity: 1; }
-            .nav-links .btn { margin-top: 16px; }
-            .hero { padding: 28px 0 48px; }
-            .hero-btn { margin-top: 20px; }
-            .hero .wrap { grid-template-columns: 1fr; gap: 36px; }
-            .quote, .about img { display: none; }
+            section { padding: 48px 0; }
+            .nav-wa { display: inline-flex; height: 40px; padding: 0 14px; font-size: .875rem; gap: 6px; }
+            .menu-btn { display: inline-flex; }
+            .nav-links { display: flex; position: absolute; top: 64px; left: 0; right: 0; background: #fff; flex-direction: column; align-items: stretch; gap: 0; padding: 4px 20px 16px; border-bottom: 1px solid var(--line); box-shadow: 0 20px 30px rgba(10,30,58,.08); visibility: hidden; opacity: 0; transform: translateY(-8px); transition: opacity .2s, transform .2s, visibility 0s .2s; }
+            .nav-links.open { visibility: visible; opacity: 1; transform: none; transition: opacity .2s, transform .2s; }
+            .nav-links a { display: flex; align-items: center; min-height: 52px; border-bottom: 1px solid var(--line); }
+            .nav-links a:last-child { border-bottom: 0; }
+            .nav-links .btn { display: none; }
             .hero { padding: 32px 0 40px; }
+            .hero .wrap { grid-template-columns: 1fr; }
+            .hero .btn { margin-top: 20px; }
+            .quote, .about img { display: none; }
             .grid { grid-template-columns: minmax(0,1fr); }
-            .card .price strong { font-size: 1.0625rem; }
-            .steps { grid-template-columns: 1fr; gap: 12px; }
-            .step { padding: 24px; }
-            .cities { columns: 3; column-gap: 12px; font-size: .9375rem; }
-            footer .cities a { padding: 9px 0; }
-            .about { grid-template-columns: 1fr; gap: 28px; }
-            .contact { grid-template-columns: 1fr; gap: 32px; }
-            footer .wrap { flex-direction: column; align-items: flex-start; }
+            .about { grid-template-columns: 1fr; }
+            .contact { grid-template-columns: 1fr; gap: 28px; }
+            .cities { columns: 2; column-gap: 20px; }
+            .iller { padding-bottom: 8px; }
+            .iller summary { pointer-events: auto; display: flex; justify-content: space-between; align-items: center; min-height: 44px; padding-bottom: 8px; cursor: pointer; }
+            .iller summary::after { content: "+"; color: #fff; font-size: 1.5rem; font-weight: 400; }
+            .iller[open] summary::after { content: "−"; }
+            .cities a { padding: 10px 0; font-size: .9375rem; }
+            .foot { flex-direction: column; align-items: flex-start; }
             .modal { padding: 0; align-items: flex-end; }
-            .modal-box { border-radius: 24px 24px 0 0; max-height: 92vh; padding: 28px 20px calc(24px + env(safe-area-inset-bottom)); }
-            .modal-box::before { content: ""; position: absolute; top: 8px; left: 50%; width: 36px; height: 5px; margin-left: -18px; border-radius: 3px; background: #c7c7cc; }
+            .modal-box { border-radius: 24px 24px 0 0; max-height: 92vh; max-height: 92dvh; padding: 28px 20px calc(24px + env(safe-area-inset-bottom)); }
             .vt, .vt tbody { display: block; }
-            .vt tr { display: grid; grid-template-columns: 1fr auto; gap: 6px 12px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line); }
+            .vt tr { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line); }
             .vt td { padding: 0; border: 0; }
-            .vt td:nth-child(2) { grid-column: 1 / -1; color: var(--ink); font-size: .9375rem; }
+            .vt td:first-child { grid-column: 1 / -1; color: var(--ink); }
             .vt td.p { text-align: left; font-size: 1.0625rem; }
-            .vt td:first-child { display: none; }
         }
-        @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+        @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
     </style>
 </head>
 <body>
-<noscript><div style="background:#f47b20;color:#fff;text-align:center;padding:12px;font-family:sans-serif;font-weight:700;">Fiyat listesini görmek için JavaScript'i açın. Sipariş için <a href="https://wa.me/905321394659" style="color:#fff;text-decoration:underline;">WhatsApp</a> veya <a href="tel:+905321394659" style="color:#fff;text-decoration:underline;">0 532 139 46 59</a>.</div></noscript>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21.5l4.8-1.3A9.5 9.5 0 1 0 12 2.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.6 7.4c.3-.5.6-.6.9-.6h.6c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.4 0 .6l-.5.7c-.1.2-.2.3 0 .6.5.9 1.3 1.7 2.2 2.2.3.2.4.1.6 0l.7-.6c.2-.2.4-.2.6-.1l1.9.9c.3.1.4.3.4.5 0 .5-.2 1.4-1 1.8-.7.4-1.6.4-2.6.1-1.4-.5-2.8-1.4-3.9-2.6-1-1.1-1.7-2.3-2-3.5-.2-.9 0-1.7.2-2.1z" fill="currentColor"/></symbol>
+    <symbol id="i-tel" viewBox="0 0 24 24"><path d="M6.6 3.5c.4-.5.8-.6 1.2-.6h.8c.3 0 .5 0 .8.6l1.1 2.6c.1.3.1.6 0 .8l-.7 1c-.2.3-.2.4 0 .8.7 1.3 1.8 2.4 3.1 3.1.4.2.5.2.8 0l1-.8c.3-.2.5-.2.8-.1l2.6 1.2c.4.2.6.4.6.7 0 .7-.3 1.9-1.4 2.5-1 .5-2.2.5-3.6.1-1.9-.7-3.8-2-5.4-3.6-1.4-1.5-2.4-3.2-2.8-4.8-.3-1.3 0-2.4.6-3.4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+<noscript><div style="background:#0a1e3a;color:#fff;text-align:center;padding:12px;font-family:sans-serif;">Fiyat detayları için JavaScript'i açın veya <a href="https://wa.me/905321394659" style="color:#fff;text-decoration:underline;">WhatsApp</a> / <a href="tel:+905321394659" style="color:#fff;text-decoration:underline;">0 532 139 46 59</a></div></noscript>
 
 <!-- ========== UST MENU ========== -->
 <header class="nav">
     <div class="wrap">
         <a class="logo" href="/" aria-label="Karadeniz Matbaa ana sayfa"><b>Karadeniz <span>Matbaa</span></b><small>Toraman Matbaa güvencesiyle</small></a>
-        <button class="menu-btn" id="menuToggle" onclick="toggleMenu()" aria-label="Menüyü aç/kapat" aria-expanded="false"><i class="fas fa-bars"></i></button>
+        <a href="https://wa.me/905321394659?text=Merhaba,%20karadenizmatbaa.com%20%C3%BCzerinden%20teklif%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn nav-wa"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg> Yaz</a>
+        <button class="menu-btn" id="menuToggle" aria-label="Menü" aria-expanded="false" aria-controls="navLinks">
+            <svg class="bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <svg class="x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
         <nav class="nav-links" id="navLinks">
             <a href="#hizmetler">Fiyatlar</a>
-            <a href="#iller">İller</a>
             <a href="#sss">SSS</a>
             <a href="#iletisim">İletişim</a>
-            <a href="https://wa.me/905321394659?text=Merhaba,%20karadenizmatbaa.com%20üzerinden%20teklif%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn btn-main btn-sm"><i class="fab fa-whatsapp"></i> WhatsApp'tan Yaz</a>
+            <a href="#iller">İller</a>
+            <a href="https://wa.me/905321394659?text=Merhaba,%20karadenizmatbaa.com%20%C3%BCzerinden%20teklif%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn btn-sm"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg> WhatsApp'tan Yaz</a>
         </nav>
     </div>
 </header>
@@ -380,12 +377,15 @@
         <div>
             <h1>Karadeniz Matbaa</h1>
             <p class="hero-slogan">Fiyatı gör, WhatsApp'tan yaz.<br>Baskın ertesi gün kargoda.</p>
-            <a href="https://wa.me/905321394659?text=Merhaba,%20karadenizmatbaa.com%20üzerinden%20teklif%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn btn-main hero-btn"><i class="fab fa-whatsapp"></i> WhatsApp'tan Yaz</a>
+            <a href="https://wa.me/905321394659?text=Merhaba,%20karadenizmatbaa.com%20%C3%BCzerinden%20teklif%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg> WhatsApp'tan Yaz</a>
         </div>
-        <div class="quote">
-            <div class="q-head"><b>Güncel fiyatlar</b><span>KDV dahil</span></div>
-            <div id="heroList"></div>
-            <a class="q-all" href="#hizmetler">Tüm fiyatlar <i class="fas fa-chevron-right"></i></a>
+        <div class="quote" id="heroList">
+<!--GIRIS-->
+            <button class="q-row" data-category="kartvizit"><img src="img/urun/kartvizit-160.webp" alt="" width="48" height="48" /><span><b>Kartvizit</b><small>1.000 Adet</small></span><strong>245 ₺</strong><svg class="i chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+            <button class="q-row" data-category="brosur"><img src="img/urun/brosur-160.webp" alt="" width="48" height="48" /><span><b>Broşür</b><small>1.000 Adet</small></span><strong>600 ₺</strong><svg class="i chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+            <button class="q-row" data-category="magnet"><img src="img/urun/magnet-160.webp" alt="" width="48" height="48" /><span><b>Magnet</b><small>1.000 Adet</small></span><strong>660 ₺</strong><svg class="i chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+            <button class="q-row" data-category="etiket"><img src="img/urun/etiket-160.webp" alt="" width="48" height="48" /><span><b>Etiket</b><small>1.000 Adet</small></span><strong>340 ₺</strong><svg class="i chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+<!--/GIRIS-->
         </div>
     </div>
 </section>
@@ -394,12 +394,30 @@
 <section id="hizmetler">
     <span id="cok-satanlar"></span><span id="fiyat"></span>
     <div class="wrap">
-        <div class="head">
-            <h2>Ürünler ve fiyatlar</h2>
-            <p class="lead">KDV dahil.</p>
+        <div class="head"><h2>Ürünler ve fiyatlar</h2><small>KDV dahil</small></div>
+        <div class="grid" id="productGrid">
+<!--URUNLER-->
+            <button class="card" data-category="kartvizit"><img src="img/urun/kartvizit.webp" srcset="img/urun/kartvizit-160.webp 160w, img/urun/kartvizit.webp 640w" sizes="64px" alt="Kartvizit baskı" width="64" height="64" loading="lazy" /><span><span class="t">Kartvizit</span><span class="d">1.000 Adet, 250gr. Bristol, Parlak Selefon</span><span class="p">245 ₺ <small>/ 1.000 Adet</small></span></span><svg class="i chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+            <button class="card" data-category="brosur"><img src="img/urun/brosur.webp" srcset="img/urun/brosur-160.webp 160w, img/urun/brosur.webp 640w" sizes="64px" alt="Broşür baskı" width="64" height="64" loading="lazy" /><span><span class="t">Broşür</span><span class="d">A6, 115gr. Kuşe, Çift Yön Parlak</span><span class="p">600 ₺ <small>/ 1.000 Adet</small></span></span><svg class="i chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+            <button class="card" data-category="afis"><img src="img/urun/afis.webp" srcset="img/urun/afis-160.webp 160w, img/urun/afis.webp 640w" sizes="64px" alt="Afiş / Poster baskı" width="64" height="64" loading="lazy" /><span><span class="t">Afiş / Poster</span><span class="d">34x49 cm, 90gr. Parlak Kuşe, 100 Adet</span><span class="p">1.265 ₺ <small>/ 100 Adet</small></span></span><svg class="i chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+            <button class="card" data-category="magnet"><img src="img/urun/magnet.webp" srcset="img/urun/magnet-160.webp 160w, img/urun/magnet.webp 640w" sizes="64px" alt="Magnet baskı" width="64" height="64" loading="lazy" /><span><span class="t">Magnet</span><span class="d">1.000 Adet, 46x68mm, Oval Kesim, Parlak Selefon</span><span class="p">660 ₺ <small>/ 1.000 Adet</small></span></span><svg class="i chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+            <button class="card" data-category="etiket"><img src="img/urun/etiket.webp" srcset="img/urun/etiket-160.webp 160w, img/urun/etiket.webp 640w" sizes="64px" alt="Etiket baskı" width="64" height="64" loading="lazy" /><span><span class="t">Etiket</span><span class="d">1.000 Adet, 53x83mm, Kuşe Çıkartma, Parlak Selefon</span><span class="p">340 ₺ <small>/ 1.000 Adet</small></span></span><svg class="i chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+            <button class="card" data-category="davetiye"><img src="img/urun/davetiye.webp" srcset="img/urun/davetiye-160.webp 160w, img/urun/davetiye.webp 640w" sizes="64px" alt="Davetiye baskı" width="64" height="64" loading="lazy" /><span><span class="t">Davetiye</span><span class="d">Düğün, sünnet, nişan. 250gr Bristol, Çift Yön</span><span class="p">350 ₺ <small>/ 1.000 Adet</small></span></span><svg class="i chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+            <button class="card" data-category="karton-canta"><img src="img/urun/karton-canta.webp" srcset="img/urun/karton-canta-160.webp 160w, img/urun/karton-canta.webp 640w" sizes="64px" alt="Karton Çanta baskı" width="64" height="64" loading="lazy" /><span><span class="t">Karton Çanta</span><span class="d">Kraft çanta, e-ticaret ambalajı, markalı poşet</span><span class="p">3.450 ₺ <small>/ 250 Adet</small></span></span><svg class="i chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+            <button class="card" data-category="zarf"><img src="img/urun/zarf.webp" srcset="img/urun/zarf-160.webp 160w, img/urun/zarf.webp 640w" sizes="64px" alt="Baskılı Zarflar baskı" width="64" height="64" loading="lazy" /><span><span class="t">Baskılı Zarflar</span><span class="d">Diplomat zarf, torba zarf, kurumsal zarflar</span><span class="p">1.080 ₺ <small>/ 500 Adet</small></span></span><svg class="i chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+            <button class="card" data-category="makbuz"><img src="img/urun/makbuz.webp" srcset="img/urun/makbuz-160.webp 160w, img/urun/makbuz.webp 640w" sizes="64px" alt="Makbuz baskı" width="64" height="64" loading="lazy" /><span><span class="t">Makbuz</span><span class="d">50'lik otocopy, 1 renk siyah, numaratör, perforaj</span><span class="p">840 ₺ <small>/ 5 Cilt</small></span></span><svg class="i chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+            <button class="card" data-category="amerikan-servis"><img src="img/urun/amerikan-servis.webp" srcset="img/urun/amerikan-servis-160.webp 160w, img/urun/amerikan-servis.webp 640w" sizes="64px" alt="Amerikan Servis baskı" width="64" height="64" loading="lazy" /><span><span class="t">Amerikan Servis</span><span class="d">Tek yön renkli baskı – 1. hamur / kuşe / kraft</span><span class="p">2.850 ₺ <small>/ 2.000 Adet</small></span></span><svg class="i chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+            <button class="card" data-category="cepli-dosya"><img src="img/urun/cepli-dosya.webp" srcset="img/urun/cepli-dosya-160.webp 160w, img/urun/cepli-dosya.webp 640w" sizes="64px" alt="Cepli Dosya baskı" width="64" height="64" loading="lazy" /><span><span class="t">Cepli Dosya</span><span class="d">22.5x31 cm, kulak yapıştırma dahil</span><span class="p">5.500 ₺ <small>/ 1.000 Adet</small></span></span><svg class="i chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+            <button class="card" data-category="antetli"><img src="img/urun/antetli.webp" srcset="img/urun/antetli-160.webp 160w, img/urun/antetli.webp 640w" sizes="64px" alt="Antetli Kağıt baskı" width="64" height="64" loading="lazy" /><span><span class="t">Antetli Kağıt</span><span class="d">Tek yön 80gr 1.hamur renkli baskı – A5 / A4</span><span class="p">1.400 ₺ <small>/ 4.000 Adet</small></span></span><svg class="i chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+            <button class="card" data-category="oto-paspas"><img src="img/urun/oto-paspas.webp" srcset="img/urun/oto-paspas-160.webp 160w, img/urun/oto-paspas.webp 640w" sizes="64px" alt="Oto Paspas baskı" width="64" height="64" loading="lazy" /><span><span class="t">Oto Paspas</span><span class="d">1 renk siyah baskı – 34x49 cm – kraft / 1.hamur</span><span class="p">2.000 ₺ <small>/ 1.000 Adet</small></span></span><svg class="i chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+            <button class="card" data-category="bloknot"><img src="img/urun/bloknot.webp" srcset="img/urun/bloknot-160.webp 160w, img/urun/bloknot.webp 640w" sizes="64px" alt="Bloknot / Defter baskı" width="64" height="64" loading="lazy" /><span><span class="t">Bloknot / Defter</span><span class="d">Küp bloknot, spiralli, ciltli, kapaklı – çeşitli ebatlar</span><span class="p">6.150 ₺ <small>/ 100 Adet</small></span></span><svg class="i chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+            <button class="card" data-category="ambalaj-kutusu"><img src="img/urun/ambalaj-kutusu.webp" srcset="img/urun/ambalaj-kutusu-160.webp 160w, img/urun/ambalaj-kutusu.webp 640w" sizes="64px" alt="Ambalaj Kutuları baskı" width="64" height="64" loading="lazy" /><span><span class="t">Ambalaj Kutuları</span><span class="d">350gr Amerikan Bristol, renkli baskı + mat selefon</span><span class="p">4.000 ₺ <small>/ 1.000 Adet</small></span></span><svg class="i chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+            <button class="card" data-category="kapi-askilik"><img src="img/urun/kapi-askilik.webp" srcset="img/urun/kapi-askilik-160.webp 160w, img/urun/kapi-askilik.webp 640w" sizes="64px" alt="Kapı Askılık baskı" width="64" height="64" loading="lazy" /><span><span class="t">Kapı Askılık</span><span class="d">12x17 cm, 130gr / 350gr / 700gr, çift yön, selefon</span><span class="p">2.000 ₺ <small>/ 1.000 Adet</small></span></span><svg class="i chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+<!--/URUNLER-->
         </div>
-        <div class="grid" id="productGrid"></div>
-        <button class="fason" onclick="openProductModal('fason')"><span><b>Fason baskı</b> Reklamcı, ajans ve matbaacılara toptan üretim.</span><em>Teklif al ›</em></button>
+<!--FASON-->
+        <button class="fason" data-category="fason"><span><b>Fason Baskı</b>Reklamcılar, ajanslar ve matbaacılar için toptan baskı</span><em>Teklif al ›</em></button>
+<!--/FASON-->
     </div>
 </section>
 
@@ -408,7 +426,20 @@
     <span id="faqToggle"></span>
     <div class="wrap">
         <div class="head"><h2>Sıkça sorulan sorular</h2></div>
-        <div class="faq" id="faqList"></div>
+        <div class="faq">
+            <details><summary>Kartvizit fiyatları ne kadar?</summary><p>1000 adet standart (250gr. Parlak Selefonlu) kartvizit 245 TL'den başlamaktadır. Çift yön, mat selefon, laklı ve yaldızlı özel kesim kartvizitler için WhatsApp hattımızdan güncel fiyat listemizi talep edebilirsiniz.</p></details>
+            <details><summary>Broşür baskı süresi ne kadar?</summary><p>Baskıya hazır gönderilen ve grafik onayı verilen standart broşür siparişleri üretim planına alınıp ertesi gün anlaşmalı kargoya teslim edilmektedir.</p></details>
+            <details><summary>Fason baskı nedir?</summary><p>Fason baskı, üretim parkuru olmayan reklam ajanslarına, tabelacılara, matbaacılara ve grafikerlere özel toptan üretim modelidir. Bu avantajlı sistemden sadece sektördeki meslektaşlarımız yararlanabilir.</p></details>
+            <details><summary>Nasıl sipariş verebilirim?</summary><p>Baskıya hazır tasarımlarınızı (PDF, Corel veya Illustrator formatında) WhatsApp destek hattımızdan veya e-posta adresimiz üzerinden bize ileterek anında fiyat alıp siparişinizi oluşturabilirsiniz.</p></details>
+            <details><summary>Ödeme seçenekleriniz nelerdir?</summary><p>Siparişleriniz banka havalesi veya EFT ile peşin olarak işleme alınmaktadır. Sürekli çalışan ajans müşterilerimiz için özel cari hesap anlaşmaları yapılmaktadır.</p></details>
+            <details><summary>Hangi baskı tekniklerini kullanıyorsunuz?</summary><p>Matbaamızda yüksek trajlı işler için CMYK ofset baskı, daha acil ve az adetli işler için dijital baskı teknikleri kullanılmaktadır.</p></details>
+            <details><summary>Renk uyumu ve kalite garantiniz var mı?</summary><p>Kullandığımız 1. sınıf kağıt ve mürekkepler ile kalitemiz tescillidir. CMYK standartlarında hazırlanan profesyonel tasarımlarınızda %10-15 tolerans haricinde renk sapması yaşanmaz.</p></details>
+            <details><summary>Kargo ücreti ne kadar?</summary><p>Anlaşmalı kargo firmalarımız sayesinde paketleriniz minimum fiyattan gönderilmektedir. Belirli sipariş adedinin üzerindeki gönderimlerde kargo tarafımızca karşılanmaktadır.</p></details>
+            <details><summary>Grafik tasarım desteği veriyor musunuz?</summary><p>Tasarımların baskıya hazır gelmesi zorunludur, ancak gönderdiğiniz tasarımların baskıya uygunluk kontrolleri grafik ekibimiz tarafından ücretsiz incelenir.</p></details>
+            <details><summary>Hangi dosya formatlarını kabul ediyorsunuz?</summary><p>PDF, Corel Draw (.CDR), Adobe Illustrator (.AI) ve yüksek çözünürlüklü TIFF formatlarını kabul ediyoruz. RGB modundaki işler mutlaka CMYK moduna çevrilmelidir.</p></details>
+            <details><summary>Türkiye dışına gönderim yapıyor musunuz?</summary><p>Türkiye'nin 81 iline kargo ve şehirlerarası hat otobüsleriyle gönderim yapmaktayız. Şu an için yurtdışı gönderimimiz bulunmamaktadır.</p></details>
+            <details><summary>Neden Karadeniz Matbaa'yı tercih etmeliyim?</summary><p>Şeffaf fiyat, aracısız fabrika fiyatları, jilet gibi baskı kalitesi ve Karadeniz'in her noktasına sağladığımız acil gönderim hızı için çözüm ortağınızız.</p></details>
+        </div>
     </div>
 </section>
 
@@ -417,7 +448,7 @@
     <div class="wrap about">
         <div>
             <h2>Hakkımızda</h2>
-            <p><strong>Toraman Matbaa</strong> ve <strong>Uzman Reklam</strong> işbirliği. 1973'ten beri baskı; üretim İstanbul Topkapı'da.</p>
+            <p><strong>Toraman Matbaa</strong> ve <strong>Uzman Reklam</strong> işbirliği. 1973'ten beri baskı; üretim İstanbul Topkapı'da, gönderim 81 ile.</p>
         </div>
         <img src="img/makina-parkuru.webp" alt="Karadeniz Matbaa makine parkuru" width="1200" height="541" loading="lazy" />
     </div>
@@ -426,18 +457,15 @@
 <!-- ========== ILETISIM ========== -->
 <section id="iletisim">
     <div class="wrap">
-        <div class="head">
-            <h2>İletişim</h2>
-            <p class="lead">Hafta içi 09:00-19:00 · Cumartesi 09:00-15:00</p>
-        </div>
+        <div class="head"><h2>İletişim</h2></div>
         <div class="contact">
             <div class="box">
                 <h3>Bize ulaşın</h3>
-                <p><i class="fas fa-phone"></i> <a href="tel:+905321394659">0 532 139 46 59</a></p>
-                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/905321394659" target="_blank" rel="noopener noreferrer">WhatsApp ile yazın</a></p>
-                <p><i class="fas fa-envelope"></i> <a href="mailto:karadenizmatbaa1@gmail.com">karadenizmatbaa1@gmail.com</a></p>
-                <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/uzman.reklamm/" target="_blank" rel="noopener noreferrer">@uzman.reklamm</a></p>
-                <a href="https://wa.me/905321394659?text=Merhaba,%20karadenizmatbaa.com%20üzerinden%20teklif%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn btn-main"><i class="fab fa-whatsapp"></i> WhatsApp'tan Yaz</a>
+                <p><span class="nw">Hafta içi 09:00-19:00</span> · <span class="nw">Cumartesi 09:00-15:00</span></p>
+                <p><a href="tel:+905321394659"><svg class="i" aria-hidden="true"><use href="#i-tel"/></svg>0 532 139 46 59</a></p>
+                <p><a href="mailto:karadenizmatbaa1@gmail.com"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg>karadenizmatbaa1@gmail.com</a></p>
+                <p><a href="https://www.instagram.com/uzman.reklamm/" target="_blank" rel="noopener noreferrer"><svg class="i" aria-hidden="true"><use href="#i-ig"/></svg>@uzman.reklamm</a></p>
+                <a href="https://wa.me/905321394659?text=Merhaba,%20karadenizmatbaa.com%20%C3%BCzerinden%20teklif%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg> WhatsApp'tan Yaz</a>
             </div>
             <div class="box">
                 <h3>Adreslerimiz</h3>
@@ -453,8 +481,8 @@
                 <p>Havale / EFT</p>
                 <details>
                     <summary>Banka bilgilerini göster</summary>
-                    <p><strong>Garanti Bankası</strong> · Şube 520 · Hesap 6297473</p>
-                    <p class="mono">TR12 0006 2000 5200 0006 2974 73</p>
+                    <p>Garanti Bankası · Şube 520 · Hesap 6297473</p>
+                    <p class="num">TR12 0006 2000 5200 0006 2974 73</p>
                     <p>Bafra V.D. · 214 7659 4794 · Abdurrahman Toraman</p>
                 </details>
             </div>
@@ -465,8 +493,9 @@
 
 <!-- ========== ALT ========== -->
 <footer>
-    <div class="wrap iller-wrap" id="iller">
-        <h2 class="iller-h">81 ile ertesi gün kargo</h2>
+    <div class="wrap">
+        <details class="iller" id="iller" open>
+        <summary><h2>81 ilde matbaa</h2></summary>
         <div class="cities">
             <a href="/adana-matbaa">Adana</a>
             <a href="/adiyaman-matbaa">Adıyaman</a>
@@ -550,27 +579,26 @@
             <a href="/yozgat-matbaa">Yozgat</a>
             <a href="/zonguldak-matbaa">Zonguldak</a>
         </div>
-    </div>
-    <div class="wrap">
-        <a class="logo" href="/"><b>Karadeniz <span>Matbaa</span></b><small>Toraman Matbaa &amp; Uzman Reklam işbirliği</small></a>
-        <nav aria-label="Alt menü">
-            <a href="#hizmetler">Ürünler</a>
-            <a href="#hakkimizda">Hakkımızda</a>
-            <a href="#iletisim">İletişim</a>
-            <button onclick="openModal('kvkk')">KVKK</button>
-            <button onclick="openModal('gizlilik')">Gizlilik</button>
-        </nav>
-        <p class="copy">© 2026 Karadeniz Toraman Matbaa. Tüm hakları saklıdır.</p>
+        </details>
+        <div class="foot">
+            <a class="logo" href="/"><b>Karadeniz <span>Matbaa</span></b><small>Toraman Matbaa &amp; Uzman Reklam işbirliği</small></a>
+            <nav aria-label="Alt menü">
+                <a href="#hizmetler">Fiyatlar</a>
+                <a href="#hakkimizda">Hakkımızda</a>
+                <a href="#iletisim">İletişim</a>
+                <button onclick="openModal('kvkk')">KVKK</button>
+                <button onclick="openModal('gizlilik')">Gizlilik</button>
+            </nav>
+            <p class="copy">© 2026 Karadeniz Toraman Matbaa. Tüm hakları saklıdır.</p>
+        </div>
     </div>
 </footer>
 
-<a href="https://wa.me/905321394659?text=Merhaba,%20karadenizmatbaa.com%20üzerinden%20teklif%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="wa-float" aria-label="WhatsApp'tan yaz"><i class="fab fa-whatsapp"></i></a>
-
 <!-- ========== KVKK ========== -->
-<div class="modal" id="kvkkModal">
-    <div class="modal-box">
+<div class="modal" id="kvkkModal" role="dialog" aria-modal="true" aria-labelledby="kvkkBaslik">
+    <div class="modal-box" tabindex="-1">
         <button class="close-modal" onclick="closeModal('kvkkModal')" aria-label="Kapat">&times;</button>
-        <h2>KVKK Aydınlatma Metni</h2>
+        <h2 id="kvkkBaslik">KVKK Aydınlatma Metni</h2>
         <p><strong>Karadeniz Toraman Matbaa</strong> olarak, 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) uyarınca, veri sorumlusu sıfatıyla, kişisel verilerinizin güvenliğine ve hukuka uygun olarak işlenmesine azami hassasiyet göstermekteyiz. Bu aydınlatma metni, sitemizi ziyaret eden ve bizimle iletişime geçen tüm kullanıcılarımızı bilgilendirmek amacıyla hazırlanmıştır.</p>
         <h3>1. İşlenen Kişisel Veriler ve İşleme Amaçları</h3>
         <p>Web sitemiz, WhatsApp iletişim hattımız, e-posta veya telefon aracılığıyla bizimle paylaştığınız ad, soyad, telefon numarası, e-posta adresi ve kurumsal firma bilgileri aşağıdaki amaçlarla sınırlı olarak işlenmektedir:</p>
@@ -590,10 +618,10 @@
 </div>
 
 <!-- ========== GIZLILIK ========== -->
-<div class="modal" id="gizlilikModal">
-    <div class="modal-box">
+<div class="modal" id="gizlilikModal" role="dialog" aria-modal="true" aria-labelledby="gizlilikBaslik">
+    <div class="modal-box" tabindex="-1">
         <button class="close-modal" onclick="closeModal('gizlilikModal')" aria-label="Kapat">&times;</button>
-        <h2>Gizlilik Politikası</h2>
+        <h2 id="gizlilikBaslik">Gizlilik Politikası</h2>
         <p><strong>Karadeniz Matbaa</strong> olarak, müşteri gizliliğine azami özen gösteriyoruz. Sitemizi ziyaret eden kullanıcıların bilgileri yalnızca sipariş süreçleri ve hizmet kalitemizi artırmak amacıyla kullanılır.</p>
         <h3>Çerezler (Cookies)</h3>
         <p>Sitemiz, kullanıcı deneyimini iyileştirmek, sayfaların açılış hızını optimize etmek ve ziyaretçi trafiğini analiz etmek amacıyla standart internet çerezleri kullanabilir. Çerezler, bilgisayarınıza zarar vermeyen, sadece tarayıcınızın siteyi hatırlamasını sağlayan küçük metin dosyalarıdır. Tarayıcı ayarlarından çerezleri dilediğiniz an tamamen kapatabilir veya temizleyebilirsiniz.</p>
@@ -605,14 +633,14 @@
 </div>
 
 <!-- ========== URUN PENCERESI ========== -->
-<div class="modal" id="productModal">
-    <div class="modal-box">
+<div class="modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box" tabindex="-1">
         <button class="close-modal" onclick="closeModal('productModal')" aria-label="Kapat">&times;</button>
         <div class="m-head">
-            <img id="modalImg" alt="" />
-            <div><h2 id="modalTitle">Ürün</h2><p id="modalSubtitle"></p></div>
+            <img id="modalImg" alt="" width="64" height="64" />
+            <div><h2 id="modalTitle">Ürün</h2><p>KDV dahil fiyatlar</p></div>
         </div>
-        <table class="vt"><tbody id="modalBody"></tbody></table>
+        <table class="vt"><caption class="sr">Seçenekler ve fiyatlar</caption><tbody id="modalBody"></tbody></table>
         <div class="art" id="modalArticle"></div>
     </div>
 </div>
@@ -808,25 +836,6 @@
         }
     ];
 
-    // Bestseller (öne çıkan 6)
-    const bestsellers = categories.filter(c => ['kartvizit', 'etiket', 'magnet', 'brosur', 'davetiye', 'afis'].includes(c.id));
-
-    // ========== FAQ VERİLERİ ==========
-    const faqData = [
-        { q: 'Kartvizit fiyatları ne kadar?', a: '1000 adet standart (250gr. Parlak Selefonlu) kartvizit 245 TL\'den başlamaktadır. Çift yön, mat selefon, laklı ve yaldızlı özel kesim kartvizitler için WhatsApp hattımızdan güncel fiyat listemizi talep edebilirsiniz.' },
-        { q: 'Broşür baskı süresi ne kadar?', a: 'Baskıya hazır gönderilen ve grafik onayı verilen standart broşür siparişleri üretim planına alınıp ertesi gün anlaşmalı kargoya teslim edilmektedir.' },
-        { q: 'Fason baskı nedir ve kimler yararlanabilir?', a: 'Fason baskı, üretim parkuru olmayan reklam ajanslarına, tabelacılara, matbaacılara ve grafikerlere özel toptan üretim modelidir. Bu avantajlı sistemden sadece sektördeki meslektaşlarımız yararlanabilir.' },
-        { q: 'Nasıl sipariş verebilirim?', a: 'Baskıya hazır tasarımlarınızı (PDF, Corel veya Illustrator formatında) WhatsApp destek hattımızdan veya e-posta adresimiz üzerinden bize ileterek anında fiyat alıp siparişinizi oluşturabilirsiniz.' },
-        { q: 'Ödeme seçenekleriniz nelerdir?', a: 'Siparişleriniz banka havalesi veya EFT ile peşin olarak işleme alınmaktadır. Sürekli çalışan ajans müşterilerimiz için özel cari hesap anlaşmaları yapılmaktadır.' },
-        { q: 'Hangi baskı tekniklerini kullanıyorsunuz?', a: 'Matbaamızda yüksek trajlı işler için CMYK ofset baskı, daha acil ve az adetli işler için dijital baskı teknikleri kullanılmaktadır.' },
-        { q: 'Renk uyumu ve kalite garantiniz var mı?', a: 'Kullandığımız 1. sınıf kağıt ve mürekkepler ile kalitemiz tescillidir. CMYK standartlarında hazırlanan profesyonel tasarımlarınızda %10-15 tolerans haricinde renk sapması yaşanmaz.' },
-        { q: 'Kargo ücreti ne kadar?', a: 'Anlaşmalı kargo firmalarımız sayesinde paketleriniz minimum fiyattan gönderilmektedir. Belirli sipariş adedinin üzerindeki gönderimlerde kargo tarafımızca karşılanmaktadır.' },
-        { q: 'Grafik tasarım desteği veriyor musunuz?', a: 'Tasarımların baskıya hazır gelmesi zorunludur, ancak gönderdiğiniz tasarımların baskıya uygunluk kontrolleri grafik ekibimiz tarafından ücretsiz incelenir.' },
-        { q: 'Hangi dosya formatlarını kabul ediyorsunuz?', a: 'PDF, Corel Draw (.CDR), Adobe Illustrator (.AI) ve yüksek çözünürlüklü TIFF formatlarını kabul ediyoruz. RGB modundaki işler mutlaka CMYK moduna çevrilmelidir.' },
-        { q: 'Türkiye dışına gönderim yapıyor musunuz?', a: 'Türkiye\'nin 81 iline kargo ve şehirlerarası hat otobüsleriyle gönderim yapmaktayız. Şu an için yurtdışı gönderimimiz bulunmamaktadır.' },
-        { q: 'Neden Karadeniz Matbaa\'yı tercih etmeliyim?', a: 'Şeffaf fiyat, aracısız fabrika fiyatları, jilet gibi baskı kalitesi ve Karadeniz\'in her noktasına sağladığımız acil gönderim hızı için çözüm ortağınızız.' }
-    ];
-
     // ========== MAKALE VERİLERİ (16 ÜRÜN İÇİN) ==========
     const articleData = {
         kartvizit: {
@@ -899,107 +908,89 @@
         }
     };
 
-
-    // ========== CIZIM ==========
+    // ========== URUN PENCERESI ==========
     var WA = 'https://wa.me/905321394659?text=';
+    function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
 
-    function renderProducts() {
-        var grid = document.getElementById('productGrid');
-        grid.innerHTML = categories.filter(function (c) { return c.id !== 'fason'; }).map(function (cat) {
-            return '<div class="card" role="button" tabindex="0" data-category="' + cat.id + '" aria-label="' + cat.name + ' fiyatları">' +
-                '<img src="img/urun/' + cat.id + '.webp" srcset="img/urun/' + cat.id + '-160.webp 160w, img/urun/' + cat.id + '.webp 640w" sizes="64px" alt="' + cat.name + ' baskı" width="320" height="320" loading="lazy" />' +
-                '<div class="card-body"><h3>' + cat.name + '</h3><p>' + cat.desc + '</p>' +
-                '<div class="price"><strong>' + cat.highlightPrice + '</strong><em>Fiyatlar ›</em></div></div></div>';
-        }).join('');
-        grid.addEventListener('click', function (e) {
-            var card = e.target.closest('.card');
-            if (card) openProductModal(card.dataset.category);
-        });
-        grid.addEventListener('keydown', function (e) {
-            var card = e.target.closest('.card');
-            if (card && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); openProductModal(card.dataset.category); }
-        });
-    }
-
-    function renderHeroPrices() {
-        var ids = ['kartvizit', 'brosur', 'magnet', 'etiket'];
-        document.getElementById('heroList').innerHTML = ids.map(function (id) {
-            var cat = categories.find(function (c) { return c.id === id; });
-            var v = cat.variants[0];
-            var adet = ((cat.highlightPrice.match(/\/\s*([^<]+)</) || [])[1] || '').trim();
-            return '<button class="q-row" data-category="' + id + '"><img src="img/urun/' + id + '-160.webp" alt="" width="48" height="48" />' +
-                '<span><b>' + cat.name + '</b><small>' + adet + (adet ? ' · ' : '') + v.desc.split(' • ')[0] + '</small></span>' +
-                '<strong>' + v.price + '</strong><i class="fas fa-chevron-right"></i></button>';
-        }).join('');
-        document.getElementById('heroList').addEventListener('click', function (e) {
-            var r = e.target.closest('.q-row');
-            if (r) openProductModal(r.dataset.category);
-        });
-    }
-
-    function renderFAQ() {
-        document.getElementById('faqList').innerHTML = faqData.map(function (item) {
-            return '<details><summary>' + item.q + '</summary><p>' + item.a + '</p></details>';
-        }).join('');
-    }
-
-    // ========== PENCERELER ==========
     function openProductModal(id) {
         var cat = categories.find(function (c) { return c.id === id; });
         if (!cat) return;
         document.getElementById('modalTitle').textContent = cat.name;
-        document.getElementById('modalSubtitle').textContent = 'Tüm fiyatlar KDV dahil';
         var img = document.getElementById('modalImg');
+        img.removeAttribute('src');
         img.src = 'img/urun/' + cat.id + '-160.webp';
         img.alt = cat.name;
         document.getElementById('modalBody').innerHTML = cat.variants.map(function (v) {
             var msg = 'Merhaba, ' + cat.name + ' (' + v.code + ') için sipariş vermek istiyorum.';
-            return '<tr><td>' + v.code + '</td><td>' + v.desc + '</td><td class="p">' + v.price + '</td>' +
-                '<td><a href="' + WA + encodeURIComponent(msg) + '" target="_blank" rel="noopener noreferrer" class="btn btn-main"><i class="fab fa-whatsapp"></i> Sipariş</a></td></tr>';
+            return '<tr><td>' + esc(v.desc) + '</td><td class="p">' + esc(v.price) + '</td>' +
+                '<td><a href="' + WA + encodeURIComponent(msg) + '" target="_blank" rel="noopener noreferrer">Sipariş</a></td></tr>';
         }).join('');
         var art = articleData[id];
         document.getElementById('modalArticle').innerHTML = art ? '<h3>' + art.title + '</h3>' + art.content : '';
         openBox('productModal');
     }
 
+    document.addEventListener('click', function (e) {
+        var t = e.target.closest('[data-category]');
+        if (t) openProductModal(t.dataset.category);
+    });
+
+    // ========== PENCERE ==========
+    var sonOdak = null, kaydirma = 0;
+    function kilitle() {
+        kaydirma = window.pageYOffset;
+        document.body.style.cssText = 'position:fixed;top:-' + kaydirma + 'px;left:0;right:0;width:100%';
+    }
+    function kilidiAc() {
+        document.body.style.cssText = '';
+        document.documentElement.style.scrollBehavior = 'auto';
+        window.scrollTo(0, kaydirma);
+        document.documentElement.style.scrollBehavior = '';
+    }
     function openBox(id) {
-        document.getElementById(id).classList.add('active');
-        document.body.style.overflow = 'hidden';
+        var m = document.getElementById(id), b = m.querySelector('.modal-box');
+        if (!m.classList.contains('active')) { sonOdak = document.activeElement; kilitle(); }
+        m.classList.add('active');
+        b.scrollTop = 0;
+        b.focus();
     }
     window.openModal = function (type) { openBox(type === 'kvkk' ? 'kvkkModal' : 'gizlilikModal'); };
     window.closeModal = function (id) {
-        document.getElementById(id).classList.remove('active');
-        document.body.style.overflow = '';
+        var m = document.getElementById(id);
+        if (!m.classList.contains('active')) return;
+        m.classList.remove('active');
+        kilidiAc();
+        if (sonOdak && sonOdak.focus) sonOdak.focus();
     };
     document.querySelectorAll('.modal').forEach(function (m) {
         m.addEventListener('click', function (e) { if (e.target === m) closeModal(m.id); });
     });
     document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') document.querySelectorAll('.modal.active').forEach(function (m) { closeModal(m.id); });
+        var m = document.querySelector('.modal.active');
+        if (e.key === 'Escape') {
+            if (m) closeModal(m.id); else menuKapat();
+            return;
+        }
+        if (e.key !== 'Tab' || !m) return;
+        var f = m.querySelectorAll('a[href], button'), a = f[0], z = f[f.length - 1];
+        if (e.shiftKey && (document.activeElement === a || document.activeElement === m.querySelector('.modal-box'))) { e.preventDefault(); z.focus(); }
+        else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus(); }
     });
+
+    // ========== ILLER (telefonda kapali) ==========
+    if (window.matchMedia('(max-width: 760px)').matches) document.getElementById('iller').removeAttribute('open');
+    document.querySelectorAll('a[href="#iller"]').forEach(function (a) { a.addEventListener('click', function () { document.getElementById('iller').open = true; }); });
 
     // ========== MENU ==========
-    window.toggleMenu = function () {
-        var nav = document.getElementById('navLinks');
-        var open = nav.classList.toggle('open');
-        document.getElementById('menuToggle').setAttribute('aria-expanded', open);
-    };
-    document.querySelectorAll('#navLinks a').forEach(function (a) {
-        a.addEventListener('click', function () {
-            document.getElementById('navLinks').classList.remove('open');
-            document.getElementById('menuToggle').setAttribute('aria-expanded', 'false');
-        });
+    var menu = document.getElementById('navLinks'), menuBtn = document.getElementById('menuToggle');
+    function menuKapat() { menu.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); }
+    menuBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var acik = menu.classList.toggle('open');
+        menuBtn.setAttribute('aria-expanded', acik);
     });
-
-    (function () {
-        var f = document.querySelector('.wa-float'), h = document.querySelector('.hero');
-        if (!f || !h || !('IntersectionObserver' in window)) return;
-        new IntersectionObserver(function (e) { f.classList.toggle('gizli', e[0].isIntersecting); }).observe(h);
-    })();
-
-    try { renderProducts(); } catch (e) { console.warn('renderProducts:', e); }
-    try { renderHeroPrices(); } catch (e) { console.warn('renderHeroPrices:', e); }
-    try { renderFAQ(); } catch (e) { console.warn('renderFAQ:', e); }
+    menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', menuKapat); });
+    document.addEventListener('click', function (e) { if (menu.classList.contains('open') && !menu.contains(e.target)) menuKapat(); });
 </script>
 
 <!-- ========== GOOGLE ANALYTICS ========== -->
@@ -1019,6 +1010,5 @@
     gtag('event', wa ? 'whatsapp_tikla' : 'telefon_tikla', { sayfa: location.pathname, mesaj: txt, transport_type: 'beacon' });
   });
 </script>
-
 </body>
 </html>
