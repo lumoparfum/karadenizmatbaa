@@ -251,7 +251,7 @@
         .nw { white-space: nowrap; }
 
         /* ========== ALT ========== */
-        footer { background: var(--navy); color: rgba(255,255,255,.72); padding: 48px 0 calc(40px + env(safe-area-inset-bottom)); font-size: .875rem; }
+        footer { background: var(--navy); color: rgba(255,255,255,.72); padding: 48px 0 calc(88px + env(safe-area-inset-bottom)); font-size: .875rem; }
         footer h2 { color: #fff; font-size: 1.0625rem; font-weight: 600; }
         .iller summary { list-style: none; padding-bottom: 12px; pointer-events: none; }
         .iller summary::-webkit-details-marker { display: none; }
@@ -267,6 +267,12 @@
         footer nav a, footer nav button { display: inline-flex; align-items: center; min-height: 44px; color: rgba(255,255,255,.85); font-size: .875rem; }
         footer nav a:hover, footer nav button:hover { color: #fff; }
         .copy { width: 100%; padding-top: 12px; font-size: .8125rem; }
+
+        /* ========== INSTAGRAM DUGMESI ========== */
+        .ig-float { position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom)); z-index: 60; width: 52px; height: 52px; border-radius: 50%; background: var(--navy); color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 18px rgba(10,30,58,.28); transition: transform .2s; }
+        .ig-float:hover { transform: scale(1.06); }
+        .ig-float { border: 1.5px solid rgba(255,255,255,.35); }
+        .ig-float .i { width: 26px; height: 26px; }
 
         /* ========== PENCERE ========== */
         .modal { position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 100; background: rgba(10,30,58,.45); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); display: none; align-items: center; justify-content: center; padding: 20px; }
@@ -589,6 +595,8 @@
         </div>
     </div>
 </footer>
+
+<a href="https://www.instagram.com/uzman.reklamm/" target="_blank" rel="noopener noreferrer" class="ig-float" aria-label="Instagram"><svg class="i" aria-hidden="true"><use href="#i-ig"/></svg></a>
 
 <!-- ========== KVKK ========== -->
 <div class="modal" id="kvkkModal" role="dialog" aria-modal="true" aria-labelledby="kvkkBaslik">
