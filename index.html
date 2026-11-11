@@ -180,28 +180,31 @@
         /* ========== UST MENU ========== */
         .nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.88); -webkit-backdrop-filter: saturate(180%) blur(18px); backdrop-filter: saturate(180%) blur(18px); border-bottom: 1px solid var(--line); }
         .nav .wrap { display: flex; align-items: center; height: 64px; gap: 20px; }
-        .logo { display: inline-flex; flex-direction: column; justify-content: center; min-height: 44px; line-height: 1.15; margin-right: auto; }
+        .logo { display: inline-flex; flex-direction: column; justify-content: center; min-height: 44px; line-height: 1.15; margin-right: auto; min-width: 0; }
+        .logo b, .logo small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .logo b { font-size: 1.25rem; font-weight: 700; color: var(--navy); letter-spacing: -0.02em; }
         .logo b span { color: var(--orange-btn); }
-        .logo small { font-size: .75rem; color: var(--muted); font-weight: 500; }
+        .logo small { font-size: .6875rem; color: var(--muted); font-weight: 500; }
         .nav-links { display: flex; align-items: center; gap: 28px; font-size: .9375rem; font-weight: 500; }
         .nav-links a { color: var(--ink); }
         .nav-links a:hover { color: var(--orange-btn); }
         .nav-wa { display: none; }
-        .menu-btn { display: none; width: 44px; height: 44px; align-items: center; justify-content: center; color: var(--navy); }
+        .menu-btn { display: none; flex: none; width: 44px; height: 44px; align-items: center; justify-content: center; color: var(--navy); }
         .menu-btn svg { width: 24px; height: 24px; }
         .menu-btn .x, .menu-btn[aria-expanded="true"] .bars { display: none; }
         .menu-btn[aria-expanded="true"] .x { display: block; }
 
         /* ========== GIRIS ========== */
-        .hero { background: var(--bg2); padding: 72px 0; }
+        .hero { background: linear-gradient(90deg, rgba(10,30,58,.95) 0%, rgba(10,30,58,.88) 45%, rgba(10,30,58,.78) 100%), url('img/makina-parkuru.webp') center / cover no-repeat, var(--navy); padding: 96px 0; }
+        section.hero + section { border-top: 0; }
         .hero .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
         .hero .wrap > * { min-width: 0; }
-        .hero h1 { font-size: clamp(1.875rem, 3.6vw, 2.75rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; }
-        .hero-slogan { font-size: 1.125rem; color: var(--muted); margin-top: 12px; }
+        .hero h1 { font-size: clamp(1.875rem, 3.6vw, 2.75rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; color: #fff; }
+        .hero-slogan { font-size: 1.125rem; color: rgba(255,255,255,.8); margin-top: 12px; }
         .hero .btn { margin-top: 28px; }
-        .quote { border-top: 1px solid var(--line); }
+        .quote { background: #fff; border-radius: var(--r); padding: 6px 24px; box-shadow: 0 24px 60px rgba(0,0,0,.25); }
         .q-row { display: flex; align-items: center; gap: 14px; width: 100%; padding: 12px 0; border-bottom: 1px solid var(--line); }
+        .q-row:last-child { border-bottom: 0; }
         .q-row img { width: 48px; height: 48px; border-radius: var(--rs); object-fit: cover; }
         .q-row span { flex: 1; min-width: 0; }
         .q-row b { display: block; font-weight: 600; font-size: 1rem; }
@@ -309,14 +312,15 @@
         @media (max-width: 760px) {
             body { font-size: 16px; }
             section { padding: 48px 0; }
-            .nav-wa { display: inline-flex; height: 40px; padding: 0 14px; font-size: .875rem; gap: 6px; }
+            .nav .wrap { gap: 8px; }
+            .nav-wa { display: inline-flex; flex: none; height: 40px; padding: 0 14px; font-size: .875rem; gap: 6px; }
             .menu-btn { display: inline-flex; }
             .nav-links { display: flex; position: absolute; top: 64px; left: 0; right: 0; background: #fff; flex-direction: column; align-items: stretch; gap: 0; padding: 4px 20px 16px; border-bottom: 1px solid var(--line); box-shadow: 0 20px 30px rgba(10,30,58,.08); visibility: hidden; opacity: 0; transform: translateY(-8px); transition: opacity .2s, transform .2s, visibility 0s .2s; }
             .nav-links.open { visibility: visible; opacity: 1; transform: none; transition: opacity .2s, transform .2s; }
             .nav-links a { display: flex; align-items: center; min-height: 52px; border-bottom: 1px solid var(--line); }
             .nav-links a:last-child { border-bottom: 0; }
             .nav-links .btn { display: none; }
-            .hero { padding: 32px 0 40px; }
+            .hero { padding: 40px 0 44px; }
             .hero .wrap { grid-template-columns: 1fr; }
             .hero .btn { margin-top: 20px; }
             .quote, .about img { display: none; }
@@ -338,6 +342,14 @@
             .vt td:first-child { grid-column: 1 / -1; color: var(--ink); }
             .vt td.p { text-align: left; font-size: 1.0625rem; }
         }
+        @media (max-width: 380px) {
+            .wrap { padding: 0 16px; }
+            .logo b { font-size: 1.125rem; }
+            .logo small { font-size: .625rem; }
+            .nav-wa { width: 40px; padding: 0; }
+            .nav-wa span { display: none; }
+            .nav-wa .i { width: 20px; height: 20px; }
+        }
         @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
     </style>
 </head>
@@ -355,7 +367,7 @@
 <header class="nav">
     <div class="wrap">
         <a class="logo" href="/" aria-label="Karadeniz Matbaa ana sayfa"><b>Karadeniz <span>Matbaa</span></b><small>Toraman Matbaa güvencesiyle</small></a>
-        <a href="https://wa.me/905321394659?text=Merhaba,%20karadenizmatbaa.com%20%C3%BCzerinden%20teklif%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn nav-wa"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg> Yaz</a>
+        <a href="https://wa.me/905321394659?text=Merhaba,%20karadenizmatbaa.com%20%C3%BCzerinden%20teklif%20almak%20istiyorum." target="_blank" rel="noopener noreferrer" class="btn nav-wa" aria-label="WhatsApp'tan yaz"><svg class="i" aria-hidden="true"><use href="#i-wa"/></svg><span>Yaz</span></a>
         <button class="menu-btn" id="menuToggle" aria-label="Menü" aria-expanded="false" aria-controls="navLinks">
             <svg class="bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             <svg class="x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
