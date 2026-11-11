@@ -4,6 +4,13 @@ Her degisiklik: eski → yeni + neden. En yeni en ustte. (Repoda .claude/ altind
 
 ## 11 Kas 2026
 
+### 81 il sayfasi yeni tasarim + SEO
+- **Eski:** her il ana sayfanin eski kopyasi (~140 KB); ilce aciklamalari ve ile ozel SSS yalniz JavaScript icinde; her sayfada sahte adresli "Il Temsilciligi" LocalBusiness semasi; "ayni gun teslimat" iddialari.
+- **Yeni:** `_araclar/il-sayfalari-uret.js` + `_araclar/iller.json` ile 81 sayfa yeni tasarimda. Statik HTML: "Il matbaa fiyatlari" (16 urun), "Il'de matbaa hizmeti" (giris + tum ilceler ve aciklamalari), ile ozel SSS, ayni bolgedeki iller (ic link), kirinti (Ana Sayfa > Il Matbaa). Buyuk 10 il icin ozel giris metni. Sema: Service + areaServed, FAQPage gorunen SSS ile ayni. Title/meta/canonical korundu. "Ayni gun teslimat" -> "ertesi gun kargo".
+- **Ek:** /llms.txt (yapay zeka araclari icin fiyat ve iletisim ozeti), sitemap lastmod 2026-11-11.
+- **Neden:** kullanici tum illerde "il matbaa" aramasinda ust sira istiyor. Arastirma: sahte sube adresi Google kuralina aykiri; sablon sayfa doorway riski -> ile ozel icerik statik ve gorunur yapildi.
+- **Dogrulama:** 81 sayfa 320 ve 1440 px'de tasma yok, capa linkleri, 17 urun dugmesi, ilce bolumu; JSON-LD parse; tekrar id yok; konsol temiz.
+
 ### Ana sayfa yeni tasarim (yalniz index.html; 81 il sayfasi henuz eski)
 - **Eski:** makine fotografli koyu giris ustunde cok yazi + 2 sira etiket; urunler iki kez (hizmet kartlari + fiyat kartlari), cok satanlar kaydirmali serit, rakip kotuleyen tablo, iki "neden biz" bolumu, 81 il etiket yigini, tek kapali SSS kutusu, yesil/pembe yuzen dugmeler, Font Awesome (~250 KB), urun ve SSS metni yalniz JS ile ciziliyordu.
 - **Yeni:** sade, iOS tarzi. Giris: lacivert + ofset makine fotografi (Unsplash, ticari serbest), H1 "Karadeniz Matbaa", 2 satir slogan, tek WhatsApp dugmesi. 16 urun fiyatli liste (telefonda tek sutun, PC 2 sutun), dokununca alttan acilan fiyat penceresi (varyant + Siparis + rehber yazisi). Fason ayri satir. SSS (12, details). Kisa Hakkimizda. Iletisim (banka bilgisi katli). 81 il alt bilgide (telefonda katli). Sag altta Instagram dugmesi. Tek font Inter (en fazla 700), lacivert + turuncu (#c0520a dugme).

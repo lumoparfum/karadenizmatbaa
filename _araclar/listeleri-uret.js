@@ -35,4 +35,30 @@ function yerlestir(ad, satirlar) {
 yerlestir('URUNLER', urunler);
 yerlestir('FASON', fasonSatir);
 fs.writeFileSync(dosya, html.replace(/\r?\n/g, nl));
+
+// Yapay zeka araclari (ChatGPT vb.) icin ozet: /llms.txt (fiyatlar her calistirmada guncellenir)
+const birimYaz = c => ((c.highlightPrice.match(/\/\s*([^<]+)</) || [])[1] || '').trim();
+const iller = [...html.matchAll(/<a href="\/([a-z-]+-matbaa)">([^<]+)<\/a>/g)];
+const llms = [
+    '# Karadeniz Matbaa',
+    '',
+    "> Türkiye geneline online matbaa hizmeti. Toraman Matbaa (İstanbul Topkapı, 1973'ten beri) ve Uzman Reklam (Bafra, Samsun) işbirliği. Fiyatlar sitede açık ve KDV dahil; sipariş WhatsApp'tan, üyelik yok; baskı onaydan sonra ertesi gün 81 ile kargoya verilir.",
+    '',
+    '- Web: https://karadenizmatbaa.com',
+    '- Telefon / WhatsApp: +90 532 139 46 59',
+    '- E-posta: karadenizmatbaa1@gmail.com',
+    '- Üretim: 2. Matbaacılar Sitesi 5.Kat E Blok 3NE19, Topkapı / İstanbul',
+    '- Çalışma saatleri: Hafta içi 09:00-19:00, Cumartesi 09:00-15:00',
+    '',
+    '## Fiyatlar (KDV dahil, başlangıç)',
+    '',
+    ...categories.map(c => `- ${c.name}: ${c.variants[0].price.replace(' ₺', ' TL')}${birimYaz(c) ? ' / ' + birimYaz(c) : ''} – ${c.desc}`),
+    '',
+    '## Şehir sayfaları',
+    '',
+    ...iller.map(m => `- [${m[2]} Matbaa](https://karadenizmatbaa.com/${m[1]})`),
+    '',
+];
+fs.writeFileSync(path.join(__dirname, '..', 'llms.txt'), llms.join('\n'));
+console.log('llms.txt:', categories.length, 'urun,', iller.length, 'il');
 console.log('tamam:', urunler.length, 'urun, 1 fason');
