@@ -25,4 +25,15 @@ Bu dosyayi her yeni oturumda oku. Kullanici derdini bastan anlatmak istemiyor; a
 - **Telefon:** tek numara **0532 139 46 59** (`+905321394659`, WhatsApp `wa.me/905321394659`). Sayfa altinda "samsuntabela.tr | 0532 220 46 49" baska isletmenin numarasi, dokunma.
 - **Marka adi karari:** kullanici "Karadeniz Matbaa"ya donmek istemedi ama ana sayfada Toraman gorunmeli. Cozum: ana sayfada "Karadeniz Matbaa" bolunmeden onde, "Toraman Matbaa guvencesiyle" arkasinda (title, logo alti, H1 alti). JSON-LD: `name` Karadeniz Matbaa, `alternateName` Karadeniz Toraman Matbaa. Tam ad yalniz © satiri ve KVKK metninde. **81 il sayfasi "Karadeniz Matbaa" kalir, onlara Toraman EKLEME.**
 - **SEO olcumu** (kullanici ne zaman yazarsa; ~5 Kas 2026 ve ~Oca 2027 uygun): Search Console `sc-domain:karadenizmatbaa.com` (Playwright tarayicisinda Google girisi; kullanicidan ekran goruntusu isteme). Baslangic (21 Tem-5 Eki 2026): 68 tiklama, ~2.760 gosterim, ort. konum 16,8; "karadeniz matbaa" 14 tik / 91 gosterim; "toraman matbaa" 0 tik / 885 gosterim. Kiyasla; dusus varsa nedenini ara ve kullaniciya sade anlat.
-- **Acik plan (baslanmadi, once kullaniciyi dinle):** siteyi komple yenileme. Sira: (1) fiyat listesini statik HTML'e al, (2) 16 urun sayfasi ac, (3) 81 il sayfasini azalt (birbirine ~%95 ayni; geri donusu zor, acele etme, 301 gerekir), (4) Bafra adresi icin Google Business Profile.
+## SU ANKI IS: tasarim yenileme (11 Kas 2026'da basladi)
+Kullanici (Mucahit) istedi: site PC'de daginik, markaya yakismiyor. Sira: (1) ana sayfa, (2) 81 il sayfasi, (3) buyuk sehirlere (Ankara, Istanbul, Izmir, Bursa, Antalya, Adana, Konya, Gaziantep, Mersin, Kocaeli) sehre ozel icerik.
+- **YAYIN YOK:** kullanici 390 px + 1440 px ekran goruntusunu gorup onaylamadan push etme. Taslak `tasarim` dalinda.
+- **Hedef kalite: iOS/Apple sadeligi** (bol bosluk, buyuk net basliklar, ince golge, yumusak koseler, az ama net renk).
+- **Marka:** tek yazi tipi Inter; ana renk lacivert #0a1e3a, tek vurgu turuncu #f47b20; beyaz/acik gri zemin. Yesil (WhatsApp) ve Instagram pembesi buton rengi olarak kullanilmaz (yalniz kucuk ikon).
+- **Korunacak (SEO):** title, meta, H1 metni, canonical, JSON-LD, URL'ler, `const categories` fiyat dizisi, WhatsApp linkleri, GA + tiklama sayaci.
+- **Eski sayfadaki sorunlar:** hero'da makine fotografi ustunde cok yazi + 2 sira etiket; urunler iki kez (hizmetler + fiyat listesi); "neden biz" iki kez + rakip kotuleyen tablo; 81 il etiket yigini; SSS tek kapali kutu; iletisimde banka bilgisi; footer "Hizmetler" bos acilir; mobilde 3 sutun sikisik kart, 5 sutun minik yazi, telif satiri tasiyor.
+- **Ilerleme:** [x] eski hal incelendi  [ ] rakipler  [ ] ana sayfa taslagi  [ ] onay  [ ] yayin  [ ] il sayfalari
+- **Search Console (11 Kas):** 81/82 sayfa dizinde. Kucuk sehirler 1. sayfada (Denizli 9, Tekirdag 10, Sivas/Tokat 11), buyukler 5-7. sayfada (Ankara 57, Adana 58, Bursa/Mersin 73). Son 28 gun 60 tik, 2.660 gosterim, ort. konum 12,9. "toraman matbaa" 918 gosterim / 1 tik.
+
+## Sonraki plan (tasarimdan sonra)
+(1) fiyat listesini statik HTML'e al, (2) 16 urun sayfasi ac, (3) Bafra adresi icin Google Business Profile.
