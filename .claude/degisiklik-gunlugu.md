@@ -2,6 +2,16 @@
 
 Her degisiklik: eski → yeni + neden. En yeni en ustte. (Repoda .claude/ altinda; siteye cikmaz.)
 
+## 11 Kas 2026
+
+### Ana sayfa yeni tasarim (yalniz index.html; 81 il sayfasi henuz eski)
+- **Eski:** makine fotografli koyu giris ustunde cok yazi + 2 sira etiket; urunler iki kez (hizmet kartlari + fiyat kartlari), cok satanlar kaydirmali serit, rakip kotuleyen tablo, iki "neden biz" bolumu, 81 il etiket yigini, tek kapali SSS kutusu, yesil/pembe yuzen dugmeler, Font Awesome (~250 KB), urun ve SSS metni yalniz JS ile ciziliyordu.
+- **Yeni:** sade, iOS tarzi. Giris: lacivert + ofset makine fotografi (Unsplash, ticari serbest), H1 "Karadeniz Matbaa", 2 satir slogan, tek WhatsApp dugmesi. 16 urun fiyatli liste (telefonda tek sutun, PC 2 sutun), dokununca alttan acilan fiyat penceresi (varyant + Siparis + rehber yazisi). Fason ayri satir. SSS (12, details). Kisa Hakkimizda. Iletisim (banka bilgisi katli). 81 il alt bilgide (telefonda katli). Sag altta Instagram dugmesi. Tek font Inter (en fazla 700), lacivert + turuncu (#c0520a dugme).
+- **Teknik:** urun listesi ve SSS statik HTML (Google gorur); fiyat degisince `node _araclar/listeleri-uret.js`. Font Awesome yerine SVG ikonlar. Urun gorselleri `img/urun/` (WebP 640 + 160). Sayfa 142 KB -> ~88 KB HTML.
+- **Korunan:** title, meta, canonical, 5 JSON-LD, URL'ler, GA + whatsapp_tikla sayaci, fiyatlar, 81 il linki. Eski kok gorseller (kartvizit.webp vb.) silinmedi: il sayfalari ve JSON-LD kullaniyor.
+- **Neden:** kullanici "PC'de daginik, markaya yakismiyor; sade, kolay, hizli, once mobil" istedi. 4 denetci (iOS tasarim, kod, SEO) + STOP82 onerileri; kullanici telefonda onayladi.
+- **Dogrulama:** 320-1440 px 7 genislik, yazi %100 ve %130: tasma yok, dokunma alanlari >=44px (telefon); 17 urun penceresi, menu, KVKK/Gizlilik, capa linkleri, gorseller, konsol temiz; JSON-LD parse, JS `node --check`.
+
 ## 29 Eki 2026
 
 ### Instagram adresi (82 sayfa)
